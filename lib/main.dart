@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/services/get_it.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/generated/l10n.dart';
 
 Future<void> main() async {
+  get_itsetup();
   WidgetsFlutterBinding.ensureInitialized();
  await LocalSharedprefrence.init();
- 
+  
   runApp(const MainApp());
 }
 

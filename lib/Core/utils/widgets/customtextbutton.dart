@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomTextButton extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/appcolors.dart';
-import 'package:fruitsapp/Features/Auth/presentation/signupwidgets/termsandconditionstext.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/termsandconditionstext.dart';
 
 class Termscheckbox extends StatefulWidget {
   const Termscheckbox({super.key});

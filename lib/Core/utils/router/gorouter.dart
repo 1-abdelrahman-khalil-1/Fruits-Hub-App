@@ -1,5 +1,5 @@
-import 'package:fruitsapp/Features/Auth/presentation/login.dart';
-import 'package:fruitsapp/Features/Auth/presentation/signup.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/login.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/signup.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/splashscreen.dart';
 import 'package:go_router/go_router.dart';

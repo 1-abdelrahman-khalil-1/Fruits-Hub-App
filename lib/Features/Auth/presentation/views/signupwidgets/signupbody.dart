@@ -4,8 +4,8 @@ import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Core/utils/widgets/customappbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
-import 'package:fruitsapp/Features/Auth/presentation/signupwidgets/logintext.dart';
-import 'package:fruitsapp/Features/Auth/presentation/signupwidgets/termscheckbox.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/logintext.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/termscheckbox.dart';
 
 class Signupbody extends StatelessWidget {
   const Signupbody({super.key});

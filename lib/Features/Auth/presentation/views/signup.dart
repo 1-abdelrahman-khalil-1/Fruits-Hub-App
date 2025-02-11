@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Features/Auth/presentation/signupwidgets/signupbody.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/signupbody.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});

@@ -7,9 +7,9 @@ import 'package:fruitsapp/Core/utils/widgets/customappbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
 import 'package:fruitsapp/Core/utils/widgets/ordividor.dart';
-import 'package:fruitsapp/Features/Auth/presentation/loginwidgets/forgetpasswordbutton.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/forgetpasswordbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/otherloginservices.dart';
-import 'package:fruitsapp/Features/Auth/presentation/loginwidgets/signuptext.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/signuptext.dart';
 
 class Loginbody extends StatelessWidget {
   const Loginbody({super.key});
