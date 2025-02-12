@@ -7,20 +7,17 @@ import 'package:go_router/go_router.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
-    super.key, required this.show, required this.text, required this.navigatelocation,
+    super.key, required this.show, required this.text, this.onpressed,
     
   });
 
   final bool show;
   final String text;
-  final String navigatelocation;
+  final onpressed;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-     onTap: () {
-     context.go(navigatelocation);
-     LocalSharedprefrence.set(LocalSharedprefrence.onboardingkey , true);
-     },
+     onTap: onpressed,
       child: Visibility(
        visible: show,
         child: Container(

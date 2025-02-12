@@ -5,12 +5,13 @@ import 'package:fruitsapp/Core/services/get_it.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/generated/l10n.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 Future<void> main() async {
   get_itsetup();
+ 
   WidgetsFlutterBinding.ensureInitialized();
  await LocalSharedprefrence.init();
-  
+ await Firebase.initializeApp();
   runApp(const MainApp());
 }
 

@@ -19,7 +19,7 @@ final String title;
         children: [  
           GestureDetector(
             onTap: (){
-              context.pop();
+              context.canPop();
             },
             child: SvgPicture.asset(PictureAssets.assetsImagesBackarrow),
           ),

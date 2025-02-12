@@ -1,7 +1,5 @@
 import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruitsapp/Core/errors/Customexception.dart';
 import 'package:fruitsapp/Core/services/firebaseservice.dart';
 import 'package:fruitsapp/Features/Auth/Data/model/user_model.dart';
@@ -30,7 +28,7 @@ class AuthrepoImp implements Authrepo {
       return Right(userModel);
     }on Customexception catch (e) {
       log("Error in AuthrepoImp signup: ${e.message}");
-      return  Left( e.message );
+      return Left( e.message );
     }
   }
 }

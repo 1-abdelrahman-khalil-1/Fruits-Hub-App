@@ -8,12 +8,14 @@ class CustomTextfield extends StatefulWidget {
     super.key,
     required this.hinttext,
     required this.icon,
-    required this.textInputType,
+    required this.textInputType,required this.onSaved,required this.validator, required this.controller,
   });
   final String hinttext;
   final Icon? icon;
   final TextInputType textInputType;
-
+  final void Function(String?)? onSaved;
+  final  FormFieldValidator<String>? validator;
+  final TextEditingController controller;
   @override
   State<CustomTextfield> createState() => _CustomTextfieldState();
 }
@@ -23,6 +25,9 @@ class _CustomTextfieldState extends State<CustomTextfield> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
+      onSaved: widget.onSaved,
+      validator:  widget.validator,
         textDirection: TextDirection.rtl,
         keyboardType: widget.textInputType,
         obscureText:
@@ -30,6 +35,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
                 ? true
                 : false,
         obscuringCharacter: '•',
+        
         decoration: InputDecoration(
             label: Text("    ${widget.hinttext}",
                 style: AppTextStyles.bold13.copyWith(color: Appcolors.kgrey)),
@@ -41,7 +47,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
               }),
               child: Padding(
                   padding: const EdgeInsets.only(left: 30), child: iconstate()),
-            ),
+            ),                                                             
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4.r),
               borderSide: const BorderSide(),

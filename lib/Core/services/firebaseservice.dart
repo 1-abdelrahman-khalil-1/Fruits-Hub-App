@@ -12,17 +12,17 @@ class FirebaseService {
       );
       return credential.user!;
     } on FirebaseAuthException catch (e) {
-      log("Error in firebaseservice createUser: ${e.message}");
-      if (e.code == 'weak-password') {
-        throw 'The password provided is too weak.';
+      log("Error in firebaseservice createUser: ${e.code}");
+      if (e.code == 'weak-password' ) {
+        throw Customexception(message:'🔑 كلمة المرور ضعيفة، يرجى اختيار كلمة أقوى.');
       } else if (e.code == 'email-already-in-use') {
-        throw 'The account already exists for that email.';
-      } else if (e.code == "operation-not-allowed") {
-        throw 'Email/password accounts are not enabled.';
+        throw Customexception(message:'⚠️ البريد الإلكتروني مسجل بالفعل.');
+      } else if (e.code == "invalid-email") {
+        throw Customexception(message:'❌ البريد الإلكتروني غير صالح.');
       } else if (e.code == 'network-request-failed') {
-        throw 'There was a network request error.';
+        throw Customexception(message:'حدث خطا في الاتصال بالإنترنت.');
       } else {
-        throw ('An unknown error occurred.');
+        throw Customexception(message: '❌ حدث خطأ غير متوقع: ${e.code}');
       }
     } catch (e) {
       throw ("An error occurred please try again later.");
@@ -38,9 +38,7 @@ class FirebaseService {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       log("Error in firebaseservice signin: ${e.message}");
-      if (e.code == 'weak-password') {
-        throw  Customexception(message:'كلمة السر غير قوية.');
-      } else if (e.code == 'email-already-in-use') {
+       if (e.code == 'email-already-in-use') {
         throw Customexception(message:'الحساب مسجل بالفعل لهذا البريد الإلكتروني.');
       } else if (e.code == "user-not-found") {
         throw Customexception(message:'الحساب غير موجود.');

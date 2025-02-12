@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/showdotindicator.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/front_and_background_image.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
@@ -22,11 +21,12 @@ class Pageviewitem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      
       children: [
         FrontAndBackgroundImageandSkip(
-            backgroundimage: backgroundimage, frontimage: frontimage , showtext: !show,),
-    
+          backgroundimage: backgroundimage,
+          frontimage: frontimage,
+          showtext: !show,
+        ),
         SizedBox(
           height: 40.h,
         ),
@@ -39,10 +39,15 @@ class Pageviewitem extends StatelessWidget {
           height: 70.h,
         ),
         ShowDotIndicator(show: show),
-        SizedBox(height: 30.h,),
-        CustomTextButton(show: show ,text: "ابدأ الان", navigatelocation: AppRouter.login,),
+        SizedBox(
+          height: 30.h,
+        ),
+        CustomTextButton(
+          show: show,
+          text: "ابدأ الان",
+          
+        ),
       ],
     );
   }
 }
-

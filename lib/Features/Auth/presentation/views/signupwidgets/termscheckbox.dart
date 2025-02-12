@@ -1,11 +1,12 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/appcolors.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/termsandconditionstext.dart';
 
 class Termscheckbox extends StatefulWidget {
-  const Termscheckbox({super.key});
-
+  const Termscheckbox({super.key,  this.onChanged});
+  final  void Function(bool?)? onChanged;
   @override
   State<Termscheckbox> createState() => _TermscheckboxState();
 }
@@ -32,6 +33,7 @@ class _TermscheckboxState extends State<Termscheckbox> {
             setState(() {
               check = value!;
             });
+          widget.onChanged?.call(value);
           },
           // focusColor: Appcolors.kgreen,
           shape: RoundedRectangleBorder(
