@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Core/services/get_it.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/AuthrepoImp.dart';
+import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/loginbodyblocconsumer.dart';
 

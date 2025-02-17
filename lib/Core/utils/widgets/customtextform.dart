@@ -21,7 +21,7 @@ class CustomTextfield extends StatefulWidget {
 }
 
 class _CustomTextfieldState extends State<CustomTextfield> {
-  bool show = false;
+  bool notshowed = false;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -31,7 +31,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         textDirection: TextDirection.rtl,
         keyboardType: widget.textInputType,
         obscureText:
-            widget.textInputType == TextInputType.visiblePassword && show
+            widget.textInputType == TextInputType.visiblePassword && notshowed
                 ? true
                 : false,
         obscuringCharacter: '•',
@@ -43,7 +43,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
             filled: true,
             suffixIcon: GestureDetector(
               onTap: () => setState(() {
-                show = !show;
+                notshowed = !notshowed;
               }),
               child: Padding(
                   padding: const EdgeInsets.only(left: 30), child: iconstate()),
@@ -63,8 +63,8 @@ class _CustomTextfieldState extends State<CustomTextfield> {
   }
 
   Icon? iconstate() => widget.icon != null
-      ? show
-          ? Icon(Icons.visibility, color: Appcolors.kgrey, size: 20.sp)
-          : Icon(Icons.visibility_off, color: Appcolors.kgrey, size: 20.sp)
+      ? notshowed
+          ? Icon(Icons.visibility_off, color: Appcolors.kgrey, size: 20.sp)
+          : Icon(Icons.visibility, color: Appcolors.kgrey, size: 20.sp)
       : null;
 }

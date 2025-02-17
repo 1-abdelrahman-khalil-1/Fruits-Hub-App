@@ -5,6 +5,7 @@ import 'package:fruitsapp/Core/helperFunctions/errorbar.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Signupcubit/signup_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Signupcubit/signup_cubit_state.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/signupbody.dart';
+import 'package:go_router/go_router.dart';
 
 class SignupBodyBlocConsumer extends StatelessWidget {
   const SignupBodyBlocConsumer({
@@ -24,6 +25,10 @@ class SignupBodyBlocConsumer extends StatelessWidget {
           errorbar(context, error_message: state.message);
         } else if (state is SignupCubitSuccess) {
           errorbar(context, error_message: "تم إنشاء حساب جديد بنجاح");
+           Future.delayed(const Duration(seconds: 1) , (){
+           context.pop();
+
+          });
         }
       },
       builder: (context, state) {

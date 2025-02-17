@@ -12,6 +12,7 @@ class AuthrepoImp implements Authrepo {
   Future<Either<String , UserModel>> login(String email, String password) async {
     try {
       final user = await auth.signin(email , password);
+     
       final userModel = UserModel.fromFirebase(user);
       return Right(userModel);
     }on Customexception catch (e) {
@@ -24,10 +25,32 @@ class AuthrepoImp implements Authrepo {
   Future<Either<String, UserModel>> signup(String name, String email, String password) async{
     try {
       final user = await auth.createUser(email , password);
-      final userModel = UserModel.fromFirebase(user);
+      var userModel = UserModel(name: name, email: user.email??"", uid: user.uid);
       return Right(userModel);
     }on Customexception catch (e) {
       log("Error in AuthrepoImp signup: ${e.message}");
+      return Left( e.message );
+    }
+  }
+  @override
+  Future<Either<String , UserModel>> signInWithGoogle() async{
+    try {
+      final user = await auth.signInWithGoogle();
+      final userModel = UserModel.fromFirebase(user!);
+      return Right(userModel);
+    }on Customexception catch (e) {
+      log("Error in AuthrepoImp signInWithGoogle: ${e.message}");
+      return Left( e.message );
+    }
+  } 
+  @override
+  Future<Either<String , UserModel>> signInWithFacebook() async{
+    try {
+      final user = await auth.signInWithFacebook();
+      final userModel = UserModel.fromFirebase(user!);
+      return Right(userModel);
+    }on Customexception catch (e) {
+      log("Error in AuthrepoImp signInWithFacebook: ${e.message}");
       return Left( e.message );
     }
   }

@@ -3,15 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-// ignore: unused_import
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Core/utils/widgets/customappbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
 import 'package:fruitsapp/Core/utils/widgets/ordividor.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/forgetpasswordbutton.dart';
-import 'package:fruitsapp/Core/utils/widgets/otherloginservices.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/otherloginservices.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/signuptext.dart';
 
 class Loginbody extends StatefulWidget {
@@ -61,6 +59,7 @@ class _LoginbodyState extends State<Loginbody> {
                 icon: null,
               ),
               SizedBox(height: 18.h),
+            
               CustomTextfield(
                 controller: passwordController,
                 onSaved: (value) {
@@ -95,9 +94,12 @@ class _LoginbodyState extends State<Loginbody> {
               SizedBox(height: 35.h),
               const ORdividor(),
               SizedBox(height: 16.h),
-              const Othersigninservices(
+               Othersigninservices(
                 text: "تسجيل بواسطة جوجل",
                 image: PictureAssets.assetsImagesGoogleicon,
+                ontap: () {
+                  context.read<LoginCubit>().signInWithGoogle();
+                },
               ),
               SizedBox(height: 16.h),
               const Othersigninservices(
@@ -105,7 +107,7 @@ class _LoginbodyState extends State<Loginbody> {
                 image: PictureAssets.assetsImagesAppleicon,
               ),
               SizedBox(height: 16.h),
-              const Othersigninservices(
+               const Othersigninservices(
                 text: "تسجيل بواسطة فيسبوك",
                 image: PictureAssets.assetsImagesFacebookicon,
               ),

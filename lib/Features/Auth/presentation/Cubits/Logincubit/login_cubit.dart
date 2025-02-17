@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/AuthrepoImp.dart';
+import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit_states.dart';
 
 class LoginCubit extends Cubit<LoginCubitStates> {
@@ -8,6 +8,25 @@ class LoginCubit extends Cubit<LoginCubitStates> {
   login(String email, String password) async {
     emit(LoginCubitLoading());
     final user = await authrepoImp.login(email, password);
+    user.fold((error) {
+      emit(LoginCubitFailure(message: error));
+    }, (usermodel) {
+      emit(LoginCubitSuccess(userModel: usermodel));
+    });
+  }
+  signInWithGoogle()async{
+    emit(LoginCubitLoading());
+    final user = await authrepoImp.signInWithGoogle();
+    user.fold((error) {
+      emit(LoginCubitFailure(message: error));
+    }, (usermodel) {
+      emit(LoginCubitSuccess(userModel: usermodel));
+    });
+  }
+  
+  signinWithFacebook() async{
+    emit(LoginCubitLoading());
+    final user = await authrepoImp.signInWithFacebook();
     user.fold((error) {
       emit(LoginCubitFailure(message: error));
     }, (usermodel) {

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/showdotindicator.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/front_and_background_image.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/titleanddescription.dart';
+import 'package:go_router/go_router.dart';
 
 class Pageviewitem extends StatelessWidget {
   const Pageviewitem(
@@ -43,6 +45,9 @@ class Pageviewitem extends StatelessWidget {
           height: 30.h,
         ),
         CustomTextButton(
+          onpressed: (){
+            context.go(AppRouter.login);
+          },
           show: show,
           text: "ابدأ الان",
           

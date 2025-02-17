@@ -1,5 +1,5 @@
 import 'package:fruitsapp/Core/services/firebaseservice.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/AuthrepoImp.dart';
+import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
 import 'package:get_it/get_it.dart';
  final get_it = GetIt.instance;
 get_itsetup(){

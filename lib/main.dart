@@ -7,17 +7,17 @@ import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 Future<void> main() async {
-  get_itsetup();
+ get_itsetup();
  
-  WidgetsFlutterBinding.ensureInitialized();
+ WidgetsFlutterBinding.ensureInitialized();
  await LocalSharedprefrence.init();
  await Firebase.initializeApp();
-  runApp(const MainApp());
+ runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -39,4 +39,16 @@ class MainApp extends StatelessWidget {
       ),
     );
   }
-}
+}  
+  
+
+
+
+
+
+  
+
+
+
+
+
