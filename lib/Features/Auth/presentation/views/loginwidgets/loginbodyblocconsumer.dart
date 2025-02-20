@@ -6,7 +6,6 @@ import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit_states.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/loginbody.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/splashwidgets/splashbody.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginBodyBLocConsumer extends StatelessWidget {

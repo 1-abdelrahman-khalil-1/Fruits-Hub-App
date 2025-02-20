@@ -14,17 +14,17 @@ abstract class AppTextStyles {
   static final TextStyle regular23 = TextStyle(fontWeight: FontWeight.normal, fontSize: 23.sp);
   static final TextStyle regular26 = TextStyle(fontWeight: FontWeight.normal, fontSize: 26.sp);
   
-  static final TextStyle bold13 = TextStyle(fontWeight: FontWeight.bold, fontSize: 13.sp);
-  static final TextStyle bold16 = TextStyle(fontWeight: FontWeight.bold, fontSize: 16.sp);
-  static final TextStyle bold22_5 = TextStyle(fontWeight: FontWeight.bold, fontSize: 22.5.sp);
-  static final TextStyle bold22 = TextStyle(fontWeight: FontWeight.bold, fontSize: 22.sp);
-  static final TextStyle bold19 = TextStyle(fontWeight: FontWeight.bold, fontSize: 19.sp);
-  static final TextStyle bold11 = TextStyle(fontWeight: FontWeight.bold, fontSize: 11.sp);
-  static final TextStyle bold28 = TextStyle(fontWeight: FontWeight.bold, fontSize: 28.sp);
-  static final TextStyle bold15 = TextStyle(fontWeight: FontWeight.bold, fontSize: 15.sp);
-  static final TextStyle bold14 = TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp);
-  static final TextStyle bold23 = TextStyle(fontWeight: FontWeight.bold, fontSize: 23.sp);
-  static final TextStyle bold26 = TextStyle(fontWeight: FontWeight.bold, fontSize: 26.sp);
+  static final TextStyle bold13 = TextStyle(fontWeight: FontWeight.w700, fontSize: 13.sp);
+  static final TextStyle bold16 = TextStyle(fontWeight: FontWeight.w700, fontSize: 16.sp);
+  static final TextStyle bold22_5 = TextStyle(fontWeight: FontWeight.w700, fontSize: 22.5.sp);
+  static final TextStyle bold22 = TextStyle(fontWeight: FontWeight.w700, fontSize: 22.sp);
+  static final TextStyle bold19 = TextStyle(fontWeight: FontWeight.w700, fontSize: 19.sp);
+  static final TextStyle bold11 = TextStyle(fontWeight: FontWeight.w700, fontSize: 11.sp);
+  static final TextStyle bold28 = TextStyle(fontWeight: FontWeight.w700, fontSize: 28.sp);
+  static final TextStyle bold15 = TextStyle(fontWeight: FontWeight.w700, fontSize: 15.sp);
+  static final TextStyle bold14 = TextStyle(fontWeight: FontWeight.w700, fontSize: 14.sp);
+  static final TextStyle bold23 = TextStyle(fontWeight: FontWeight.w700, fontSize: 23.sp);
+  static final TextStyle bold26 = TextStyle(fontWeight: FontWeight.w700, fontSize: 26.sp);
   
   static final TextStyle semiBold13 = TextStyle(fontWeight: FontWeight.w600, fontSize: 13.sp);
   static final TextStyle semiBold16 = TextStyle(fontWeight: FontWeight.w600, fontSize: 16.sp);

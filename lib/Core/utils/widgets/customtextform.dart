@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/appcolors.dart';
+import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 
 class CustomTextfield extends StatefulWidget {

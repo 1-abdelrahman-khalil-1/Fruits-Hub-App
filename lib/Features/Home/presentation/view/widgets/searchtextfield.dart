@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/appcolors.dart';
+import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:svg_flutter/svg.dart';
@@ -35,11 +35,11 @@ class Searchtextfield extends StatelessWidget {
                 borderSide: BorderSide(color: Colors.white),
               ),
               prefixIcon: SvgPicture.asset(
-                PictureAssets.assetsImagesSearchNormal,
+                PictureAssets.assetsImagesIconsSearchNormalIcon,
                 fit: BoxFit.none,
               ),
               suffixIcon: SvgPicture.asset(
-                PictureAssets.assetsImagesSettingicon,
+                PictureAssets.assetsImagesIconsSettingicon,
                 fit: BoxFit.none,
               ))),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/appcolors.dart';
+import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:fruitsapp/Core/utils/widgets/customappbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
@@ -124,7 +124,7 @@ class _LoginbodyState extends State<Loginbody> {
       context.read<LoginCubit>().login(email, password);
     } else {
       setState(() {
-        autovalidateMode = AutovalidateMode.always;
+        autovalidateMode = AutovalidateMode.onUserInteraction;
       });
     }
   }

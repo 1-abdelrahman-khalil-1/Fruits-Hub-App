@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:fruitsapp/Core/errors/Customexception.dart';
-import 'package:fruitsapp/Features/Auth/Data/model/user_model.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseService {
   Future<User> createUser(String emailAddress, String password) async {
@@ -40,12 +39,12 @@ class FirebaseService {
       return credential.user!;
     } on FirebaseAuthException catch (e) {
       log("Error in firebaseservice signin: ${e.code}");
-       if (e.code == 'invalid-credential') {
+       if (e.code == 'network-request-failed') {
+        throw Customexception(message:'حدث خطا في الاتصال بالإنترنت.');
+      }else if (e.code == 'invalid-credential') {
         throw Customexception(message:'البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.');
       } else if (e.code == "user-not-found") {
         throw Customexception(message:'الحساب غير موجود.');
-      } else if (e.code == 'network-request-failed') {
-        throw Customexception(message:'حدث خطا في الاتصال بالإنترنت.');
       } else {
         throw Customexception(message : 'حدث خطأ في تسجيل الدخول. يرجى المحاولة مرة أخرى.');
       }
@@ -80,4 +79,12 @@ Future<User?> signInWithFacebook() async {
   // Once signed in, return the UserCredential
   return (await FirebaseAuth.instance.signInWithCredential(facebookAuthCredential)).user;
 }
+Future<void>deleteuserData() async {
+  await FirebaseAuth.instance.currentUser!.delete();
+}
+
+bool isUserSignedIn(){
+  return FirebaseAuth.instance.currentUser != null ;
+}
+
 }

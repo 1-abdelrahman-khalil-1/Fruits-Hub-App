@@ -1,10 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruitsapp/Features/Auth/Data/repo/Authrepo.dart';
 import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit_states.dart';
 
 class LoginCubit extends Cubit<LoginCubitStates> {
   LoginCubit(this.authrepoImp) : super(LoginCubitInitial());
-  final AuthrepoImp authrepoImp;
+  final Authrepo authrepoImp;
   login(String email, String password) async {
     emit(LoginCubitLoading());
     final user = await authrepoImp.login(email, password);

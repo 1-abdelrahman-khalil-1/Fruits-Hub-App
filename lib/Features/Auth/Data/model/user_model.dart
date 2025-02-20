@@ -9,8 +9,11 @@ class UserModel {
     return UserModel(
         name: user.displayName ?? ' ', email: user.email ?? ' ', uid: user.uid);
   }
-
-  topMap(){
+  factory UserModel.FromJson(Map<String, dynamic> json) {
+    return UserModel(
+        name: json['name'] ?? ' ', email: json['email'] ?? ' ', uid: json['id']);
+  }
+  toMap(){
     return {
       'name': name,
       'email': email,

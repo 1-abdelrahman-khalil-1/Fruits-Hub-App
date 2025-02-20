@@ -1,9 +1,9 @@
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
+import 'package:fruitsapp/Features/Auth/Data/repo/Authrepo.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Signupcubit/signup_cubit_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 class SignupCubit extends Cubit<SignupCubitState> {
   SignupCubit(this.authrepoImp) : super(SignupCubitInitial());
-  final AuthrepoImp authrepoImp;
+  final Authrepo authrepoImp;
 
   signup(String name, String email, String password) async {
     emit(SignupCubitLoading());

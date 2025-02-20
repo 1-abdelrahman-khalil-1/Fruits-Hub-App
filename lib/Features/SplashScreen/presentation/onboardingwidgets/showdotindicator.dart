@@ -1,7 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/appcolors.dart';
+import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 class ShowDotIndicator extends StatelessWidget {
   const ShowDotIndicator({
     super.key,
