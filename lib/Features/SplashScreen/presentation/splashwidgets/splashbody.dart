@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/Core/services/firebaseservice.dart';
@@ -7,7 +6,6 @@ import 'package:fruitsapp/Core/services/services.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepo.dart';
 import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';

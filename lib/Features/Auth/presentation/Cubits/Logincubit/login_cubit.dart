@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/Authrepo.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
+import 'package:fruitsapp/Features/Auth/Data/repo/authrepo.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit_states.dart';
 
 class LoginCubit extends Cubit<LoginCubitStates> {

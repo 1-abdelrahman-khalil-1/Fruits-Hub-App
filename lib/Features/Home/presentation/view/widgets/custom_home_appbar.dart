@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/services/firebaseservice.dart';
-import 'package:fruitsapp/Core/services/get_it.dart';
-import 'package:fruitsapp/Core/services/services.dart';
-import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepo.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
 import 'package:svg_flutter/svg.dart';
 
 class CustomHomeAppbar extends StatelessWidget {

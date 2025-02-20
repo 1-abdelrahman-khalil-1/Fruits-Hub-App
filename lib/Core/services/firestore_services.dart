@@ -10,7 +10,8 @@ class FirestoreService implements Services {
    await _firestore.collection(collectionname).doc(uid).set(data);
   }
   
-Future< Map<String, dynamic>> getUserData({required String collectionname,required String uid}) async {
+@override
+  Future< Map<String, dynamic>> getUserData({required String collectionname,required String uid}) async {
     final user = await _firestore.collection(collectionname).doc(uid).get();
     return user.data()!;
   }
