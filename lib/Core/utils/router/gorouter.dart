@@ -3,7 +3,10 @@ import 'package:fruitsapp/Features/Auth/presentation/views/signup.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/home.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/popularscreen.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';
+<<<<<<< HEAD
 import 'package:fruitsapp/Features/SplashScreen/presentation/splashscreen.dart';
+=======
+>>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
 import 'package:go_router/go_router.dart';
 
 abstract class AppRouter{
@@ -14,7 +17,7 @@ abstract class AppRouter{
   static const String popular = "/popular";
   static GoRouter router = GoRouter(
     routes: [
-   GoRoute(path: '/', builder: (context, state) =>  const Splashscreen()),
+   GoRoute(path: '/', builder: (context, state) =>  const Home()),
    GoRoute(path: onboarding, builder: (context, state) => const OnboardingScreen()),
    GoRoute(path: login, builder: (context, state) => const LoginScreen()),
    GoRoute(path: signup , builder: (context, state) => const SignupScreen()),

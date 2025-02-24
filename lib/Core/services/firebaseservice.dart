@@ -56,6 +56,7 @@ class FirebaseService {
  Future<User?> signInWithGoogle() async {
   // Trigger the authentication flow
   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+<<<<<<< HEAD
 
   // Obtain the auth details from the request
   final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
@@ -64,6 +65,19 @@ class FirebaseService {
   final credential = GoogleAuthProvider.credential(
     accessToken: googleAuth?.accessToken ,
     idToken: googleAuth?.idToken,
+=======
+ if(googleUser == null )
+ {
+  return null;
+ }
+  // Obtain the auth details from the request
+  final GoogleSignInAuthentication googleAuth = await googleUser.authentication;
+  
+  // Create a new credential
+  final credential = GoogleAuthProvider.credential(
+    accessToken: googleAuth.accessToken ,
+    idToken: googleAuth.idToken,
+>>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
   );
 
   // Once signed in, return the UserCredential

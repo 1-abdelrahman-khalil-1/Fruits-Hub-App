@@ -8,12 +8,24 @@ import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cub
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/loginbody.dart';
 import 'package:go_router/go_router.dart';
 
+<<<<<<< HEAD
 class LoginBodyBLocConsumer extends StatelessWidget {
+=======
+class LoginBodyBLocConsumer extends StatefulWidget {
+>>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
   const LoginBodyBLocConsumer({
     super.key,
   });
 
   @override
+<<<<<<< HEAD
+=======
+  State<LoginBodyBLocConsumer> createState() => _LoginBodyBLocConsumerState();
+}
+
+class _LoginBodyBLocConsumerState extends State<LoginBodyBLocConsumer> {
+  @override
+>>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
   Widget build(BuildContext context) {
     return BlocConsumer<LoginCubit, LoginCubitStates>(
       listener: (context, state) {
@@ -29,8 +41,16 @@ class LoginBodyBLocConsumer extends StatelessWidget {
           Future.delayed(const Duration(seconds: 1) , (){
            context.go(AppRouter.home);
 
+<<<<<<< HEAD
           });
         }
+=======
+          });  
+        }
+        setState(() {
+          
+        });
+>>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
       },
       builder: (context, state) {
         return const SafeArea(

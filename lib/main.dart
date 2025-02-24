@@ -3,6 +3,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/services/get_it.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
+<<<<<<< HEAD
+=======
+import 'package:fruitsapp/Core/services/supabase_storage.dart';
+>>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +16,10 @@ Future<void> main() async {
   
   await LocalSharedprefrence.init();
   await Firebase.initializeApp(); 
+<<<<<<< HEAD
+=======
+  await SupabaseStorage.init();
+>>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
   get_itsetup();
   runApp(const MainApp());
 }
