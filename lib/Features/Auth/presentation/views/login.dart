@@ -12,7 +12,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(get_it.get<Authrepo>()),
-      child: const LoginBodyBLocConsumer(),
+      child:  LoginBodyBLocConsumer(),
     );
   }
 }

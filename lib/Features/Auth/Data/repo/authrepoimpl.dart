@@ -45,14 +45,10 @@ class AuthrepoImp implements Authrepo {
   Future<Either<String, UserModel>> signInWithGoogle() async {
     try {
       final user = await auth.signInWithGoogle();
-<<<<<<< HEAD
-      final userModel = UserModel.fromFirebase(user!);
-=======
       if(user == null) {
         return const Left("الرجاء المحاولة مرة أخرى.");
       }
       final userModel = UserModel.fromFirebase(user);
->>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
       return Right(userModel);
     } on Customexception catch (e) {
       log("Error in AuthrepoImp signInWithGoogle: ${e.message}");
@@ -100,7 +96,3 @@ UserModel getCurrentUser({required String key}) {
   return  UserModel.FromJson(map);
   }
 }
-<<<<<<< HEAD
-=======
- 
->>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)

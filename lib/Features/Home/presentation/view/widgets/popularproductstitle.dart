@@ -16,11 +16,7 @@ class Popularproductstitle extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-<<<<<<< HEAD
             'الأكثر مبيعًا',
-=======
-            'الأكثر مبيعا',
->>>>>>> 5989eae (connect to supabase and fetch popular products from supabase database)
             textAlign: TextAlign.right,
             style: AppTextStyles.bold16,
           ),
