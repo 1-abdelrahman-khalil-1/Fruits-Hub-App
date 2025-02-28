@@ -3,8 +3,8 @@ import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/widgets/add_to_cart_button.dart';
 
-class NameAndPrice extends StatelessWidget {
-  const NameAndPrice({
+class NameAndPriceAndAddtoCart extends StatelessWidget {
+  const NameAndPriceAndAddtoCart({
     super.key, required this.name, required this.price,
   });
   final String name;
@@ -23,12 +23,12 @@ class NameAndPrice extends StatelessWidget {
         TextSpan(
           children: [
             TextSpan(
-              text: '$priceجنية ', style: AppTextStyles.bold13.copyWith(color: Appcolors.kOrange500),
+              text: '$priceجنية ', style: AppTextStyles.bold13.copyWith(color: Appcolors.orange500),
             ),
             TextSpan(
               text: '/ الكيلو ',
               style: AppTextStyles.semiBold13
-                  .copyWith(color: Appcolors.kOrange300),
+                  .copyWith(color: Appcolors.orange300),
             ),
           ],
         ),

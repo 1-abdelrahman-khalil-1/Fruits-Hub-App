@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Features/Home/Data/customnavigationbaritems.dart';
+import 'package:fruitsapp/Core/helperFunctions/customnavigationbaritems.dart';
+import 'package:go_router/go_router.dart';
 
 class MybottomNavigationBar extends StatefulWidget {
   const MybottomNavigationBar({super.key ,required this.selectedindex} );
@@ -50,6 +51,7 @@ class _MybottomNavigationBarState extends State<MybottomNavigationBar> {
                       onTap: () {
                         setState(() {
                           _seletedindex = index;
+                          context.go(CustomNavigationitems.items[index].approuter);
                         });
                       },
                       child: CustomNavigationitems.items[index]

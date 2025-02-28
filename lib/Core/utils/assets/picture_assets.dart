@@ -30,6 +30,8 @@ class PictureAssets {
 
   static const String assetsImagesGreenbackgroundoffer = "assets/images/greenbackgroundoffer.svg";
 
+  static const String assetsImagesIconsArrowSwapIcon = "assets/images/Icons/arrow-swap_icon.svg";
+
   static const String assetsImagesIconsCategoryIcon = "assets/images/Icons/category_icon.svg";
 
   static const String assetsImagesIconsFavouriteIcon = "assets/images/Icons/favourite_icon.svg";

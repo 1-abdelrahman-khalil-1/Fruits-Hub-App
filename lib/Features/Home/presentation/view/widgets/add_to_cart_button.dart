@@ -7,7 +7,7 @@ class AddToCartButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-        backgroundColor: Appcolors.kGreen500,
+        backgroundColor: Appcolors.green500,
         child:  IconButton(
         onPressed: () { 
         },

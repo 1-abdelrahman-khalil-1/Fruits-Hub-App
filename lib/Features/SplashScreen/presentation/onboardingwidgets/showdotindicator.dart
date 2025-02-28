@@ -16,8 +16,8 @@ class ShowDotIndicator extends StatelessWidget {
     dotsCount: 2,
     decorator:  DotsDecorator(
       shape: const OvalBorder() ,
-      color:Appcolors.kgreen.withOpacity(show ?1 : 0.5) ,
-      activeColor:Appcolors.kgreen, 
+      color:Appcolors.green.withOpacity(show ?1 : 0.5) ,
+      activeColor:Appcolors.green, 
       size: Size.square(show ? 11.w:9.w) ,
       activeSize: Size.square(11.w)
     ),

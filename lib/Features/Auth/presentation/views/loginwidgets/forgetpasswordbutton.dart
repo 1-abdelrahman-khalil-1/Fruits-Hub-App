@@ -14,7 +14,7 @@ class Forgetasswordbutton extends StatelessWidget {
       child: Text(
         "نسيت كلمة المرور؟",
         style: AppTextStyles.semiBold13.copyWith(
-          color: Appcolors.klightgreen,
+          color: Appcolors.lightgreen,
         ),
       ),
     );

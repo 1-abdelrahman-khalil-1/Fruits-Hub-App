@@ -15,7 +15,7 @@ class SupabaseStorage implements StorageService {
   }
   
   @override
-  Future<List<Map<String, dynamic>>> fetchProductData({required String collectionname}) async{ 
+  Future<List<Map<String, dynamic>>> fetchProducts({required String collectionname}) async{ 
    try {
       final response = await _supabase.client
           .from(collectionname)
@@ -23,9 +23,21 @@ class SupabaseStorage implements StorageService {
           .order('sellingCount', ascending: true);
       return response;
     } catch (e) {
-      log('Error fetching product data: $e');
+      log('Error fetching product data in supabase: $e');
       throw Customexception(message: 'حدث خطأ في التحميل.');
     }
   }
- 
+  @override
+ Future<Map<String, dynamic>> fetchProduct({ required String collectionname,required int productid}) async {
+  try {
+      final  response = await _supabase.client
+          .from(collectionname)
+          .select()
+          .eq('id', productid);
+      return response[0];
+    } catch (e) {
+      log('Error fetching product data in supabase: $e');
+      throw Customexception(message: 'حدث خطأ في التحميل.');
+    }
+  }
 }

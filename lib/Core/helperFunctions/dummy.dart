@@ -1,4 +1,4 @@
-import 'package:fruitsapp/Features/Home/Data/model/productmodel.dart';
+import 'package:fruitsapp/Core/model/productmodel.dart';
 
 Productmodel dummyProduct(){
   return Productmodel(
@@ -11,6 +11,9 @@ Productmodel dummyProduct(){
     organic: true,
     calories: 200, 
     sellingCount: 0
-    
     );
+ }
+ List<Productmodel> dummyProducts(){
+
+  return [dummyProduct() , dummyProduct(), dummyProduct() ,dummyProduct()];
  }

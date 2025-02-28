@@ -28,7 +28,7 @@ class Searchtextfield extends StatelessWidget {
               fillColor: Colors.white,
               hintText: 'ابحث عن.......',
               hintStyle:
-                  AppTextStyles.regular13.copyWith(color: Appcolors.kgrey),
+                  AppTextStyles.regular13.copyWith(color: Appcolors.grey),
               border: const OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.white)),
               enabledBorder: const OutlineInputBorder(

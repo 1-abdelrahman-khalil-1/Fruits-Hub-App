@@ -59,7 +59,7 @@ class ProductOffers extends StatelessWidget {
                   'تسوق الان',
                   textAlign: TextAlign.center,
                   style: AppTextStyles.bold13.copyWith(
-                    color: Appcolors.kGreen600,
+                    color: Appcolors.green600,
                   ),
                 ),
               ),

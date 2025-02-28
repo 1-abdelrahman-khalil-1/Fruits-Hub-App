@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitsapp/Features/Home/presentation/cubit/popular_products_cubit.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/backbuttomarrow.dart';
+import 'package:fruitsapp/Core/cubit/products_cubit.dart';
+import 'package:fruitsapp/Core/utils/widgets/custom_appbar.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularproductstitle.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/slivergridblocbuilder.dart';
+import 'package:fruitsapp/Core/utils/widgets/slivergridblocbuilder.dart';
 
 class Popularscreenbody extends StatefulWidget {
   const Popularscreenbody({super.key});
@@ -17,8 +17,9 @@ class _PopularscreenbodyState extends State<Popularscreenbody> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    context.read<PopularProductsCubit>().fetchLowProductsPrice();
+    context.read<ProductsCubit>().fetchPopularProducts();
   }
+
   @override
   Widget build(BuildContext context) {
     return const CustomScrollView(
@@ -26,7 +27,10 @@ class _PopularscreenbodyState extends State<Popularscreenbody> {
         SliverAppBar(
           automaticallyImplyLeading: false,
           pinned: true,
-          title: Backbuttomarrow(),
+          title: HeaderBar(
+            title: "الأكثر مبيعًا",
+            showicon: true,
+          ),
         ),
         SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 10),
@@ -43,7 +47,7 @@ class _PopularscreenbodyState extends State<Popularscreenbody> {
             ),
           ),
         ),
-        Slivergridblocbuilder(),
+        Slivergridblocbuilder(showmore_items: true,),
       ],
     );
   }

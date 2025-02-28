@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Core/utils/widgets/customappbar.dart';
+import 'package:fruitsapp/Core/utils/widgets/custom_auth_appbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
 import 'package:fruitsapp/Core/utils/widgets/ordividor.dart';
@@ -39,7 +39,7 @@ class _LoginbodyState extends State<Loginbody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const Customappbar(
+              const CustomAuthappbar(
                 title: "تسجيل دخول",
               ),
               SizedBox(height: 35.h),
@@ -75,7 +75,7 @@ class _LoginbodyState extends State<Loginbody> {
                 hinttext: "كلمة المرور",
                 icon: Icon(
                   Icons.visibility,
-                  color: Appcolors.kgrey,
+                  color: Appcolors.grey,
                   size: 24.w,
                 ),
               ),

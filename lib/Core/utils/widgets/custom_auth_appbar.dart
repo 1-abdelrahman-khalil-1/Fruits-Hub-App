@@ -6,8 +6,8 @@ import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-class Customappbar extends StatelessWidget {
-  const Customappbar({
+class CustomAuthappbar extends StatelessWidget {
+  const CustomAuthappbar({
     super.key,
     required this.title,
   });

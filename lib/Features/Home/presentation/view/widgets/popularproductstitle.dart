@@ -30,7 +30,7 @@ class Popularproductstitle extends StatelessWidget {
               child: Text(
                 'المزيد',
                 textAlign: TextAlign.center,
-                style: AppTextStyles.regular13.copyWith(color: Appcolors.kgrey),
+                style: AppTextStyles.regular13.copyWith(color: Appcolors.grey),
               ),
             ),
           ),

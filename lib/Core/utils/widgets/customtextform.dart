@@ -38,7 +38,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
         
         decoration: InputDecoration(
             label: Text("    ${widget.hinttext}",
-                style: AppTextStyles.bold13.copyWith(color: Appcolors.kgrey)),
+                style: AppTextStyles.bold13.copyWith(color: Appcolors.grey)),
             fillColor: const Color.fromARGB(181, 249, 250, 250),
             filled: true,
             suffixIcon: GestureDetector(
@@ -64,7 +64,7 @@ class _CustomTextfieldState extends State<CustomTextfield> {
 
   Icon? iconstate() => widget.icon != null
       ? notshowed
-          ? Icon(Icons.visibility_off, color: Appcolors.kgrey, size: 20.sp)
-          : Icon(Icons.visibility, color: Appcolors.kgrey, size: 20.sp)
+          ? Icon(Icons.visibility_off, color: Appcolors.grey, size: 20.sp)
+          : Icon(Icons.visibility, color: Appcolors.grey, size: 20.sp)
       : null;
 }

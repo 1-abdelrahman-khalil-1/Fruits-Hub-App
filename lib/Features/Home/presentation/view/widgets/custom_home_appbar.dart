@@ -24,7 +24,7 @@ class CustomHomeAppbar extends StatelessWidget {
         'صباح الخير !..',
         textAlign: TextAlign.right,
         style: AppTextStyles.regular16.copyWith(
-          color: Appcolors.kgrey,
+          color: Appcolors.grey,
         ),
       ),
       subtitle: Text(
@@ -34,11 +34,11 @@ class CustomHomeAppbar extends StatelessWidget {
       ),
       trailing: CircleAvatar(
         radius: 25.r,
-        backgroundColor: Appcolors.kGreen100,
+        backgroundColor: Appcolors.green100,
         child: SvgPicture.asset(
           PictureAssets.assetsImagesIconsNotificationicon,
           fit: BoxFit.fill,
-          color: Appcolors.kGreen500,
+          color: Appcolors.green500,
           height: 30.h,
           width: 30.w,
         ),

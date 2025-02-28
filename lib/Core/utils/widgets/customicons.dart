@@ -11,9 +11,10 @@ class CustomIcon extends StatelessWidget {
       required this.image,
       required this.title,
       this.selected = false,
-      required this.boldImage});
+      required this.boldImage, required this.approuter});
   final String image, title, boldImage;
   final bool selected;
+  final String approuter;
   @override
   Widget build(BuildContext context) {
   return AnimatedSwitcher(
@@ -34,7 +35,7 @@ class CustomIcon extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 CircleAvatar(
-                  backgroundColor: Appcolors.kGreen500,
+                  backgroundColor: Appcolors.green500,
                   child: SvgPicture.asset(
                     boldImage,
                     height: 18.h,
@@ -46,7 +47,7 @@ class CustomIcon extends StatelessWidget {
                   child: Text(
                     title,
                     style: AppTextStyles.semiBold11
-                        .copyWith(color: Appcolors.kGreen500),
+                        .copyWith(color: Appcolors.green500),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -62,6 +63,7 @@ class CustomIcon extends StatelessWidget {
       title: title,
       selected: selected ?? this.selected,
       boldImage: boldImage,
+      approuter: approuter,
     );
   }
 }

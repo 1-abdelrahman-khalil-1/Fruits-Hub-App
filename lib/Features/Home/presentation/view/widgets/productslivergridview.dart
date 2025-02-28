@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Features/Home/Data/model/productmodel.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/popular_product_item.dart';
+import 'package:fruitsapp/Core/model/productmodel.dart';
+import 'package:fruitsapp/Core/utils/widgets/product_item.dart';
 
 class Productslivergridview extends StatelessWidget {
-  const Productslivergridview({super.key, required this.product});
+  const Productslivergridview({super.key, required this.product, required this.len});
   final List<Productmodel> product;
+  final int len;
   @override
   Widget build(BuildContext context) {
     return SliverGrid.builder(
@@ -15,9 +16,9 @@ class Productslivergridview extends StatelessWidget {
               childAspectRatio: 147/181
             ),
             itemBuilder: (context, index) {
-              return  PopularproductItem(productItem: product[index],);
+              return  ProductItem(productItem: product[index],);
             },
-            itemCount: product.length,
+            itemCount: len,
           );
   }
 }

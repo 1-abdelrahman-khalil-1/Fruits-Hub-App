@@ -16,14 +16,14 @@ class Signuptext extends StatelessWidget {
               children: [
                  TextSpan(
                   text:  "لا تمتلك حساب؟",
-                  style: AppTextStyles.semiBold16.copyWith(color: Appcolors.kgrey),
+                  style: AppTextStyles.semiBold16.copyWith(color: Appcolors.grey),
                 ),
                 TextSpan(
                   recognizer: TapGestureRecognizer()..onTap=(){
                    context.push(AppRouter.signup);
                   },
                   text: ' قم بإنشاء حساب',
-                  style: AppTextStyles.semiBold16.copyWith(color: Appcolors.kgreen),
+                  style: AppTextStyles.semiBold16.copyWith(color: Appcolors.green),
                 )
               ],
             ),

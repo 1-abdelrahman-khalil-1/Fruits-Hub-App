@@ -26,7 +26,7 @@ class _TermscheckboxState extends State<Termscheckbox> {
             if (check == false) {
               return Colors.white;
             }
-            return Appcolors.kgreen;
+            return Appcolors.green;
           
           }),
           onChanged: (value) {

@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/helperFunctions/errorbar.dart';
 import 'package:fruitsapp/Core/helperFunctions/isWeakPassword.dart';
-import 'package:fruitsapp/Core/utils/widgets/customappbar.dart';
+import 'package:fruitsapp/Core/utils/widgets/custom_auth_appbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Signupcubit/signup_cubit.dart';
@@ -35,7 +35,7 @@ class _SignupbodyState extends State<Signupbody> {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              const Customappbar(
+              const CustomAuthappbar(
                 title: "حساب جديد",
               ),
               SizedBox(height: 35.h),

@@ -16,7 +16,7 @@ class Logintext extends StatelessWidget {
           children: [
             TextSpan(
               text: "تمتلك حساب بالفعل؟ ",
-              style: AppTextStyles.semiBold16.copyWith(color: Appcolors.kgrey),
+              style: AppTextStyles.semiBold16.copyWith(color: Appcolors.grey),
             ),
             TextSpan(
               recognizer: TapGestureRecognizer()
@@ -24,7 +24,7 @@ class Logintext extends StatelessWidget {
                   context.pop();
                 },
               text: 'تسجيل دخول',
-              style: AppTextStyles.semiBold16.copyWith(color: Appcolors.kgreen),
+              style: AppTextStyles.semiBold16.copyWith(color: Appcolors.green),
             )
           ],
         ),

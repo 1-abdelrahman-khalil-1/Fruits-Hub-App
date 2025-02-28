@@ -29,7 +29,7 @@ class TitleAndDescription extends StatelessWidget {
             TextSpan(
                 text: " $first",
                 style: AppTextStyles.bold23
-                    .copyWith(color: Appcolors.kgreen )),
+                    .copyWith(color: Appcolors.green )),
             TextSpan(
                 text: second,
                 style: AppTextStyles.bold23

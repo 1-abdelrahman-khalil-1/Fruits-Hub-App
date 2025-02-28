@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/Core/utils/widgets/mybottom_navigation_bar.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularscreenbody.dart';
+import 'package:fruitsapp/Features/Home/presentation/view/widgets/homebody.dart';
 
-class PopularscreenbodyBlocConsumer extends StatelessWidget {
-  const PopularscreenbodyBlocConsumer({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
   });
 
@@ -12,7 +12,7 @@ class PopularscreenbodyBlocConsumer extends StatelessWidget {
     return const SafeArea(
         child: Scaffold(
       bottomNavigationBar: MybottomNavigationBar(selectedindex: 0),
-      body: Popularscreenbody(),
+      body: Homebody(),
     ));
   }
 }

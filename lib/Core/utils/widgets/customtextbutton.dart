@@ -22,7 +22,7 @@ class CustomTextButton extends StatelessWidget {
          width: 343.w,
          padding: const EdgeInsets.symmetric(horizontal: 48, vertical: 15),
          decoration: ShapeDecoration(
-           color: Appcolors.kgreen,
+           color: Appcolors.green,
            shape: RoundedRectangleBorder(
              borderRadius: BorderRadius.circular(16.r),
            ),

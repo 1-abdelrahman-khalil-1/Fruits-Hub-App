@@ -17,14 +17,14 @@ class Termsandconditionstext extends StatelessWidget {
               children: [
                  TextSpan(
                   text:  "من خلال إنشاء حساب ، فإنك توافق على ", 
-                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.kgrey),
+                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.grey),
                 ),
                 TextSpan(
                   recognizer: TapGestureRecognizer()..onTap=(){
                  
                   },
                   text: 'الشروط والأحكام الخاصة بنا',
-                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.kgreen),
+                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.green),
                 )
               ],
             ),
