@@ -7,9 +7,9 @@ import 'package:fruitsapp/Core/utils/widgets/back_arrow_button.dart';
 import 'package:svg_flutter/svg.dart';
 
 class HeaderBar extends StatelessWidget {
-  const HeaderBar({super.key, required this.title, required this.showicon});
+  const HeaderBar({super.key, required this.title, required this.showicon, required this.shownotification});
   final String title;
-  final bool showicon;
+  final bool showicon , shownotification;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,14 +20,17 @@ class HeaderBar extends StatelessWidget {
                 child: const BackArrowButton(),
               ),
               Text(title, style: AppTextStyles.bold19),
-              CircleAvatar(
-                backgroundColor: Appcolors.green100,
-                child: SvgPicture.asset(
-                  PictureAssets.assetsImagesIconsNotificationicon,
-                  fit: BoxFit.fill,
-                  color: Appcolors.green500,
-                  height: 30.h,
-                  width: 30.w,
+              Visibility(
+                visible: shownotification,
+                child: CircleAvatar(
+                  backgroundColor: Appcolors.green100,
+                  child: SvgPicture.asset(
+                    PictureAssets.assetsImagesIconsNotificationicon,
+                    fit: BoxFit.fill,
+                    color: Appcolors.green500,
+                    height: 30.h,
+                    width: 30.w,
+                  ),
                 ),
               )
             ],

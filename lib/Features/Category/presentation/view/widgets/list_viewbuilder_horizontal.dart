@@ -12,11 +12,13 @@ class ListViewbuilderHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 90.h,
+      height: 110.h,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
-          return ProductItemInCircle(product: products[index]);
+          return Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: ProductItemInCircle(product: products[index]));
         },
         itemCount: products.length,
         padding: const EdgeInsets.all(0),

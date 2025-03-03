@@ -1,6 +1,7 @@
 import 'package:fruitsapp/Features/Auth/presentation/views/login.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/signup.dart';
 import 'package:fruitsapp/Features/Category/presentation/view/categoryscreen.dart';
+import 'package:fruitsapp/Features/Category/presentation/view/filtering_results.dart';
 import 'package:fruitsapp/Features/Details_for_product/presentation/view/details_for_product.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/homescreen.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/popularscreen.dart';
@@ -15,6 +16,7 @@ abstract class AppRouter{
   static const String popular = "/popular";
   static const String category = '/category';
   static const String details_for_product = 'details_for_product';
+  static const String filtering_results = '/filtering_results';
   static GoRouter router = GoRouter(
     routes: [
    GoRoute(path: '/', builder: (context, state) =>  const HomeScreen()),
@@ -29,6 +31,7 @@ abstract class AppRouter{
     path: "/$details_for_product/:id" , builder: (context, state) =>  DetailsForProduct(
     productid: int.parse(state.pathParameters["id"]!),
    )),
+   GoRoute(path: filtering_results , builder: (context, state) =>  const FilteringResults())
   ]
   );
 }

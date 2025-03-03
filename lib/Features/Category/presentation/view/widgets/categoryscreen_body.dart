@@ -2,7 +2,7 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/widgets/custom_appbar.dart';
+import 'package:fruitsapp/Core/utils/widgets/header.dart';
 import 'package:fruitsapp/Core/cubit/products_cubit.dart';
 import 'package:fruitsapp/Features/Category/presentation/view/widgets/our_category_bloc_builder.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularproductstitle.dart';
@@ -38,13 +38,14 @@ class _CategoryscreenBodyState extends State<CategoryscreenBody> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  const HeaderBar(title: "المنتجات", showicon: false),
+                  const HeaderBar(title: "المنتجات", showicon: false ,shownotification: true,),
                   SizedBox(height: 16.h),
                   const Searchtextfield(),
                   SizedBox(height: 10.h),
                   const OurCategoryBlocBuilder(),
                   SizedBox(height: 10.h),
                   const Popularproductstitle(
+                    title: 'الأكثر مبيعًا',
                     showmore: true,
                   ),
                   SizedBox(height: 10.h),

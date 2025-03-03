@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/add_to_cart_button.dart';
+import 'package:fruitsapp/Core/utils/widgets/add_button.dart';
 
 class NameAndPriceAndAddtoCart extends StatelessWidget {
   const NameAndPriceAndAddtoCart({
@@ -33,7 +33,7 @@ class NameAndPriceAndAddtoCart extends StatelessWidget {
           ],
         ),
       ),
-      trailing: const AddToCartButton(),
+      trailing: const AddButton(),
     );
   }
 }

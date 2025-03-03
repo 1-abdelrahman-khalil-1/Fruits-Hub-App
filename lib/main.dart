@@ -6,6 +6,7 @@ import 'package:fruitsapp/Core/services/get_it.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Core/services/supabase_storage.dart';
 import 'package:fruitsapp/Core/cubit/products_cubit.dart';
+import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Core/repo/productrepo.dart';
 import 'package:fruitsapp/generated/l10n.dart';
@@ -42,7 +43,7 @@ class MainApp extends StatelessWidget {
             Locale('ar'),
           ],
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(fontFamily: "Cairo" ),
+          theme: ThemeData(fontFamily: "Cairo" , scaffoldBackgroundColor:  Appcolors.snow  ),
           routerConfig: AppRouter.router,
         ),
       ),

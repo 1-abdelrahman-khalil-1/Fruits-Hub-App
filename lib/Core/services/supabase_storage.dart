@@ -40,4 +40,17 @@ class SupabaseStorage implements StorageService {
       throw Customexception(message: 'حدث خطأ في التحميل.');
     }
   }
+  @override
+  Future<List<Map<String,dynamic>>> priceFiltering({required String collectionname ,required bool ascending , required bool alpabatical}) async {
+    try {
+      final  response = await _supabase.client
+          .from(collectionname)
+          .select()
+          .order( alpabatical? 'name' : 'price', ascending: ascending);
+      return response;
+    } catch (e) {
+      log('Error fetching product data after filtering in supabase: $e');
+      throw Customexception(message: 'حدث خطأ في التحميل.');
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/cubit/products_cubit.dart';
 import 'package:fruitsapp/Core/cubit/products_cubit_states.dart';
 import 'package:fruitsapp/Features/Category/presentation/view/widgets/skeltonizerloading_with_dummy_products.dart';
@@ -14,6 +15,9 @@ class OurCategoryBlocBuilder extends StatelessWidget {
     return Column(
       children: [
         const OurCategoryTitleAndFiltering(),
+        SizedBox(
+          height: 10.h,
+        ),
         BlocBuilder<ProductsCubit, ProductsCubitStates>(
           builder: (context, state) {
             if (state is SuccessState) {

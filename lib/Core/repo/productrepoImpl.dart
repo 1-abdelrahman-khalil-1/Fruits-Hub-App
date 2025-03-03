@@ -8,19 +8,23 @@ class ProductrepoImp implements Productrepo {
   StorageService storage;
   ProductrepoImp({required this.storage});
   @override
-  Future<Either<String,  List<Productmodel>>> fetchProducts({required String collectionname}) async {
+  Future<Either<String, List<Productmodel>>> fetchProducts({required String collectionname}) async {
     try {
-      final response = await storage.fetchProducts(collectionname: collectionname);
-      List<Productmodel> products = response.map((map) => Productmodel.FromJson(map)).toList();
+      final response =
+          await storage.fetchProducts(collectionname: collectionname);
+      List<Productmodel> products =
+          response.map((map) => Productmodel.FromJson(map)).toList();
       return Right(products);
-    }on Customexception catch (e) {
+    } on Customexception catch (e) {
       return Left(e.message);
     }
   }
+
   @override
-  Future<Either<String ,  Productmodel>> fetchProductData({required String collectionname,required int productid}) async {
+  Future<Either<String, Productmodel>> fetchProductData({required String collectionname, required int productid}) async {
     try {
-      final response = await storage.fetchProduct(productid: productid, collectionname: collectionname);
+      final response = await storage.fetchProduct(
+          productid: productid, collectionname: collectionname);
       Productmodel product = Productmodel.FromJson(response);
       return Right(product);
     } on Customexception catch (e) {
@@ -28,4 +32,18 @@ class ProductrepoImp implements Productrepo {
     }
   }
 
+  @override
+  Future<Either<String, List<Productmodel>>> priceFiltering({required String collectionname,required bool ascending,required bool alpabatical}) async {
+    try {
+      final response = await storage.priceFiltering(
+          collectionname: collectionname,
+          ascending: ascending,
+          alpabatical: alpabatical);
+      List<Productmodel> products =
+          response.map((map) => Productmodel.FromJson(map)).toList();
+     return Right(products);
+    } on Customexception catch (e) {
+     return Left(e.message);
+    }
+  }
 }

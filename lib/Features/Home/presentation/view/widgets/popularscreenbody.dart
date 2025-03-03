@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Core/cubit/products_cubit.dart';
-import 'package:fruitsapp/Core/utils/widgets/custom_appbar.dart';
+import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
+import 'package:fruitsapp/Core/utils/widgets/header.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularproductstitle.dart';
 import 'package:fruitsapp/Core/utils/widgets/slivergridblocbuilder.dart';
 
@@ -22,22 +23,25 @@ class _PopularscreenbodyState extends State<Popularscreenbody> {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
+    return   CustomScrollView( //should be singlechildscrollview bec it was only one builder 
       slivers: [
         SliverAppBar(
           automaticallyImplyLeading: false,
           pinned: true,
-          title: HeaderBar(
-            title: "الأكثر مبيعًا",
-            showicon: true,
-          ),
-        ),
-        SliverPadding(
+          backgroundColor: Appcolors.snow,
+        title:  
+        const HeaderBar(
+          title: "الأكثر مبيعًا",
+          showicon: true,
+          shownotification: true,
+        )),
+        const SliverPadding(
           padding: EdgeInsets.symmetric(horizontal: 10),
           sliver: SliverToBoxAdapter(
             child: Column(
               children: [
                 Popularproductstitle(
+                  title: 'الأكثر مبيعًا',
                   showmore: false,
                 ),
                 SizedBox(
@@ -47,7 +51,7 @@ class _PopularscreenbodyState extends State<Popularscreenbody> {
             ),
           ),
         ),
-        Slivergridblocbuilder(showmore_items: true,),
+        const Slivergridblocbuilder(showmore_items: true,),
       ],
     );
   }

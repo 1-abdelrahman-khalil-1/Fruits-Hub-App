@@ -6,8 +6,9 @@ import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:go_router/go_router.dart';
 
 class Popularproductstitle extends StatelessWidget {
-  const Popularproductstitle({super.key, required this.showmore});
-  final bool showmore;
+  const Popularproductstitle({super.key, required this.showmore, required this.title});
+  final bool showmore ;
+  final String title;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -16,7 +17,7 @@ class Popularproductstitle extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'الأكثر مبيعًا',
+            title,
             textAlign: TextAlign.right,
             style: AppTextStyles.bold16,
           ),

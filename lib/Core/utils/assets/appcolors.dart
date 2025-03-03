@@ -27,5 +27,7 @@ abstract class Appcolors {
   static Color lightgreen = const Color(0xFF2D9F5D);
   static Color grey = const Color(0xFF949D9E);
   static Color white = Colors.white;
+  static Color lightwhite = const Color(0xFFF3F1FF);
+  static Color snow = const Color.fromARGB(255, 243, 245, 247);
 
 }

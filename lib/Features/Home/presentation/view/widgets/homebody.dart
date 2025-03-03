@@ -56,8 +56,11 @@ class _HomebodyState extends State<Homebody> {
                   const HorizontalListView(),
                   SizedBox(height: 10.h),
                   const Popularproductstitle(
+                    title: 'الأكثر مبيعًا',
                     showmore: true,
                   ),
+                  SizedBox(height: 10.h),
+
                 ],
               ),
             ),

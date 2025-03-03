@@ -5,7 +5,7 @@ import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
-    super.key, required this.show, required this.text, this.onpressed,
+    super.key,  this.show = true, required this.text, this.onpressed,
     
   });
 

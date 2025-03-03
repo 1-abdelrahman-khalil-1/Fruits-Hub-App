@@ -14,9 +14,13 @@ class PictureAssets {
 
   static const String assetsImagesBoldIconsUserprofileBoldIcon = "assets/images/BoldIcons/userprofile-bold-icon.svg";
 
+  static const String assetsImagesCalendar = "assets/images/calendar.svg";
+
   static const String assetsImagesCircles = "assets/images/circles.svg";
 
   static const String assetsImagesFacebookicon = "assets/images/facebookicon.svg";
+
+  static const String assetsImagesFire = "assets/images/fire.svg";
 
   static const String assetsImagesFriutsTest = "assets/images/friuts_test.svg";
 
@@ -50,11 +54,15 @@ class PictureAssets {
 
   static const String assetsImagesLogo = "assets/images/Logo.png";
 
+  static const String assetsImagesOrganic = "assets/images/organic.svg";
+
   static const String assetsImagesPineapple = "assets/images/pineapple.svg";
 
   static const String assetsImagesPlant = "assets/images/plant.svg";
 
   static const String assetsImagesProfileTest = "assets/images/profile_test.png";
+
+  static const String assetsImagesStar = "assets/images/star.svg";
 
   static const String assetsImagesStrawberryTest = "assets/images/strawberry_test.png";
 

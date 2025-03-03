@@ -49,6 +49,7 @@ class AuthrepoImp implements Authrepo {
         return const Left("الرجاء المحاولة مرة أخرى.");
       }
       final userModel = UserModel.fromFirebase(user);
+      saveUserData(userModel: userModel);
       return Right(userModel);
     } on Customexception catch (e) {
       log("Error in AuthrepoImp signInWithGoogle: ${e.message}");

@@ -19,8 +19,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.read<ProductsCubit>().fetchProductData(productID: productItem.id);
-       context.pushNamed(AppRouter.details_for_product , pathParameters: {"id":productItem.id.toString()});
+           context.pushNamed(AppRouter.details_for_product , pathParameters: {"id":productItem.id.toString()});
        },
       child: Container(
         color: Appcolors.white,
@@ -34,8 +33,8 @@ class ProductItem extends StatelessWidget {
               Center(
                 child: CachedNetworkImage(
                   imageUrl: productItem.imageUrl,
-                  height: 104.h,
-                  width: 115.w,
+                  height: 94.h,
+                  width: 105.w,
                   fit: BoxFit.cover,
                 ),
               ),
