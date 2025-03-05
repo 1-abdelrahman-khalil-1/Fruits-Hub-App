@@ -15,13 +15,13 @@ class HeaderBar extends StatelessWidget {
     return Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Visibility(
-                visible: showicon,
+              Opacity(
+                opacity: showicon?1 : 0,
                 child: const BackArrowButton(),
               ),
               Text(title, style: AppTextStyles.bold19),
-              Visibility(
-                visible: shownotification,
+              Opacity(
+                opacity: shownotification?1:0,
                 child: CircleAvatar(
                   backgroundColor: Appcolors.green100,
                   child: SvgPicture.asset(

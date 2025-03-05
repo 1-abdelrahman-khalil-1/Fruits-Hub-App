@@ -50,6 +50,8 @@ class PictureAssets {
 
   static const String assetsImagesIconsShoppingCartIcon = "assets/images/Icons/shopping-cart_icon.svg";
 
+  static const String assetsImagesIconsTrash = "assets/images/Icons/trash.svg";
+
   static const String assetsImagesIconsUserprofileIcon = "assets/images/Icons/userprofile_icon.svg";
 
   static const String assetsImagesLogo = "assets/images/Logo.png";
@@ -65,6 +67,8 @@ class PictureAssets {
   static const String assetsImagesStar = "assets/images/star.svg";
 
   static const String assetsImagesStrawberryTest = "assets/images/strawberry_test.png";
+
+  static const String assetsImagesSuccesful = "assets/images/succesful.svg";
 
   static const String assetsImagesVectorgreen = "assets/images/Vectorgreen.svg";
 

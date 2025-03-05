@@ -6,7 +6,6 @@ import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Features/Category/presentation/view/widgets/choice.dart';
-import 'package:fruitsapp/generated/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 class ChoicesOnBottomSheet extends StatefulWidget {

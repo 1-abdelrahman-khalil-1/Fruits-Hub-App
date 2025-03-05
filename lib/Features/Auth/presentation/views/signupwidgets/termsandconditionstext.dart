@@ -24,7 +24,7 @@ class Termsandconditionstext extends StatelessWidget {
                  
                   },
                   text: 'الشروط والأحكام الخاصة بنا',
-                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.green),
+                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.green500),
                 )
               ],
             ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/services/firebaseservice.dart';
+import 'package:fruitsapp/Core/services/authentication_service.dart';
 import 'package:fruitsapp/Core/services/get_it.dart';
 import 'package:fruitsapp/Core/services/services.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
@@ -33,7 +33,7 @@ class _HomebodyState extends State<Homebody> {
 
   @override
   Widget build(BuildContext context) {
-    Authrepo loca = AuthrepoImp(get_it<FirebaseService>(), get_it<Services>());
+    Authrepo loca = AuthrepoImp(get_it<AuthenticationService>(), get_it<Services>());
     UserModel user = loca.getCurrentUser(key: LocalSharedprefrence.userkey);
     return EasyRefresh(
       onRefresh: () {

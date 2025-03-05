@@ -11,7 +11,7 @@ class LoginCubit extends Cubit<LoginCubitStates> {
     user.fold((error) {
       emit(LoginCubitFailure(message: error));
     }, (usermodel) {
-      emit(LoginCubitSuccess(userModel: usermodel));
+      emit(LoginCubitSuccess(usermodel,"تم تسجيل الدخول بنجاح"));
     });
   }
   signInWithGoogle()async{
@@ -20,17 +20,26 @@ class LoginCubit extends Cubit<LoginCubitStates> {
     user.fold((error) {
       emit(LoginCubitFailure(message: error));
     }, (usermodel) {
-      emit(LoginCubitSuccess(userModel: usermodel));
+      emit(LoginCubitSuccess( usermodel,"تم تسجيل الدخول بنجاح"));
     });
   }
   
-  signinWithFacebook() async{
+  sendVerificationCode({required String email})async{
     emit(LoginCubitLoading());
-    final user = await authrepoImp.signInWithFacebook();
-    user.fold((error) {
-      emit(LoginCubitFailure(message: error));
-    }, (usermodel) {
-      emit(LoginCubitSuccess(userModel: usermodel));
+    final user = await authrepoImp.sendVerificationCode(email);
+    user.fold((e){
+      emit(LoginCubitFailure(message: e));
+    }, (s){
+      emit(LoginCubitSuccess(null, "تم إرسال الكود الي البريد الإلكتروني بنجاح"));
     });
+  }
+  verifyCode({required String email, required String enteredCode})async{
+    emit(LoginCubitLoading());
+    final user = await authrepoImp.verifyCode(email, enteredCode);
+   if(user) {
+    emit(LoginCubitSuccess(null, "تم التحقق من الكود بنجاح"));
+   }else {
+    emit(LoginCubitFailure(message: "الكود غير صحيح"));
+   }
   }
 }

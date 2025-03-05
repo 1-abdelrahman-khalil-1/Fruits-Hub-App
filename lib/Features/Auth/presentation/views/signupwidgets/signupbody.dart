@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/helperFunctions/errorbar.dart';
+import 'package:fruitsapp/Core/helperFunctions/bar.dart';
 import 'package:fruitsapp/Core/helperFunctions/isWeakPassword.dart';
-import 'package:fruitsapp/Core/utils/widgets/custom_auth_appbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
+import 'package:fruitsapp/Core/utils/widgets/header.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Signupcubit/signup_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/logintext.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/termscheckbox.dart';
@@ -35,8 +35,10 @@ class _SignupbodyState extends State<Signupbody> {
           autovalidateMode: autovalidateMode,
           child: Column(
             children: [
-              const CustomAuthappbar(
+              const HeaderBar(
                 title: "حساب جديد",
+                showicon: false,
+                shownotification: false,
               ),
               SizedBox(height: 35.h),
               CustomTextfield(
@@ -112,9 +114,9 @@ class _SignupbodyState extends State<Signupbody> {
     if (formkey.currentState!.validate()) {
       formkey.currentState!.save();
       if (termaccepted == false) {
-        errorbar(context, error_message: "يرجى الموافقة على الشروط والأحكام");
+        bar(context, error_message: "يرجى الموافقة على الشروط والأحكام");
       } else if (isWeakPassword(password)) {
-        errorbar(context,
+        bar(context,
             error_message: "🔑 كلمة المرور ضعيفة، يرجى اختيار كلمة أقوى.");
       } else {
         context.read<SignupCubit>().signup(name, email, password);

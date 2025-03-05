@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Core/utils/widgets/custom_auth_appbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
+import 'package:fruitsapp/Core/utils/widgets/header.dart';
 import 'package:fruitsapp/Core/utils/widgets/ordividor.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/forgetpasswordbutton.dart';
@@ -39,8 +39,10 @@ class _LoginbodyState extends State<Loginbody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              const CustomAuthappbar(
+              const HeaderBar(
                 title: "تسجيل دخول",
+                showicon: true,
+                shownotification: false,
               ),
               SizedBox(height: 35.h),
               CustomTextfield(
@@ -86,6 +88,7 @@ class _LoginbodyState extends State<Loginbody> {
                 onpressed: () {
                   LoginCheck(context);
                 },
+                
                 text: "تسجيل دخول",
               ),
               SizedBox(height: 35.h),
@@ -106,10 +109,6 @@ class _LoginbodyState extends State<Loginbody> {
                 image: PictureAssets.assetsImagesAppleicon,
               ),
               SizedBox(height: 16.h),
-               const Othersigninservices(
-                text: "تسجيل بواسطة فيسبوك",
-                image: PictureAssets.assetsImagesFacebookicon,
-              ),
             ],
           ),
         ),

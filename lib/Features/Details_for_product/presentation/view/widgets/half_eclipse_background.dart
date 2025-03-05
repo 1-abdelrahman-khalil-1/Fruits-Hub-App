@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
@@ -26,7 +27,7 @@ class HalfEclipseBackground extends StatelessWidget {
           top: 0,
           right: 0,
           left: 0,
-          child: Center(child: Image.network(imageUrl, height: 187.h, width: 201.w, fit: BoxFit.cover,)))
+          child: Center(child: CachedNetworkImage(imageUrl: imageUrl, height: 187.h, width: 201.w, fit: BoxFit.cover,)))
       ],
     );
   }

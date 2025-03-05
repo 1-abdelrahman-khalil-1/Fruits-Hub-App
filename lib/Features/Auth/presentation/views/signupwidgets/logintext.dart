@@ -24,7 +24,7 @@ class Logintext extends StatelessWidget {
                   context.pop();
                 },
               text: 'تسجيل دخول',
-              style: AppTextStyles.semiBold16.copyWith(color: Appcolors.green),
+              style: AppTextStyles.semiBold16.copyWith(color: Appcolors.green500),
             )
           ],
         ),

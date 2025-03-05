@@ -21,6 +21,7 @@ class SupabaseStorage implements StorageService {
           .from(collectionname)
           .select()
           .order('sellingCount', ascending: true);
+          print("qweqweqw$response");
       return response;
     } catch (e) {
       log('Error fetching product data in supabase: $e');

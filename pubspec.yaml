@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  flutter_bloc: ^9.0.0
+  flutter_bloc: ^9.1.0
   flutter_facebook_auth: ^7.1.1
   flutter_localizations:
     sdk: flutter
@@ -33,6 +33,8 @@ dependencies:
   svg_flutter: ^0.0.1
   widget_and_text_animator: ^1.1.5
   easy_refresh: ^3.4.0
+  flutter_otp_text_field: ^1.5.1+1
+  pin_code_fields: ^8.0.1
 
 dev_dependencies:
   flutter_test:

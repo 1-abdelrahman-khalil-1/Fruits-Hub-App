@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Core/helperFunctions/dialogloading.dart';
-import 'package:fruitsapp/Core/helperFunctions/errorbar.dart';
+import 'package:fruitsapp/Core/helperFunctions/bar.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit_states.dart';
@@ -28,9 +28,9 @@ class _LoginBodyBLocConsumerState extends State<LoginBodyBLocConsumer> {
           Navigator.pop(context);
         }
         if (state is LoginCubitFailure) {
-          errorbar(context, error_message: state.message);
+          bar(context, error_message: state.message);
         } else if (state is LoginCubitSuccess) {
-          errorbar(context, error_message: "تم تسجيل الدخول بنجاح");
+          bar(context, error_message: state.message);
           Future.delayed(const Duration(seconds: 1) , (){
            context.go(AppRouter.home);
           });  

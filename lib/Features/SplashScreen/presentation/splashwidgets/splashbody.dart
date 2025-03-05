@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/services/firebaseservice.dart';
+import 'package:fruitsapp/Core/services/authentication_service.dart';
 import 'package:fruitsapp/Core/services/get_it.dart';
 import 'package:fruitsapp/Core/services/services.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
@@ -28,7 +28,7 @@ class _SplashbodyState extends State<Splashbody> {
   void navigate() {
     if (LocalSharedprefrence.get(LocalSharedprefrence.onboardingkey) == true) {
       AuthrepoImp LoginCheck =
-          AuthrepoImp(get_it<FirebaseService>(), get_it<Services>());
+          AuthrepoImp(get_it<AuthenticationService>(), get_it<Services>());
       Future.delayed(const Duration(seconds: 4), () {
         if (mounted) {
           if (LoginCheck.isUserSignedIn() == true) {

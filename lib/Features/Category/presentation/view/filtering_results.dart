@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/widgets/header.dart';
 import 'package:fruitsapp/Core/utils/widgets/mybottom_navigation_bar.dart';

@@ -4,8 +4,9 @@ abstract class LoginCubitStates {}
 class LoginCubitInitial extends LoginCubitStates {}
 class LoginCubitLoading extends LoginCubitStates {}
 class LoginCubitSuccess extends LoginCubitStates {
-  final UserModel userModel;
-  LoginCubitSuccess({required this.userModel});
+  final UserModel ?userModel;
+  final String message;
+  LoginCubitSuccess(this.userModel, this.message);
 }
 class LoginCubitFailure extends LoginCubitStates {
   final String message;

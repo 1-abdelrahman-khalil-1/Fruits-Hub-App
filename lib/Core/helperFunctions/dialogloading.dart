@@ -3,6 +3,7 @@
 Future<dynamic> DialogLoading(BuildContext context) {
     return showDialog(
             context: context,
+            barrierDismissible: false,
             builder: (context) {
               return AlertDialog(
                 shape: RoundedRectangleBorder(

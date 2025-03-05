@@ -23,7 +23,7 @@ class Signuptext extends StatelessWidget {
                    context.push(AppRouter.signup);
                   },
                   text: ' قم بإنشاء حساب',
-                  style: AppTextStyles.semiBold16.copyWith(color: Appcolors.green),
+                  style: AppTextStyles.semiBold16.copyWith(color: Appcolors.green500),
                 )
               ],
             ),

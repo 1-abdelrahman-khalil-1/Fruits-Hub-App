@@ -16,7 +16,7 @@ class CustomNavigationitems {
     const CustomIcon(
         boldImage: PictureAssets.assetsImagesBoldIconsShoppingCartBoldIcon,
         image: PictureAssets.assetsImagesIconsShoppingCartIcon,
-        title: "سلة التسوق",approuter: AppRouter.home,),
+        title: "سلة التسوق",approuter: AppRouter.cart,),
     const CustomIcon(
         boldImage: PictureAssets.assetsImagesBoldIconsUserprofileBoldIcon,
         image: PictureAssets.assetsImagesIconsUserprofileIcon,

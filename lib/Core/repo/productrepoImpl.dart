@@ -1,3 +1,4 @@
+
 import 'package:dartz/dartz.dart';
 import 'package:fruitsapp/Core/errors/Customexception.dart';
 import 'package:fruitsapp/Core/services/storage_service.dart';
@@ -14,6 +15,7 @@ class ProductrepoImp implements Productrepo {
           await storage.fetchProducts(collectionname: collectionname);
       List<Productmodel> products =
           response.map((map) => Productmodel.FromJson(map)).toList();
+
       return Right(products);
     } on Customexception catch (e) {
       return Left(e.message);

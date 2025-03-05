@@ -1,4 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
+
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class UserModel {
   final String name, email, uid;
@@ -7,7 +9,7 @@ class UserModel {
 
   factory UserModel.fromFirebase(User user ) {
     return UserModel(
-        name: user.displayName ?? ' ', email: user.email ?? ' ', uid: user.uid);
+        name: user.userMetadata!["full_name"] ?? ' ', email: user.email ?? ' ', uid: user.id);
   }
   factory UserModel.FromJson(Map<String, dynamic> json) {
     return UserModel(
