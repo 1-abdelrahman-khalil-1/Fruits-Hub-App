@@ -131,7 +131,7 @@ cd Fruits-Hub-App
 ```sh
 flutter pub get
 ```
-###3️⃣ Run the App
+### 4️⃣ Run the App
 ```sh
 flutter run
 ```
