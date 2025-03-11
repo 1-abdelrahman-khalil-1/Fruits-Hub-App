@@ -83,36 +83,48 @@ This structure ensures a clean separation of concerns, making the codebase easie
 
 ### Authentication & Onboarding Screens  
 
-![Onboarding1](https://github.com/user-attachments/assets/0abed4b8-8ec4-46b1-a029-747b469ce8ac)
-![splash-2](https://github.com/user-attachments/assets/35746e17-a456-45ef-ae84-d666ab31f81f)
-![splash-1](https://github.com/user-attachments/assets/130d085e-aecf-40a4-be1c-43f53e5e9a13)
-<img width="375" alt="4  Login - Empty _ شاشة تسجيل دخول" src="https://github.com/user-attachments/assets/fd3c2ccc-d4a1-4f64-9643-cbe4038a83b0" />
+<img src="https://github.com/user-attachments/assets/0abed4b8-8ec4-46b1-a029-747b469ce8ac" width="300" height="550" alt="Onboarding1">
 
-<img width="375" alt="5  Login - Filled" src="https://github.com/user-attachments/assets/3e23ac2f-47cc-4ca8-9932-0c7f612a5e18" />
-<img width="375" alt="6  Sign Up - Empty" src="https://github.com/user-attachments/assets/7d5dbe0e-9ea9-4f5f-935e-7462122706c8" />
-<img width="375" alt="7  Sign Up - Filled" src="https://github.com/user-attachments/assets/3d5beaf2-ef47-4d48-bda7-5b86c2b06cd6" />
-<img width="375" alt="8  Forgot Password - Phone" src="https://github.com/user-attachments/assets/ed535436-c07a-4890-97c0-47bd4891a6bb" />
-<img width="375" alt="9  Password Recovery - Phone" src="https://github.com/user-attachments/assets/25a4c643-315f-4f42-a598-37960cc26918" />
-<img width="375" alt="10  Reset your password" src="https://github.com/user-attachments/assets/780ac3d5-d0f5-4b1d-b49b-4c331c41f12f" />
-<img width="375" alt="تم تغيير الباسورد بنجاح11" src="https://github.com/user-attachments/assets/066e0e54-49dc-49b4-a7c2-c495890928a5" />
+<img src="https://github.com/user-attachments/assets/35746e17-a456-45ef-ae84-d666ab31f81f" width="300" height="550" alt="splash-2">
+
+<img src="https://github.com/user-attachments/assets/130d085e-aecf-40a4-be1c-43f53e5e9a13" width="300" height="550" alt="splash-1">
+
+<img src="https://github.com/user-attachments/assets/fd3c2ccc-d4a1-4f64-9643-cbe4038a83b0" width="300" height="550" alt="4. Login - Empty">
+
+<img src="https://github.com/user-attachments/assets/3e23ac2f-47cc-4ca8-9932-0c7f612a5e18" width="300" height="550" alt="5. Login - Filled">
+
+<img src="https://github.com/user-attachments/assets/7d5dbe0e-9ea9-4f5f-935e-7462122706c8" width="300" height="550" alt="6. Sign Up - Empty">
+
+<img src="https://github.com/user-attachments/assets/3d5beaf2-ef47-4d48-bda7-5b86c2b06cd6" width="300" height="550" alt="7. Sign Up - Filled">
+
+<img src="https://github.com/user-attachments/assets/ed535436-c07a-4890-97c0-47bd4891a6bb" width="300" height="550" alt="8. Forgot Password - Phone">
+
+<img src="https://github.com/user-attachments/assets/25a4c643-315f-4f42-a598-37960cc26918" width="300" height="550" alt="9. Password Recovery - Phone">
+
+<img src="https://github.com/user-attachments/assets/780ac3d5-d0f5-4b1d-b49b-4c331c41f12f" width="300" height="550" alt="10. Reset your password">
+
+<img src="https://github.com/user-attachments/assets/066e0e54-49dc-49b4-a7c2-c495890928a5" width="300" height="550" alt="تم تغيير الباسورد بنجاح11">
 
 
 ### Home & Product Screen
 
-![Home](https://github.com/user-attachments/assets/5b07d563-d642-4a03-8950-673dbcc74ceb)
-![More popular](https://github.com/user-attachments/assets/2a236702-4f30-48ea-8aca-48e4eed95a9c)
-![Item details](https://github.com/user-attachments/assets/ecc3f0b5-0d43-4dcd-8763-ec6a8937d0ea)
+<img src="https://github.com/user-attachments/assets/5b07d563-d642-4a03-8950-673dbcc74ceb" height="550" alt="Home">
+
+<img src="https://github.com/user-attachments/assets/2a236702-4f30-48ea-8aca-48e4eed95a9c" height="550" alt="More popular">
+
+<img src="https://github.com/user-attachments/assets/ecc3f0b5-0d43-4dcd-8763-ec6a8937d0ea" height="550" alt="Item details">
 
 ### Category 
 
-![Products](https://github.com/user-attachments/assets/d1612405-05fb-4919-9f39-3322fe11d0cd)
-![Sort By](https://github.com/user-attachments/assets/ca64dbf4-505b-4740-a907-b6f07b09de15)
-![Products-1](https://github.com/user-attachments/assets/1794d48e-983c-4c84-b777-047a32255317)
+<img src="https://github.com/user-attachments/assets/d1612405-05fb-4919-9f39-3322fe11d0cd" height="550" alt="Products">
+
+<img src="https://github.com/user-attachments/assets/ca64dbf4-505b-4740-a907-b6f07b09de15" height="550" alt="Sort By">
+
+<img src="https://github.com/user-attachments/assets/1794d48e-983c-4c84-b777-047a32255317" height="550" alt="Products-1">
 
 ### Cart
 
-![Cart](https://github.com/user-attachments/assets/056d9d8e-58a6-4c80-b6c9-1b707a5f31df)
-
+<img src="https://github.com/user-attachments/assets/056d9d8e-58a6-4c80-b6c9-1b707a5f31df" height="550" alt="Cart">
 
 ---
 
