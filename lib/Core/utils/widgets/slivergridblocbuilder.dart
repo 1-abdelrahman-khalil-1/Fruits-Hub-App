@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Core/utils/widgets/skeltonizerloading_sliver_with_dummy_products.dart';
 import 'package:fruitsapp/Core/cubit/products_cubit.dart';
 import 'package:fruitsapp/Core/cubit/products_cubit_states.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/productslivergridview.dart';
+import 'package:fruitsapp/Core/utils/widgets/productslivergridview.dart';
 class Slivergridblocbuilder extends StatelessWidget {
   const Slivergridblocbuilder({super.key,  this.showmore_items =false});
   final bool showmore_items;

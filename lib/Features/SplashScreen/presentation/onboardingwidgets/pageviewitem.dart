@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/showdotindicator.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/front_and_background_image.dart';
-import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/titleanddescription.dart';
+import '../../../../Core/services/sharedprefrence.dart';
+import '../../../../Core/utils/router/gorouter.dart';
+import 'showdotindicator.dart';
+import 'front_and_background_image.dart';
+import '../../../../Core/utils/widgets/customtextbutton.dart';
+import 'titleanddescription.dart';
 import 'package:go_router/go_router.dart';
 
 class Pageviewitem extends StatelessWidget {
@@ -46,6 +47,7 @@ class Pageviewitem extends StatelessWidget {
         ),
         CustomTextButton(
           onpressed: (){
+              LocalSharedprefrence.set(LocalSharedprefrence.onboardingkey, true);
             context.go(AppRouter.login);
           },
           show: show,

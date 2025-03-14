@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit.dart';
-import 'package:fruitsapp/Features/Details_for_product/presentation/view/widgets/details_for_product_body_bloc_builder.dart';
 
+import '../../../../../../../Core/cubit/products_cubit.dart';
+import 'widgets/details_for_product_body_bloc_builder.dart';
 class DetailsForProduct extends StatefulWidget {
   const DetailsForProduct({super.key, required this.productid});
  final int productid;

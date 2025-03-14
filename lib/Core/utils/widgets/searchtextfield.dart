@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/picture_assets.dart';
 class Searchtextfield extends StatelessWidget {
   const Searchtextfield({super.key});
 

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/model/productmodel.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
-import 'package:fruitsapp/Features/Details_for_product/presentation/view/widgets/description_for_product.dart';
-import 'package:fruitsapp/Features/Details_for_product/presentation/view/widgets/name_and_price_and_add_or_remove.dart';
-import 'package:fruitsapp/Features/Details_for_product/presentation/view/widgets/rate_and_reviewtext.dart';
-import 'package:fruitsapp/Features/Details_for_product/presentation/view/widgets/roundedbox_has_list_title.dart';
 
+import '../../../../../../../Core/model/productmodel.dart';
+import '../../../../../../../Core/utils/assets/picture_assets.dart';
+import '../../../../../../../Core/utils/widgets/customtextbutton.dart';
+import 'description_for_product.dart';
+import 'name_and_price_and_add_or_remove.dart';
+import 'rate_and_reviewtext.dart';
+import 'roundedbox_has_list_title.dart';
 class DetailsForProductData extends StatelessWidget {
   const DetailsForProductData({
     super.key,
@@ -24,7 +24,7 @@ class DetailsForProductData extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            NameAndPriceAndAddOrRemoveFromCart(name: product.name, price: product.price),
+            NameAndPriceAndAddOrRemoveFromCart(name: product.name, price: product.price, product: product,),
             const RateAndReviewtext(),
             DescriptionForProduct(description: product.description),
             SizedBox(
@@ -73,7 +73,9 @@ class DetailsForProductData extends StatelessWidget {
               ],
             ),
             SizedBox(height: 24.h,),
-            const CustomTextButton( text: "اضف إلى السلة",),
+             CustomTextButton( text: "اضف إلى السلة", onpressed: (){
+               
+            },),
             SizedBox(height: 24.h,),
 
           ],

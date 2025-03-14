@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/fontasset.dart';
 
 class Choice extends StatefulWidget {
   const Choice({super.key, required this.text, required this.check, this.onChanged});

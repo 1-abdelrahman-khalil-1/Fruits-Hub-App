@@ -5,7 +5,7 @@ import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fruitsapp/Core/model/productmodel.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/name_and_price_and_addto_cart.dart';
+import 'package:fruitsapp/Core/utils/widgets/name_and_price_and_addto_cart.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
@@ -39,6 +39,7 @@ class ProductItem extends StatelessWidget {
               NameAndPriceAndAddtoCart(
                 name: productItem.name,
                 price: productItem.price,
+                product: productItem,
               ),
             ],
           ),

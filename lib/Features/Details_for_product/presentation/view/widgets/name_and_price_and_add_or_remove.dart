@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/utils/widgets/add_button.dart';
-import 'package:fruitsapp/Core/utils/widgets/remove_button.dart';
 
+import '../../../../../../../Core/model/productmodel.dart';
+import '../../../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../../../Core/utils/widgets/add_button.dart';
+import '../../../../../../../Core/utils/widgets/remove_button.dart';
 class NameAndPriceAndAddOrRemoveFromCart extends StatelessWidget {
   const NameAndPriceAndAddOrRemoveFromCart({
     super.key,
     required this.price,
-    required this.name,
+    required this.name, required this.product,
   });
 
   final int price;
   final String name;
+  final Productmodel product;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -43,7 +45,7 @@ class NameAndPriceAndAddOrRemoveFromCart extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const AddButton(),
+           AddButton( productmodel: product,),
           SizedBox(width: 16.w,),
           Text("4" ,style: AppTextStyles.bold16,),
           SizedBox(width: 16.w,),

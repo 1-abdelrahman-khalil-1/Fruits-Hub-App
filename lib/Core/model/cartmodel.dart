@@ -2,7 +2,7 @@ import 'package:fruitsapp/Core/model/productmodel.dart';
 class CartItem{
 final Productmodel product;
  int count ;
- CartItem(this.product , {this.count=0});
+ CartItem(this.product , {this.count=1});
  void increaseCount(){
   count++;
  }
@@ -12,9 +12,10 @@ final Productmodel product;
       }
  }
 }
+
 class Cartmodel {
- final List<CartItem> cartItems;
-const Cartmodel({required this.cartItems});
+  List<CartItem> cartItems;
+ Cartmodel({required this.cartItems});
 bool isItemExist(Productmodel product){
   for (var item in cartItems) {
      if (item.product.id == product.id) {
@@ -38,4 +39,12 @@ bool isItemExist(Productmodel product){
  void removeItem(CartItem item){
   cartItems.remove(item);
  }
+void updateCart(CartItem cartitem){
+   for (var item in cartItems) {
+       if (item.product == cartitem.product) {
+         item = cartitem;
+         break;
+       }
+     }
+}
 }

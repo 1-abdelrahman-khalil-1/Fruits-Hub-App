@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/utils/widgets/add_button.dart';
-import 'package:fruitsapp/Core/utils/widgets/remove_button.dart';
+import './/Core/model/cartmodel.dart';
+import './/Core/utils/assets/appcolors.dart';
+import './/Core/utils/assets/fontasset.dart';
+import './/Core/utils/widgets/add_button.dart';
+import './/Core/utils/widgets/remove_button.dart';
+import './/Features/Cart/presentation/cubit/cart_cubit.dart';
 
-class NameAndCounterOfTheItem extends StatelessWidget {
+class NameAndCounterOfTheItem extends StatefulWidget {
   const NameAndCounterOfTheItem({
-    super.key,
+    super.key, required this.cartItem,
   });
+final CartItem cartItem;
 
+  @override
+  State<NameAndCounterOfTheItem> createState() => _NameAndCounterOfTheItemState();
+}
+
+class _NameAndCounterOfTheItemState extends State<NameAndCounterOfTheItem> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -17,14 +26,14 @@ class NameAndCounterOfTheItem extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "فراولة",
+          widget.cartItem.product.name,
           style: AppTextStyles.bold13,
         ),
         SizedBox(
           height: 5.h,
         ),
         Text(
-          "3 كم",
+          "${widget.cartItem.count} كم",
           style: AppTextStyles.regular13
               .copyWith(color: Appcolors.orange500),
         ),
@@ -35,18 +44,34 @@ class NameAndCounterOfTheItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           mainAxisSize: MainAxisSize.min,
           children: [
-            const AddButton(),
+             AddButton(onpressed: () {
+              
+              widget.cartItem.increaseCount();
+              setState(() {
+                
+              });
+             //context.read<CartCubit>().addProductToCart(product:  widget.cartItem.product);
+            context.read<CartCubit>().cartProducts.updateCart( widget.cartItem);
+
+            }, productmodel: widget.cartItem.product,),
             SizedBox(
               width: 16.w,
             ),
             Text(
-              "4",
+              widget.cartItem.count.toString(),
               style: AppTextStyles.bold16,
             ),
             SizedBox(
               width: 16.w,
             ),
-            const RemoveButton(),
+             RemoveButton(onpressed: () {
+              widget.cartItem.decreaseCount();
+              setState(() {
+                
+              });
+            context.read<CartCubit>().cartProducts.updateCart( widget.cartItem);
+ 
+            },),
           ],
         )
       ],

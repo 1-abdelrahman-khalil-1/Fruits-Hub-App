@@ -104,11 +104,7 @@ class _LoginbodyState extends State<Loginbody> {
                 },
               ),
               SizedBox(height: 16.h),
-              const Othersigninservices(
-                text: "تسجيل بواسطة أبل",
-                image: PictureAssets.assetsImagesAppleicon,
-              ),
-              SizedBox(height: 16.h),
+              
             ],
           ),
         ),

@@ -15,17 +15,16 @@ class SupabaseStorage implements StorageService {
   }
   
   @override
-  Future<List<Map<String, dynamic>>> fetchProducts({required String collectionname}) async{ 
+  Future<List<Map<String, dynamic>>> fetchProducts({required String collectionname, required String order}) async{ 
    try {
       final response = await _supabase.client
           .from(collectionname)
           .select()
-          .order('sellingCount', ascending: true);
-          print("qweqweqw$response");
+          .order(order, ascending: true);
       return response;
     } catch (e) {
-      log('Error fetching product data in supabase: $e');
-      throw Customexception(message: 'حدث خطأ في التحميل.');
+      log('Error fetching products in supabase: $e');
+      throw Customexception(message: 'حدث خطأ في التحميل المنتجات. ');
     }
   }
   @override
@@ -38,7 +37,7 @@ class SupabaseStorage implements StorageService {
       return response[0];
     } catch (e) {
       log('Error fetching product data in supabase: $e');
-      throw Customexception(message: 'حدث خطأ في التحميل.');
+      throw Customexception(message: 'حدث خطأ في التحميل المنتج.');
     }
   }
   @override
@@ -54,4 +53,8 @@ class SupabaseStorage implements StorageService {
       throw Customexception(message: 'حدث خطأ في التحميل.');
     }
   }
+  
+
+  
+  
 }

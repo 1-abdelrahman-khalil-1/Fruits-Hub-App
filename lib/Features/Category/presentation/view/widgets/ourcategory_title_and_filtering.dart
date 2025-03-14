@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Features/Category/presentation/view/widgets/choices_on_bottom_sheet.dart';
+import './/Core/utils/assets/fontasset.dart';
+import './/Core/utils/assets/picture_assets.dart';
+import './/Features/Category/presentation/view/widgets/choices_on_bottom_sheet.dart';
 import 'package:svg_flutter/svg.dart';
 
 class OurCategoryTitleAndFiltering extends StatelessWidget {

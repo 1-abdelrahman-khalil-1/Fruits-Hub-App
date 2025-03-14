@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit_states.dart';
-import 'package:fruitsapp/Features/Category/presentation/view/widgets/skeltonizerloading_with_dummy_products.dart';
-import 'package:fruitsapp/Features/Category/presentation/view/widgets/list_viewbuilder_horizontal.dart';
-import 'package:fruitsapp/Features/Category/presentation/view/widgets/ourcategory_title_and_filtering.dart';
+import './/Core/cubit/products_cubit.dart';
+import './/Core/cubit/products_cubit_states.dart';
+import './/Features/Category/presentation/view/widgets/skeltonizerloading_with_dummy_products.dart';
+import './/Features/Category/presentation/view/widgets/list_viewbuilder_horizontal.dart';
+import './/Features/Category/presentation/view/widgets/ourcategory_title_and_filtering.dart';
 
 class OurCategoryBlocBuilder extends StatelessWidget {
   const OurCategoryBlocBuilder({super.key});

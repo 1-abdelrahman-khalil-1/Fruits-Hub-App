@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/services/authentication_service.dart';
-import 'package:fruitsapp/Core/services/get_it.dart';
-import 'package:fruitsapp/Core/services/services.dart';
-import 'package:fruitsapp/Core/services/sharedprefrence.dart';
-import 'package:fruitsapp/Features/Auth/Data/model/user_model.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepo.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/custom_home_appbar.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/horizontallistview.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularproductstitle.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/searchtextfield.dart';
-import 'package:fruitsapp/Core/utils/widgets/slivergridblocbuilder.dart';
 
+import '../../../../../../../Core/services/authentication_service.dart';
+import '../../../../../../../Core/services/get_it.dart';
+import '../../../../../../../Core/services/services.dart';
+import '../../../../../../../Core/services/sharedprefrence.dart';
+import '../../../../../../../Core/cubit/products_cubit.dart';
+import '../../../../Auth/Data/model/user_model.dart';
+import '../../../../Auth/Data/repo/authrepo.dart';
+import '../../../../Auth/Data/repo/authrepoimpl.dart';
+import 'custom_home_appbar.dart';
+import 'horizontallistview.dart';
+import '../../../../../Core/utils/widgets/popularproductstitle.dart';
+import '../../../../../Core/utils/widgets/searchtextfield.dart';
+import '../../../../../../../Core/utils/widgets/slivergridblocbuilder.dart';
 class Homebody extends StatefulWidget {
   const Homebody({super.key});
 

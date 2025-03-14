@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/pageviewitem.dart';
+import '../../../../Core/utils/assets/picture_assets.dart';
+import 'pageviewitem.dart';
 
 class Onboardingbody extends StatelessWidget {
   const Onboardingbody({super.key});

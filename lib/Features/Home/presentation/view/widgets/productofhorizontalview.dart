@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/fruitbackground.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/productoffers.dart';
 
+import 'fruitbackground.dart';
+import 'productoffers.dart';
 class ProductOfHorizontalView extends StatelessWidget {
   const ProductOfHorizontalView({
     super.key,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/utils/widgets/mybottom_navigation_bar.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/homebody.dart';
-
+import '../../../../Core/utils/widgets/mybottom_navigation_bar.dart';
+import 'widgets/homebody.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({
     super.key,

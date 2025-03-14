@@ -1,8 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/widgets/back_arrow_button.dart';
+
+import '../../../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../../../Core/utils/widgets/back_arrow_button.dart';
 
 class HalfEclipseBackground extends StatelessWidget {
   const HalfEclipseBackground({super.key, required this.imageUrl});

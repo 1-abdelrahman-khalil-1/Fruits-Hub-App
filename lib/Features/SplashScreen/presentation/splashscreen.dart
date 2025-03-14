@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/splashwidgets/splashbody.dart';
+import 'splashwidgets/splashbody.dart';
 
 class Splashscreen extends StatelessWidget {
   const Splashscreen({super.key});

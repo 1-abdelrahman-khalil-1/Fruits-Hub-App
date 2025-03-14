@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/utils/widgets/mybottom_navigation_bar.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularscreenbody.dart';
+import '../../../../Core/utils/widgets/mybottom_navigation_bar.dart';
+import 'widgets/popularscreenbody.dart';
 
 class PopularScreen extends StatelessWidget {
   const PopularScreen({

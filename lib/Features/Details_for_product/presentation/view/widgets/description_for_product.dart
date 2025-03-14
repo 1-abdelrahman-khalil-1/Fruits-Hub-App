@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
+
+import '../../../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../../../Core/utils/assets/fontasset.dart';
 
 class DescriptionForProduct extends StatelessWidget {
   const DescriptionForProduct({

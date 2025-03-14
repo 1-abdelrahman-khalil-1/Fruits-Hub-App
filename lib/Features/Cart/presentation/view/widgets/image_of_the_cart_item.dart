@@ -1,13 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
+import './/Core/utils/assets/appcolors.dart';
 
 class ImageOfTheCartItem extends StatelessWidget {
   const ImageOfTheCartItem({
-    super.key,
+    super.key, required this.imageUrl,
   });
-
+ final String imageUrl ;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,8 +15,8 @@ class ImageOfTheCartItem extends StatelessWidget {
       height: 100.h,
       decoration: BoxDecoration(
         color: Appcolors.white,
-        image: const DecorationImage(
-          image: AssetImage(PictureAssets.assetsImagesStrawberryTest),
+        image:  DecorationImage(
+          image: CachedNetworkImageProvider(imageUrl),
         ),
       ),
     );

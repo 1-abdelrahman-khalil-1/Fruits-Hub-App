@@ -1,11 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
-import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
-import 'package:fruitsapp/Features/Category/presentation/view/widgets/choice.dart';
+import './/Core/cubit/products_cubit.dart';
+import './/Core/utils/assets/fontasset.dart';
+import './/Core/utils/router/gorouter.dart';
+import './/Core/utils/widgets/customtextbutton.dart';
+import './/Features/Category/presentation/view/widgets/choice.dart';
 import 'package:go_router/go_router.dart';
 
 class ChoicesOnBottomSheet extends StatefulWidget {

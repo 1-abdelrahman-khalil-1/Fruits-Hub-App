@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/Core/helperFunctions/dummy.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/productslivergridview.dart';
+import 'package:fruitsapp/Core/utils/widgets/productslivergridview.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 class SkeltonizerSliverLoadingWithDummyProducts extends StatelessWidget {

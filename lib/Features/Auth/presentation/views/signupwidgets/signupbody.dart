@@ -117,7 +117,7 @@ class _SignupbodyState extends State<Signupbody> {
         bar(context, error_message: "يرجى الموافقة على الشروط والأحكام");
       } else if (isWeakPassword(password)) {
         bar(context,
-            error_message: "🔑 كلمة المرور ضعيفة، يرجى اختيار كلمة أقوى.");
+            error_message: " 🔑 كلمة المرور ضعيفة، يرجى اختيار كلمة أقوى. يجب أن تحتوي على حرف و رقم وأن لا يقل عن 8 أحرف");
       } else {
         context.read<SignupCubit>().signup(name, email, password);
       }

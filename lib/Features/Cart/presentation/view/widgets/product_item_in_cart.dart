@@ -1,13 +1,22 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Features/Cart/presentation/view/widgets/image_of_the_cart_item.dart';
-import 'package:fruitsapp/Features/Cart/presentation/view/widgets/name_and_counter_of_the_item.dart';
+import './/Core/model/cartmodel.dart';
+import './/Core/utils/assets/picture_assets.dart';
+import './/Features/Cart/presentation/cubit/cart_cubit.dart';
+import './/Features/Cart/presentation/view/widgets/image_of_the_cart_item.dart';
+import './/Features/Cart/presentation/view/widgets/name_and_counter_of_the_item.dart';
 import 'package:svg_flutter/svg.dart';
 
-class ProductItemInCart extends StatelessWidget {
-  const ProductItemInCart({super.key});
+class ProductItemInCart extends StatefulWidget {
+  const ProductItemInCart({super.key, required this.cartItem});
+  final CartItem cartItem ;
 
+  @override
+  State<ProductItemInCart> createState() => _ProductItemInCartState();
+}
+
+class _ProductItemInCartState extends State<ProductItemInCart> {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,16 +24,21 @@ class ProductItemInCart extends StatelessWidget {
       children: [
         Row(
           children: [
-            const ImageOfTheCartItem(),
+             ImageOfTheCartItem(imageUrl: widget.cartItem.product.imageUrl,),
             SizedBox(
               width: 17.w,
             ),
-            const NameAndCounterOfTheItem(),      
+             NameAndCounterOfTheItem(cartItem: widget.cartItem,),      
           ],
         ),
         Column(
               children: [
-                SvgPicture.asset(PictureAssets.assetsImagesIconsTrash)
+                GestureDetector(
+                  onTap: () {
+                      context.read<CartCubit>().removeProductFromCart(product: widget.cartItem);
+                 
+                  },
+                  child: SvgPicture.asset(PictureAssets.assetsImagesIconsTrash))
               ],
             )
       ],

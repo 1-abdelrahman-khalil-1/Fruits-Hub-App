@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/productofhorizontalview.dart';
 
+import 'productofhorizontalview.dart';
 
 class HorizontalListView extends StatelessWidget {
   const HorizontalListView({super.key});

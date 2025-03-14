@@ -24,22 +24,4 @@ class LoginCubit extends Cubit<LoginCubitStates> {
     });
   }
   
-  sendVerificationCode({required String email})async{
-    emit(LoginCubitLoading());
-    final user = await authrepoImp.sendVerificationCode(email);
-    user.fold((e){
-      emit(LoginCubitFailure(message: e));
-    }, (s){
-      emit(LoginCubitSuccess(null, "تم إرسال الكود الي البريد الإلكتروني بنجاح"));
-    });
-  }
-  verifyCode({required String email, required String enteredCode})async{
-    emit(LoginCubitLoading());
-    final user = await authrepoImp.verifyCode(email, enteredCode);
-   if(user) {
-    emit(LoginCubitSuccess(null, "تم التحقق من الكود بنجاح"));
-   }else {
-    emit(LoginCubitFailure(message: "الكود غير صحيح"));
-   }
-  }
 }

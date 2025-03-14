@@ -14,16 +14,14 @@ class SupabaseService implements AuthenticationService {
       return res.user!;
     } on AuthException catch (e) {
       log("Error in SupabaseService createUser: ${e.code}");
-      if (e.code == 'weak-password') {
-        throw Customexception(message: ' كلمة المرور ضعيفة، يرجى اختيار كلمة أقوى.');
-      } else if (e.code == 'email-already-in-use') {
-        throw Customexception(message: ' البريد الإلكتروني مسجل بالفعل.');
-      } else if (e.code == "invalid-email") {
-        throw Customexception(message: ' البريد الإلكتروني غير صالح.');
-      } else if (e.code == 'network-request-failed') {
-        throw Customexception(message: 'حدث خطا في الاتصال بالإنترنت.');
+       if (e.code!.contains('User already registered')) {
+        throw Customexception(message:'البريد الإلكتروني مسجل بالفعل.');
+      } else if (e.code!.contains('validation_failed')) {
+        throw Customexception(message:'البريد الإلكتروني غير صالح.');
+      } else if (e.code!.contains('Network error')) {
+        throw Customexception(message:'حدث خطأ في الاتصال بالإنترنت.');
       } else {
-        throw Customexception(message: ' حدث خطأ غير متوقع: ${e.code}');
+        throw Customexception(message:'حدث خطأ غير متوقع: ${e.code}');
       }
     } 
   }
@@ -32,18 +30,17 @@ class SupabaseService implements AuthenticationService {
     try {
   final res = await _supabaseClient.auth.signInWithPassword(password: password, email: emailAddress);
   return res.user!;
-} on Customexception catch (e) {
+} on AuthApiException catch (e) {
   log("Error in SupabaseService signin: ${e.message}");
-  if (e.message == 'network-request-failed') {
-    throw Customexception(message: 'حدث خطا في الاتصال بالإنترنت.');
-  } else if (e.message == 'invalid-credential') {
-    throw Customexception(
-        message: 'البريد الإلكتروني أو كلمة المرور غير صحيحة. يرجى المحاولة مرة أخرى.');
-  } else if (e.message == "user-not-found") {
-    throw Customexception(message: 'الحساب غير موجود.');
-  } else {
-    throw Customexception( message: ' حدث خطأ غير متوقع: ${e.message}');
-}
+    if (e.message.contains('Email not confirmed')) {
+        throw  Customexception(message:'البريد الإلكتروني غير مؤكد. يرجى التحقق من بريدك الإلكتروني.');
+      }else if (e.message.contains('Invalid login credentials')) {
+        throw  Customexception(message:'البريد الإلكتروني أو كلمة المرور غير صحيحة.');
+      } else if (e.message.contains('Network error')) {
+        throw  Customexception(message:'حدث خطأ في الاتصال بالإنترنت.');
+      } else {
+        throw  Customexception(message:"حدث خطأ غير متوقع: ${e.message}");
+      }
   }
 }
   @override
@@ -93,15 +90,15 @@ class SupabaseService implements AuthenticationService {
       log("Error in SupabaseService deleteuserData: ${e.toString()}");
       throw Customexception(message: "يرجي المحاولة مرة أخرى.");
     }
-    _supabaseClient.auth.verifyOTP(type: OtpType.sms);
   }
 
   @override
   bool isUserSignedIn() {
-   return _supabaseClient.auth.currentUser != null;
+   return _supabaseClient.auth.currentSession != null;
   }
 
 
 
 
 }
+

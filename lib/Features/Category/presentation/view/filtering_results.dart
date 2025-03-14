@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/widgets/header.dart';
-import 'package:fruitsapp/Core/utils/widgets/mybottom_navigation_bar.dart';
-import 'package:fruitsapp/Core/utils/widgets/slivergridblocbuilder.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularproductstitle.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/searchtextfield.dart';
+
+import '../../../../../../../Core/utils/widgets/header.dart';
+import '../../../../../../../Core/utils/widgets/mybottom_navigation_bar.dart';
+import '../../../../../../../Core/utils/widgets/slivergridblocbuilder.dart';
+import '../../../../Core/utils/widgets/popularproductstitle.dart';
+import '../../../../Core/utils/widgets/searchtextfield.dart';
 
 class FilteringResults extends StatelessWidget {
   const FilteringResults({super.key});

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as image;
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
+
+import '../../../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../../../Core/utils/assets/picture_assets.dart';
 class ProductOffers extends StatelessWidget {
   const ProductOffers({
     super.key,

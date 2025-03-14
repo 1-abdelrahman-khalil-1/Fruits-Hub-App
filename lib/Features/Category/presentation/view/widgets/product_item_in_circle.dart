@@ -1,10 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/model/productmodel.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
+import './/Core/utils/assets/appcolors.dart';
+import './/Core/utils/assets/fontasset.dart';
+import './/Core/model/productmodel.dart';
+import './/Core/utils/router/gorouter.dart';
 import 'package:go_router/go_router.dart';
 
 class ProductItemInCircle extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/onboardingwidgets/onboardingbody.dart';
+import 'onboardingwidgets/onboardingbody.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});

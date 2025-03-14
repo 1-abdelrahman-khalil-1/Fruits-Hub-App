@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Features/Category/presentation/view/widgets/product_item_in_circle.dart';
-import 'package:fruitsapp/Core/model/productmodel.dart';
+import './/Features/Category/presentation/view/widgets/product_item_in_circle.dart';
+import './/Core/model/productmodel.dart';
 
 class ListViewbuilderHorizontal extends StatelessWidget {
   const ListViewbuilderHorizontal({

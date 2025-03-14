@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/router/gorouter.dart';
 class Popularproductstitle extends StatelessWidget {
   const Popularproductstitle({super.key, required this.showmore, required this.title});
   final bool showmore ;

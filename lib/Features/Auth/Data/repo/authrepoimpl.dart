@@ -34,10 +34,7 @@ class AuthrepoImp implements Authrepo {
       final user = await auth.createUser(email, password);
       var userModel =
           UserModel(name: name, email: user.email ?? "", uid: user.id);
-      await adduserData(
-          collectionname: _collectionnamekey,
-          data: userModel.toMap(),
-          uid: user.id);
+      await adduserData(collectionname: _collectionnamekey,data: userModel.toMap());
       return Right(userModel);
     } on Customexception catch (e) {
       log("Error in AuthrepoImp signup: ${e.message}");
@@ -54,6 +51,12 @@ class AuthrepoImp implements Authrepo {
         return const Left("الرجاء المحاولة مرة أخرى.");
       }
       final userModel = UserModel.fromFirebase(user);
+      
+      try {
+  adduserData(collectionname: _collectionnamekey, data: userModel.toMap());
+} on Exception {
+ deleteuserData();
+}
       saveUserData(userModel: userModel);
       return Right(userModel);
     } on Customexception catch (e) {
@@ -65,12 +68,8 @@ class AuthrepoImp implements Authrepo {
   
 
   @override
-  Future<void> adduserData(
-      {required String collectionname,
-      required Map<String, dynamic> data,
-      required String uid}) async {
-    await service.adduserData(
-        collectionname: collectionname, data: data, uid: uid);
+  Future<void> adduserData({required String collectionname,required Map<String, dynamic> data}) async {
+    await service.adduserData(collectionname: collectionname, data: data);
   }
 
   @override
@@ -84,10 +83,8 @@ class AuthrepoImp implements Authrepo {
   }
 
   @override
-  Future<UserModel> getUserData(
-      {required String collectionname, required String uid}) async {
-    var user =
-        await service.getUserData(collectionname: collectionname, uid: uid);
+  Future<UserModel> getUserData({required String collectionname, required String uid}) async {
+    var user =await service.getUserData(collectionname: collectionname, uid: uid);
     return UserModel.FromJson(user);
   }
 
@@ -103,20 +100,4 @@ class AuthrepoImp implements Authrepo {
     return UserModel.FromJson(map);
   }
 
-  @override
-  Future<Either<String, void>> sendVerificationCode(String email) async {
-    try {
-      await service.sendVerificationCode(email);
-      return const Right(null);
-    } on Customexception catch (e) {
-      return Left(e.message);
-    }
-  }
-
-  @override
-  Future<bool> verifyCode(String email, String enteredCode) {
- 
-      return service.verifyCode(email, enteredCode);
-    
-  }
 }

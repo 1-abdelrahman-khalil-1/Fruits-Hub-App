@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
+import '../../../../../Core/utils/assets/picture_assets.dart';
 
 class Fruitbackground extends StatelessWidget {
   const Fruitbackground({

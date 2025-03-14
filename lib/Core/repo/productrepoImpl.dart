@@ -1,4 +1,3 @@
-
 import 'package:dartz/dartz.dart';
 import 'package:fruitsapp/Core/errors/Customexception.dart';
 import 'package:fruitsapp/Core/services/storage_service.dart';
@@ -12,7 +11,7 @@ class ProductrepoImp implements Productrepo {
   Future<Either<String, List<Productmodel>>> fetchProducts({required String collectionname}) async {
     try {
       final response =
-          await storage.fetchProducts(collectionname: collectionname);
+          await storage.fetchProducts(collectionname: collectionname , order: "sellingCount");
       List<Productmodel> products =
           response.map((map) => Productmodel.FromJson(map)).toList();
 

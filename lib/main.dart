@@ -1,16 +1,18 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/services/get_it.dart';
-import 'package:fruitsapp/Core/services/sharedprefrence.dart';
-import 'package:fruitsapp/Core/services/supabase_storage.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
-import 'package:fruitsapp/Core/repo/productrepo.dart';
 import 'package:fruitsapp/generated/l10n.dart';
-import 'package:firebase_core/firebase_core.dart';
+
+import 'Core/cubit/products_cubit.dart';
+import 'Core/repo/productrepo.dart';
+import 'Core/services/get_it.dart';
+import 'Core/services/sharedprefrence.dart';
+import 'Core/services/supabase_storage.dart';
+import 'Core/utils/assets/appcolors.dart';
+import 'Core/utils/router/gorouter.dart';
+import 'Features/Cart/presentation/cubit/cart_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +32,16 @@ class MainApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      child: BlocProvider(
-        create: (context) => ProductsCubit(get_it<Productrepo>()),
+      ensureScreenSize: true,
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => ProductsCubit(get_it<Productrepo>()),
+          ),
+          BlocProvider(
+            create: (context) => CartCubit(),
+          ),
+        ],
         child: MaterialApp.router(
           localizationsDelegates: const [
             S.delegate,
@@ -43,7 +53,8 @@ class MainApp extends StatelessWidget {
             Locale('ar'),
           ],
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(fontFamily: "Cairo" , scaffoldBackgroundColor:  Appcolors.snow  ),
+          theme: ThemeData(
+              fontFamily: "Cairo", scaffoldBackgroundColor: Appcolors.snow),
           routerConfig: AppRouter.router,
         ),
       ),

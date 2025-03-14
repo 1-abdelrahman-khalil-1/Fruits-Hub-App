@@ -1,10 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../../../Core/utils/assets/fontasset.dart';
 class RoundedBoxHasListTitle extends StatelessWidget {
   const RoundedBoxHasListTitle({
     super.key,

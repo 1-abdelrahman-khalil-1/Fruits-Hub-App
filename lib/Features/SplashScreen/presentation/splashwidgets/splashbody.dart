@@ -1,16 +1,16 @@
-
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/services/authentication_service.dart';
-import 'package:fruitsapp/Core/services/get_it.dart';
-import 'package:fruitsapp/Core/services/services.dart';
-import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
-import 'package:fruitsapp/Core/services/sharedprefrence.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
-import 'package:fruitsapp/Features/Auth/Data/repo/authrepoimpl.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
+import '../../../../Core/services/authentication_service.dart';
+import '../../../../Core/services/get_it.dart';
+import '../../../../Core/services/services.dart';
+import '../../../../Core/services/sharedprefrence.dart';
+import '../../../../Core/utils/assets/picture_assets.dart';
+import '../../../../Core/utils/router/gorouter.dart';
+import '../../../../Features/Auth/Data/repo/authrepo.dart';
+import '../../../../Features/Auth/Data/repo/authrepoimpl.dart';
 class Splashbody extends StatefulWidget {
   const Splashbody({super.key});
 
@@ -27,7 +27,7 @@ class _SplashbodyState extends State<Splashbody> {
 
   void navigate() {
     if (LocalSharedprefrence.get(LocalSharedprefrence.onboardingkey) == true) {
-      AuthrepoImp LoginCheck =
+      Authrepo LoginCheck =
           AuthrepoImp(get_it<AuthenticationService>(), get_it<Services>());
       Future.delayed(const Duration(seconds: 4), () {
         if (mounted) {

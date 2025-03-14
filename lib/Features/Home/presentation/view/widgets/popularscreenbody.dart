@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit.dart';
-import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/widgets/header.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/popularproductstitle.dart';
-import 'package:fruitsapp/Core/utils/widgets/slivergridblocbuilder.dart';
 
+import '../../../../../../../Core/cubit/products_cubit.dart';
+import '../../../../../../../Core/utils/assets/appcolors.dart';
+import '../../../../../../../Core/utils/widgets/header.dart';
+import '../../../../../Core/utils/widgets/popularproductstitle.dart';
+import '../../../../../../../Core/utils/widgets/slivergridblocbuilder.dart';
 class Popularscreenbody extends StatefulWidget {
   const Popularscreenbody({super.key});
 

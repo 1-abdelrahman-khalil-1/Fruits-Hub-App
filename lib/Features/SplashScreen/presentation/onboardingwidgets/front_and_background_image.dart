@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/services/sharedprefrence.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
+import '../../../../Core/utils/assets/fontasset.dart';
+import '../../../../Core/services/sharedprefrence.dart';
+import '../../../../Core/utils/router/gorouter.dart';
 class FrontAndBackgroundImageandSkip extends StatelessWidget {
   const FrontAndBackgroundImageandSkip({
     super.key,
