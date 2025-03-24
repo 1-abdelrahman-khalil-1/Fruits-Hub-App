@@ -7,7 +7,7 @@ import '../../../../../../../Core/services/authentication_service.dart';
 import '../../../../../../../Core/services/get_it.dart';
 import '../../../../../../../Core/services/services.dart';
 import '../../../../../../../Core/services/sharedprefrence.dart';
-import '../../../../../../../Core/cubit/products_cubit.dart';
+import '../../../../../Core/cubit/Product Cubit/products_cubit.dart';
 import '../../../../Auth/Data/model/user_model.dart';
 import '../../../../Auth/Data/repo/authrepo.dart';
 import '../../../../Auth/Data/repo/authrepoimpl.dart';
@@ -42,6 +42,7 @@ class _HomebodyState extends State<Homebody> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: CustomScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           slivers: [
             SliverToBoxAdapter(
               child: Column(

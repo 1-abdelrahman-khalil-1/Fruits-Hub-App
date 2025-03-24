@@ -1,18 +1,20 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/generated/l10n.dart';
+import 'package:flutter/foundation.dart';
 
-import 'Core/cubit/products_cubit.dart';
+import 'Core/cubit/Product Cubit/products_cubit.dart';
 import 'Core/repo/productrepo.dart';
 import 'Core/services/get_it.dart';
 import 'Core/services/sharedprefrence.dart';
 import 'Core/services/supabase_storage.dart';
 import 'Core/utils/assets/appcolors.dart';
 import 'Core/utils/router/gorouter.dart';
-import 'Features/Cart/presentation/cubit/cart_cubit.dart';
+import 'Core/cubit/Cart Cubit/cart_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +23,14 @@ Future<void> main() async {
   await Firebase.initializeApp();
   await SupabaseStorage.init();
   get_itsetup();
-  runApp(const MainApp());
+  
+  runApp(
+    kReleaseMode
+      ? const MainApp()
+      : DevicePreview(
+          builder: (context) => const MainApp(),
+        ),
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -43,6 +52,8 @@ class MainApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp.router(
+          locale: DevicePreview.locale(context),
+          builder: DevicePreview.appBuilder,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

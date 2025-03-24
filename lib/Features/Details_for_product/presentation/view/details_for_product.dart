@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../Core/cubit/products_cubit.dart';
+import '../../../../Core/cubit/Product Cubit/products_cubit.dart';
 import 'widgets/details_for_product_body_bloc_builder.dart';
 class DetailsForProduct extends StatefulWidget {
   const DetailsForProduct({super.key, required this.productid});

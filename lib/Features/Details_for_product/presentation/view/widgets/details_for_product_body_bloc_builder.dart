@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../Core/cubit/products_cubit.dart';
-import '../../../../../../../Core/cubit/products_cubit_states.dart';
+import '../../../../../Core/cubit/Product Cubit/products_cubit.dart';
+import '../../../../../Core/cubit/Product Cubit/products_cubit_states.dart';
 import '../../../../../../../Core/helperFunctions/dummy.dart';
 import 'details_for_product_body.dart';
 import 'package:skeletonizer/skeletonizer.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import './/Core/cubit/products_cubit.dart';
+import '../../../../../Core/cubit/Product Cubit/products_cubit.dart';
 import './/Core/utils/assets/fontasset.dart';
 import './/Core/utils/router/gorouter.dart';
 import './/Core/utils/widgets/customtextbutton.dart';

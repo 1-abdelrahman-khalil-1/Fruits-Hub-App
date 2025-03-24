@@ -54,10 +54,11 @@ class CustomIcon extends StatelessWidget {
               ],
             ),
           )
-        : SizedBox(
-          width: 40.w,
-          height: 20.h,
-          child: SvgPicture.asset(image)));
+        : Container(
+          color: Colors.transparent,
+          width: 50.w,
+          height: 40.h,
+          child: SvgPicture.asset(image ,fit: BoxFit.scaleDown, )));
   }
 
   CustomIcon copyWith({bool? selected}) {

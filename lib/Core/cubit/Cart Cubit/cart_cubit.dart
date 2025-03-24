@@ -1,8 +1,8 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
-import './/Core/model/cartmodel.dart';
-import './/Core/model/productmodel.dart';
-import './/Features/Cart/presentation/cubit/cart_cubit_status.dart';
+import '../../model/cartmodel.dart';
+import '../../model/productmodel.dart';
+import 'cart_cubit_status.dart';
 
 class CartCubit extends Cubit<CartCubitStatus>{
   CartCubit() : super(InitialCartCubit());

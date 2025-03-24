@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:fruitsapp/Core/cubit/products_cubit.dart';
+import 'package:fruitsapp/Core/cubit/Product%20Cubit/products_cubit.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:go_router/go_router.dart';
 

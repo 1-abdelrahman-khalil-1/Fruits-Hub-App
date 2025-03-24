@@ -3,11 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Core/model/productmodel.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
-import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Core/utils/widgets/add_button.dart';
-import 'package:fruitsapp/Features/Cart/presentation/cubit/cart_cubit.dart';
-import 'package:fruitsapp/Features/Cart/presentation/cubit/cart_cubit_status.dart';
-import 'package:go_router/go_router.dart';
+import 'package:fruitsapp/Core/cubit/Cart%20Cubit/cart_cubit.dart';
+import 'package:fruitsapp/Core/cubit/Cart%20Cubit/cart_cubit_status.dart';
 
 class NameAndPriceAndAddtoCart extends StatelessWidget {
   const NameAndPriceAndAddtoCart({
@@ -50,6 +48,7 @@ class NameAndPriceAndAddtoCart extends StatelessWidget {
         ),
         trailing: AddButton(onpressed: () {
           context.read<CartCubit>().addProductToCart(product: product);
+          
         },productmodel: product),
       ),
     );

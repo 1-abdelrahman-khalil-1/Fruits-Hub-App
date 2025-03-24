@@ -11,6 +11,7 @@ final Productmodel product;
         count--;
       }
  }
+ int get totalprice => count * product.price;
 }
 
 class Cartmodel {
@@ -28,9 +29,9 @@ bool isItemExist(Productmodel product){
   if (!isItemExist(product)) {
      cartItems.add(CartItem(product));
    } else {
-     for (var item in cartItems) {
-       if (item.product == product) {
-         item.increaseCount();
+     for (var i = 0; i < cartItems.length; i++) {
+       if (cartItems[i].product.id == product.id) {
+         cartItems[i].increaseCount();
          break;
        }
      }
@@ -40,11 +41,18 @@ bool isItemExist(Productmodel product){
   cartItems.remove(item);
  }
 void updateCart(CartItem cartitem){
-   for (var item in cartItems) {
-       if (item.product == cartitem.product) {
-         item = cartitem;
-         break;
-       }
-     }
+  for (var i = 0; i < cartItems.length; i++) {
+    if (cartItems[i].product.id == cartitem.product.id) {
+      cartItems[i].count += cartitem.count-1;
+      break;
+    }
+  }
 }
+int get totalprice{
+  int total = 0;
+   for (var item in cartItems) {
+     total += item.totalprice;
+   }
+   return total;
+ }
 }

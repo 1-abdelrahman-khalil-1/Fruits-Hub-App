@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import './/Core/model/cartmodel.dart';
+
+import '../../model/cartmodel.dart';
 
 abstract class CartCubitStatus extends Equatable {
   @override
@@ -8,7 +9,8 @@ abstract class CartCubitStatus extends Equatable {
 class InitialCartCubit extends CartCubitStatus {}
 class CartCubitAdded extends CartCubitStatus {
   final List<CartItem> products ;
-
+@override
+  List<Object> get props => [products];
   CartCubitAdded({required this.products});
 
 }
