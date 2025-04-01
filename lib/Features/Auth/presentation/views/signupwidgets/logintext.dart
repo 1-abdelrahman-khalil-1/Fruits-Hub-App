@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
+import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:go_router/go_router.dart';
 
 class Logintext extends StatelessWidget {

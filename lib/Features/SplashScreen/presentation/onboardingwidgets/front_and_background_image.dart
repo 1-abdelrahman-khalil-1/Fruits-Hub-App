@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 
-import '../../../../Core/utils/assets/fontasset.dart';
+import '../../../../Core/utils/assets/apptextstyles.dart';
 import '../../../../Core/services/sharedprefrence.dart';
 import '../../../../Core/utils/router/gorouter.dart';
 class FrontAndBackgroundImageandSkip extends StatelessWidget {

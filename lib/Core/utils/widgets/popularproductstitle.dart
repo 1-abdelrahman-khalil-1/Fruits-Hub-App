@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../Core/utils/assets/appcolors.dart';
-import '../../../../../Core/utils/assets/fontasset.dart';
+import '../assets/apptextstyles.dart';
 import '../../../../../Core/utils/router/gorouter.dart';
 class Popularproductstitle extends StatelessWidget {
   const Popularproductstitle({super.key, required this.showmore, required this.title});

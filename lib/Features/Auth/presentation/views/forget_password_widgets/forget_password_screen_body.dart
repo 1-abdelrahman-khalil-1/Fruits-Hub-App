@@ -2,11 +2,11 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/helperFunctions/bar.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
+import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
-import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
-import 'package:fruitsapp/Core/utils/widgets/header.dart';
+import 'package:fruitsapp/Core/utils/widgets/customtextfield.dart';
+import 'package:fruitsapp/Core/utils/widgets/headerbar.dart';
 import 'package:go_router/go_router.dart';
 
 class ForgetPasswordScreenBody extends StatefulWidget {
@@ -69,7 +69,7 @@ class _ForgetPasswordScreenBodyState extends State<ForgetPasswordScreenBody> {
                     context.go(AppRouter.verify_otp_screen);
                   } else {
                     bar(context,
-                        error_message: "يرجي إدخال بريد الإلكتروني كامل");
+                        message: "يرجي إدخال بريد الإلكتروني كامل");
                     setState(() {
                       _autovalidateMode = AutovalidateMode.always;
                     });

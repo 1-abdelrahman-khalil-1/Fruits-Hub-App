@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import './/Core/utils/assets/appcolors.dart';
-import './/Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/apptextstyles.dart';
 import './/Core/model/productmodel.dart';
 import './/Core/utils/router/gorouter.dart';
 import 'package:go_router/go_router.dart';

@@ -10,9 +10,12 @@ import 'package:fruitsapp/Features/Details_for_product/presentation/view/details
 import 'package:fruitsapp/Features/Home/presentation/view/homescreen.dart';
 import 'package:fruitsapp/Core/utils/screens/popularscreen.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/splashscreen.dart';
 import 'package:flutter/material.dart';
+import 'package:fruitsapp/Features/SplashScreen/presentation/splashscreen.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../Features/Checkout Screen/presentation/view/checkout_screen.dart';
+import '../../model/cartmodel.dart';
 
 abstract class AppRouter{
   // Track current route for transition direction
@@ -30,6 +33,7 @@ abstract class AppRouter{
   static const String forgetPasswordScreen = '/forget_password_screen';
   static const String verify_otp_screen = '/verify_otp_screen';
   static const String update_password_screen = '/update_password_screen';
+  static const String checkout_screen = '/checkout_screen';
   
   static GoRouter router = GoRouter(
     routes: [
@@ -135,7 +139,9 @@ abstract class AppRouter{
    GoRoute(path: forgetPasswordScreen , builder: (context, state) =>  const ForgetPasswordScreen()),
    GoRoute(path: verify_otp_screen , builder: (context, state) =>  const VerifyOtpScreen()),
    GoRoute(path: update_password_screen , builder: (context, state) =>  const UpdatePasswordScreen()),
-  ]
+   GoRoute(path: checkout_screen , builder: (context, state) =>  CheckoutScreen(cartmodel: state.extra as Cartmodel,)),
+      ],
+    
   );
 }
 

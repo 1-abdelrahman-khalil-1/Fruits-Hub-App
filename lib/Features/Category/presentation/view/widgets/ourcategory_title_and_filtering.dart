@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import './/Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/apptextstyles.dart';
 import './/Core/utils/assets/picture_assets.dart';
 import './/Features/Category/presentation/view/widgets/choices_on_bottom_sheet.dart';
 import 'package:svg_flutter/svg.dart';

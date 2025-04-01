@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../cubit/Product Cubit/products_cubit.dart';
 import '../../../../../Core/utils/assets/appcolors.dart';
-import '../../../../../Core/utils/widgets/header.dart';
+import 'headerbar.dart';
 import 'popularproductstitle.dart';
 import '../../../../../Core/utils/widgets/slivergridblocbuilder.dart';
 class Popularscreenbody extends StatefulWidget {

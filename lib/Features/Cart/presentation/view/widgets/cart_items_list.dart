@@ -18,19 +18,28 @@ class CartItemsList extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-          child: ListView.builder(
+          child: ListView.separated(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              return ProductItemInCart(
-                cartItem: cartItems.cartItems[index],
-                onTap: () {
-                  context.read<CartCubit>().removeProductFromCart(product: cartItems.cartItems[index]);
-                  context.read<CartItemCubit>().updateCartItem();
-                },
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: ProductItemInCart(
+                  cartItem: cartItems.cartItems[index],
+                  onTap: () {
+                    context.read<CartCubit>().removeProductFromCart(product: cartItems.cartItems[index]);
+                    context.read<CartItemCubit>().updateCartItem();
+                  },
+                ),
               );
             },
-            itemCount: cartItems.cartItems.length,
+            itemCount: cartItems.cartItems.length, separatorBuilder: (BuildContext context, int index) { 
+              return const Divider(
+                color: Colors.grey,
+                height: 1,
+                thickness: 0.1
+              );
+            },
           ),
         );
       },

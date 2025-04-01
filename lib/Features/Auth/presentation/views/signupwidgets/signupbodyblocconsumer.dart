@@ -22,9 +22,9 @@ class SignupBodyBlocConsumer extends StatelessWidget {
           Navigator.pop(context); //to exit the loading dialog
         }
         if (state is SignupCubitFailure) {
-          bar(context, error_message: state.message);
+          bar(context, message: state.message);
         } else if (state is SignupCubitSuccess) {
-          bar(context, error_message: "تم إنشاء حساب جديد بنجاح");
+          bar(context, message: "تم إنشاء حساب جديد بنجاح");
            Future.delayed(const Duration(seconds: 1) , (){
            context.pop();
 

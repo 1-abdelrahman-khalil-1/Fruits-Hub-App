@@ -1,11 +1,8 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/generated/l10n.dart';
-import 'package:flutter/foundation.dart';
 
 import 'Core/cubit/Product Cubit/products_cubit.dart';
 import 'Core/repo/productrepo.dart';
@@ -20,17 +17,10 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await LocalSharedprefrence.init();
-  await Firebase.initializeApp();
   await SupabaseStorage.init();
   get_itsetup();
   
-  runApp(
-    kReleaseMode
-      ? const MainApp()
-      : DevicePreview(
-          builder: (context) => const MainApp(),
-        ),
-  );
+  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -43,7 +33,7 @@ class MainApp extends StatelessWidget {
       minTextAdapt: true,
       ensureScreenSize: true,
       child: MultiBlocProvider(
-        providers: [
+        providers: [ 
           BlocProvider(
             create: (context) => ProductsCubit(get_it<Productrepo>()),
           ),
@@ -52,8 +42,8 @@ class MainApp extends StatelessWidget {
           ),
         ],
         child: MaterialApp.router(
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
+        //  locale: DevicePreview.locale(context),
+        //  builder: DevicePreview.appBuilder,
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

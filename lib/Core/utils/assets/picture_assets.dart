@@ -38,6 +38,8 @@ class PictureAssets {
 
   static const String assetsImagesIconsCategoryIcon = "assets/images/Icons/category_icon.svg";
 
+  static const String assetsImagesIconsEditIcon = "assets/images/Icons/edit_icon.png";
+
   static const String assetsImagesIconsFavouriteIcon = "assets/images/Icons/favourite_icon.svg";
 
   static const String assetsImagesIconsHomeIcon = "assets/images/Icons/home_icon.svg";

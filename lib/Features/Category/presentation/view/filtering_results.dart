@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../../../../Core/utils/widgets/header.dart';
+import '../../../../Core/utils/widgets/headerbar.dart';
 import '../../../../../../../Core/utils/widgets/mybottom_navigation_bar.dart';
 import '../../../../../../../Core/utils/widgets/slivergridblocbuilder.dart';
 import '../../../../Core/utils/widgets/popularproductstitle.dart';

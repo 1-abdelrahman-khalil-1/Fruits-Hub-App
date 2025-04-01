@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg_provider/flutter_svg_provider.dart' as image;
 
 import '../../../../../../../Core/utils/assets/appcolors.dart';
-import '../../../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/apptextstyles.dart';
 import '../../../../../../../Core/utils/assets/picture_assets.dart';
 class ProductOffers extends StatelessWidget {
   const ProductOffers({

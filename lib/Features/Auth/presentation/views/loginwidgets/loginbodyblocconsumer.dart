@@ -28,9 +28,9 @@ class _LoginBodyBLocConsumerState extends State<LoginBodyBLocConsumer> {
           Navigator.pop(context);
         }
         if (state is LoginCubitFailure) {
-          bar(context, error_message: state.message);
+          bar(context, message: state.message);
         } else if (state is LoginCubitSuccess) {
-          bar(context, error_message: state.message);
+          bar(context, message: state.message);
           Future.delayed(const Duration(seconds: 1) , (){
            context.go(AppRouter.home);
           });  

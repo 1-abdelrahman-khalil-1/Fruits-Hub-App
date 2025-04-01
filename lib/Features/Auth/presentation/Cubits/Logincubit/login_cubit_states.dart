@@ -1,4 +1,4 @@
-import 'package:fruitsapp/Features/Auth/Data/model/user_model.dart';
+import '../../../Data/model/user_model.dart';
 
 abstract class LoginCubitStates {}
 class LoginCubitInitial extends LoginCubitStates {}

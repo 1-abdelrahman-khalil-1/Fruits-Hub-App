@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../Core/model/productmodel.dart';
 import '../../../../../../../Core/utils/assets/appcolors.dart';
-import '../../../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/apptextstyles.dart';
 import '../../../../../../../Core/utils/widgets/add_button.dart';
 import '../../../../../../../Core/utils/widgets/remove_button.dart';
 

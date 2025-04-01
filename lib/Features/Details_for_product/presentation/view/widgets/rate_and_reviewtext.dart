@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../../Core/utils/assets/appcolors.dart';
-import '../../../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/apptextstyles.dart';
 class RateAndReviewtext extends StatelessWidget {
   const RateAndReviewtext({super.key});
 

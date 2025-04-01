@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/utils/router/gorouter.dart';
+import 'package:go_router/go_router.dart';
 import '../../../../../Core/model/cartmodel.dart';
 import '../../../../../Core/utils/widgets/customtextbutton.dart';
 
@@ -18,7 +20,9 @@ class CheckoutButton extends StatelessWidget {
       heightFactor: 13.h,
       child: CustomTextButton(
         text: "الدفع  ${cartItems.totalprice} جنيه",
-        onpressed: () {},
+        onpressed: () {
+          context.push(AppRouter.checkout_screen, extra: cartItems);
+        },
       ),
     );
   }

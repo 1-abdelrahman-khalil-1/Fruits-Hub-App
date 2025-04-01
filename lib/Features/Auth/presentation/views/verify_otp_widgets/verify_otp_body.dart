@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/helperFunctions/bar.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
+import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
-import 'package:fruitsapp/Core/utils/widgets/header.dart';
+import 'package:fruitsapp/Core/utils/widgets/headerbar.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/verify_otp_widgets/otp_field_widget.dart';
 import 'package:go_router/go_router.dart';
 
@@ -82,7 +82,7 @@ class _VerifyOtpBodyState extends State<VerifyOtpBody> {
       context.go(AppRouter.update_password_screen);
     } else {
      setState(() {
-       bar(context, error_message: "Incorrect Code PIN");
+       bar(context, message: "Incorrect Code PIN");
        _autovalidateMode = AutovalidateMode.always;
      });
     }

@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../../../Core/utils/assets/appcolors.dart';
-import '../../../../../../../Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/apptextstyles.dart';
 import '../../../../../../../Core/utils/assets/picture_assets.dart';
 class CustomHomeAppbar extends StatelessWidget {
   const CustomHomeAppbar({super.key, required this.title});

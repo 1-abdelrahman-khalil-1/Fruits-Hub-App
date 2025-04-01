@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Core/model/productmodel.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
-import 'package:fruitsapp/Core/utils/assets/fontasset.dart';
+import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Core/utils/widgets/add_button.dart';
 import 'package:fruitsapp/Core/cubit/Cart%20Cubit/cart_cubit.dart';
 import 'package:fruitsapp/Core/cubit/Cart%20Cubit/cart_cubit_status.dart';

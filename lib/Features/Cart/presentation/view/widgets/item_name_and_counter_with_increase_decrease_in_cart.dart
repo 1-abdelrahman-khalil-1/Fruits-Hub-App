@@ -5,7 +5,7 @@ import 'package:fruitsapp/Features/Cart/presentation/cubit/Cart_Item%20Cubit/car
 import '../../../../../Core/cubit/Cart Cubit/cart_cubit.dart';
 import './/Core/model/cartmodel.dart';
 import './/Core/utils/assets/appcolors.dart';
-import './/Core/utils/assets/fontasset.dart';
+import '../../../../../Core/utils/assets/apptextstyles.dart';
 import './/Core/utils/widgets/add_button.dart';
 import './/Core/utils/widgets/remove_button.dart';
 
@@ -46,6 +46,7 @@ class ItemNameAndCounterWithIncreaseDecreaseInCart extends StatelessWidget {
                 context.read<CartItemCubit>().updateCartItem();
               },
               productmodel: cartItem.product,
+              showmessage: false,
             ),
             SizedBox(
               width: 16.w,
@@ -60,13 +61,14 @@ class ItemNameAndCounterWithIncreaseDecreaseInCart extends StatelessWidget {
             RemoveButton(
               onpressed: () {
                 cartItem.decreaseCount();
-
+            
                 if (cartItem.count == 0) {
                   context.read<CartCubit>().removeProductFromCart(product: cartItem);
                 }
                 context.read<CartItemCubit>().updateCartItem();
               },
             ),
+        
           ],
         )
       ],

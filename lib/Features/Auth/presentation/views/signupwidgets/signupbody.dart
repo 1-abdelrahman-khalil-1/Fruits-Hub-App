@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/helperFunctions/bar.dart';
 import 'package:fruitsapp/Core/helperFunctions/isWeakPassword.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
-import 'package:fruitsapp/Core/utils/widgets/customtextform.dart';
-import 'package:fruitsapp/Core/utils/widgets/header.dart';
+import 'package:fruitsapp/Core/utils/widgets/customtextfield.dart';
+import 'package:fruitsapp/Core/utils/widgets/headerbar.dart';
 import 'package:fruitsapp/Features/Auth/presentation/Cubits/Signupcubit/signup_cubit.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/logintext.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/signupwidgets/termscheckbox.dart';
@@ -114,10 +114,10 @@ class _SignupbodyState extends State<Signupbody> {
     if (formkey.currentState!.validate()) {
       formkey.currentState!.save();
       if (termaccepted == false) {
-        bar(context, error_message: "يرجى الموافقة على الشروط والأحكام");
+        bar(context, message: "يرجى الموافقة على الشروط والأحكام");
       } else if (isWeakPassword(password)) {
         bar(context,
-            error_message: " 🔑 كلمة المرور ضعيفة، يرجى اختيار كلمة أقوى. يجب أن تحتوي على حرف و رقم وأن لا يقل عن 8 أحرف");
+            message: " 🔑 كلمة المرور ضعيفة، يرجى اختيار كلمة أقوى. يجب أن تحتوي على حرف و رقم وأن لا يقل عن 8 أحرف");
       } else {
         context.read<SignupCubit>().signup(name, email, password);
       }
