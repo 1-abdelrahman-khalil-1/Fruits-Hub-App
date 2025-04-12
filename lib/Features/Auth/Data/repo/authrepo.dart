@@ -11,4 +11,5 @@ abstract class Authrepo {
    Future<UserModel> getUserData({required String collectionname,required String uid});
    Future<void> saveUserData({required UserModel userModel});
    UserModel getCurrentUser({required String key});
+   Future<void> updateUserData({required String collectionname, required String uid, required Map<String, dynamic> data});
   }

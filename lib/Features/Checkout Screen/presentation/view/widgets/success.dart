@@ -6,7 +6,6 @@ import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
-import 'package:fruitsapp/Features/Checkout%20Screen/presentation/view/widgets/appbar_name_checkout.dart';
 import 'package:go_router/go_router.dart';
 import 'package:svg_flutter/svg.dart';
 

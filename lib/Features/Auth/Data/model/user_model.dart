@@ -3,7 +3,7 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class UserModel {
-  final String name, email, uid;
+   String name, email, uid;
 
   UserModel({required this.name, required this.email, required this.uid});
 

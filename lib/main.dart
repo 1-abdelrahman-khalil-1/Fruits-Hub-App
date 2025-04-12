@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,7 +10,6 @@ import 'Core/repo/productrepo.dart';
 import 'Core/services/get_it.dart';
 import 'Core/services/sharedprefrence.dart';
 import 'Core/services/supabase_storage.dart';
-import 'Core/utils/assets/appcolors.dart';
 import 'Core/utils/router/gorouter.dart';
 import 'Core/cubit/Cart Cubit/cart_cubit.dart';
 import 'package:fruitsapp/Core/cubit/ThemeCubit/theme_cubit.dart';
@@ -21,7 +21,12 @@ Future<void> main() async {
   await SupabaseStorage.init();
   get_itsetup();
   
-  runApp(const MainApp());
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) => const MainApp(),
+    ),
+  );
 }
 
 class MainApp extends StatelessWidget {

@@ -99,5 +99,11 @@ class AuthrepoImp implements Authrepo {
     Map<String, dynamic> map = LocalSharedprefrence.getCurrentUserinMap(key);
     return UserModel.FromJson(map);
   }
+  
+  @override
+  Future<void> updateUserData({required String collectionname, required String uid, required Map<String, dynamic> data}) async {
+    await service.updateUserData(collectionname: collectionname, uid: uid, data: data);  
+    saveUserData(userModel: UserModel.FromJson(data));
+  }
 
 }

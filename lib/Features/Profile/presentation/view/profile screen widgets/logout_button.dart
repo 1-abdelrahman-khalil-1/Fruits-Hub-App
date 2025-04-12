@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';

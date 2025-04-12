@@ -31,6 +31,11 @@ class _CustomTextfieldWithEditState extends State<CustomTextfieldWithEdit> {
     return TextFormField(
         controller: widget.controller,
         onSaved: widget.onSaved,
+        onFieldSubmitted: (value) {
+          setState(() {
+            isReadOnly = true;
+          });
+        },
         validator: widget.validator,
         textDirection: TextDirection.rtl,
         keyboardType: widget.textInputType,
@@ -45,18 +50,25 @@ class _CustomTextfieldWithEditState extends State<CustomTextfieldWithEdit> {
           suffixIcon: Padding(
             padding: const EdgeInsets.all(13.0),
             child: InkWell(
+              radius: 50.r,
               onTap: () => setState(() {
-                isReadOnly = !isReadOnly; // Toggle read-only mode
+                isReadOnly = false; 
               
                 if (!isReadOnly) {
-                  FocusScope.of(context).focusedChild; // Focus the text field
+                  FocusScope.of(context).requestFocus(); // Focus the text field
                 }else {
                   FocusScope.of(context).unfocus(); // Unfocus the text field
                 }
               }),
-              child: SvgPicture.asset(
-                PictureAssets.assetsImagesIconsEditIcon,
-              
+              child: Container(
+                width: 30.w,
+                height: 30.h,
+                color: Colors.transparent,
+                child: SvgPicture.asset(
+                  PictureAssets.assetsImagesIconsEditIcon,
+                  fit: BoxFit.none,
+                  
+                ),
               ),
             ),
           ),

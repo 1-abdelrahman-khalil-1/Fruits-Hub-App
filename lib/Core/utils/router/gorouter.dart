@@ -13,7 +13,6 @@ import 'package:fruitsapp/Features/Profile/presentation/view/profile_screen.dart
 import 'package:fruitsapp/Features/Profile/presentation/view/profile_info.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';
 import 'package:flutter/material.dart';
-import 'package:fruitsapp/Features/SplashScreen/presentation/splashscreen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../Features/Checkout Screen/presentation/view/checkout_screen.dart';
@@ -40,7 +39,7 @@ abstract class AppRouter{
   static const String profile_info = '/profile_info';
   static GoRouter router = GoRouter(
     routes: [
-   GoRoute(path: '/', builder: (context, state) => const ProfileInfo()),
+   GoRoute(path: '/', builder: (context, state) => const LoginScreen()),
    GoRoute(path: onboarding, builder: (context, state) => const OnboardingScreen()),
    GoRoute(path: login, builder: (context, state) => const LoginScreen()),
    GoRoute(path: signup , builder: (context, state) => const SignupScreen()),

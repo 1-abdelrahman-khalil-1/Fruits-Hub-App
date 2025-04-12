@@ -14,4 +14,9 @@ class SupabaseStoreService implements Services {
         await _supabase.from(collectionname).select().eq('id', uid).single();
     return response;
   }
+  
+  @override
+  Future<void> updateUserData({required String collectionname, required String uid, required Map<String, dynamic> data}) {
+    return _supabase.from(collectionname).update(data).eq('id', uid);
+  }
 }
