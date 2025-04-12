@@ -20,11 +20,12 @@ class _MybottomNavigationBarState extends State<MybottomNavigationBar> {
   @override
   
   Widget build(BuildContext context) {
+    bool isDarkMode = Theme.of(context).brightness == Brightness.dark;
     return Container(
           width: 375.w,
           height: 70.h,
           decoration: ShapeDecoration(
-            color: Colors.white,
+            color: isDarkMode ? const Color(0x00171717) : const Color(0xFFFFFFFF),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(30.r),

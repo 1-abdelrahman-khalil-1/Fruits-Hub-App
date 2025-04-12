@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/Features/Checkout%20Screen/data/model/shipping_address_model.dart';
 import 'package:fruitsapp/Features/Checkout%20Screen/presentation/view/widgets/address_body.dart';
+import 'package:fruitsapp/Features/Checkout%20Screen/presentation/view/widgets/success.dart';
 import 'package:go_router/go_router.dart';
 import 'shipping_body.dart';
 import 'review_checkout_body.dart';
@@ -59,6 +60,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
           ShippingBody(onPressed: ()=> goToPreviousPage(), onbuttonpressed: () => goToNextPage() ),
           AddressBody(onPressed: () => goToPreviousPage(), onbuttonpressed: () => goToNextPage()),
           ReviewCheckoutBody(onPressed: () => goToPreviousPage(), onbuttonpressed: () => goToNextPage() ),
+          const Success()
         ],
       ),
     );

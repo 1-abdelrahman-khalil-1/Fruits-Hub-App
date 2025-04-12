@@ -20,6 +20,6 @@ class CustomNavigationitems {
     const CustomIcon(
         boldImage: PictureAssets.assetsImagesBoldIconsUserprofileBoldIcon,
         image: PictureAssets.assetsImagesIconsUserprofileIcon,
-        title: "حسابي" ,approuter: AppRouter.home,),
+        title: "حسابي" ,approuter: AppRouter.profile,),
   ];
 }

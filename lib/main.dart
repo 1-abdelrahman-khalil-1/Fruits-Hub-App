@@ -12,6 +12,7 @@ import 'Core/services/supabase_storage.dart';
 import 'Core/utils/assets/appcolors.dart';
 import 'Core/utils/router/gorouter.dart';
 import 'Core/cubit/Cart Cubit/cart_cubit.dart';
+import 'package:fruitsapp/Core/cubit/ThemeCubit/theme_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -40,23 +41,27 @@ class MainApp extends StatelessWidget {
           BlocProvider(
             create: (context) => CartCubit(),
           ),
+          BlocProvider(
+            create: (context) => ThemeCubit(),
+          ),
         ],
-        child: MaterialApp.router(
-        //  locale: DevicePreview.locale(context),
-        //  builder: DevicePreview.appBuilder,
-          localizationsDelegates: const [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: const [
-            Locale('ar'),
-          ],
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-              fontFamily: "Cairo", scaffoldBackgroundColor: Appcolors.snow),
-          routerConfig: AppRouter.router,
+        child: BlocBuilder<ThemeCubit, ThemeData>(
+          builder: (context, theme) {
+            return MaterialApp.router(
+              localizationsDelegates: const [
+                S.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [
+                Locale('ar'),
+              ],
+              debugShowCheckedModeBanner: false,
+              theme: theme,
+              routerConfig: AppRouter.router,
+            );
+          },
         ),
       ),
     );

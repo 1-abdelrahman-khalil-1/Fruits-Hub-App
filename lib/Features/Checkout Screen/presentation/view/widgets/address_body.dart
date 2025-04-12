@@ -146,24 +146,28 @@ class _AddressBodyState extends State<AddressBody> with AutomaticKeepAliveClient
             text: "التالي",
             onpressed: () {
                 widget.onbuttonpressed();
-
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                context.read<OrderModel>().shippingAddress = shippingAddressModel;
-                FocusScope.of(context).unfocus();
-                widget.onbuttonpressed();
-              }
-              else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {
-                  
-                });
-              }
+              _validation(context);
+              FocusScope.of(context).unfocus();
             },
           ),
         ],
       ),
     );
+  }
+
+  void _validation(BuildContext context) {
+     if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      context.read<OrderModel>().shippingAddress = shippingAddressModel;
+                 
+      widget.onbuttonpressed();
+    }
+    else {
+      autovalidateMode = AutovalidateMode.always;
+      setState(() {
+        
+      });   
+    }
   }
   
   @override

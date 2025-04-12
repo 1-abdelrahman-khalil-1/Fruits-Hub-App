@@ -18,11 +18,14 @@ class CheckoutButton extends StatelessWidget {
     return Align(
       alignment: Alignment.bottomCenter,
       heightFactor: 13.h,
-      child: CustomTextButton(
-        text: "الدفع  ${cartItems.totalprice} جنيه",
-        onpressed: () {
-          context.push(AppRouter.checkout_screen, extra: cartItems);
-        },
+      child: Opacity(
+        opacity: cartItems.totalprice == 0 ? 0 : 1,
+        child: CustomTextButton(
+          text: "الدفع  ${cartItems.totalprice} جنيه",
+          onpressed: () {
+            context.push(AppRouter.checkout_screen, extra: cartItems);
+          },
+        ),
       ),
     );
   }

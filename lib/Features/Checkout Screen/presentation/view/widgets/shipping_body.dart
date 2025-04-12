@@ -34,7 +34,7 @@ class _ShippingBodyState extends State<ShippingBody> with AutomaticKeepAliveClie
         SizedBox(height: 40.h),
         PaymentOption(
           title: "الدفع عند الاستلام",
-          trailingText: "${totalprice+40} جنيه" ,
+          trailingText: "${totalprice+10} جنيه" ,
           isSelected: selectedOption == "not paypal",
           onTap: () => selectOption("not paypal"),
         ),

@@ -9,6 +9,8 @@ import 'package:fruitsapp/Features/Category/presentation/view/filtering_results.
 import 'package:fruitsapp/Features/Details_for_product/presentation/view/details_for_product.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/homescreen.dart';
 import 'package:fruitsapp/Core/utils/screens/popularscreen.dart';
+import 'package:fruitsapp/Features/Profile/presentation/view/profile_screen.dart';
+import 'package:fruitsapp/Features/Profile/presentation/view/profile_info.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/splashscreen.dart';
@@ -34,10 +36,11 @@ abstract class AppRouter{
   static const String verify_otp_screen = '/verify_otp_screen';
   static const String update_password_screen = '/update_password_screen';
   static const String checkout_screen = '/checkout_screen';
-  
+  static const String profile = '/profile';
+  static const String profile_info = '/profile_info';
   static GoRouter router = GoRouter(
     routes: [
-   GoRoute(path: '/', builder: (context, state) => const Splashscreen()),
+   GoRoute(path: '/', builder: (context, state) => const ProfileInfo()),
    GoRoute(path: onboarding, builder: (context, state) => const OnboardingScreen()),
    GoRoute(path: login, builder: (context, state) => const LoginScreen()),
    GoRoute(path: signup , builder: (context, state) => const SignupScreen()),
@@ -53,11 +56,8 @@ abstract class AppRouter{
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           Offset begin;
           // If coming from category or cart, slide from left
-          if (previousRoute == category || previousRoute == cart) {
             begin = const Offset(-1.0, 0.0);
-          } else {
-            begin = const Offset(1.0, 0.0);
-          }
+          
           const end = Offset.zero;
           const curve = Curves.ease;
 
@@ -140,6 +140,33 @@ abstract class AppRouter{
    GoRoute(path: verify_otp_screen , builder: (context, state) =>  const VerifyOtpScreen()),
    GoRoute(path: update_password_screen , builder: (context, state) =>  const UpdatePasswordScreen()),
    GoRoute(path: checkout_screen , builder: (context, state) =>  CheckoutScreen(cartmodel: state.extra as Cartmodel,)),
+   GoRoute(
+        path: profile,
+        pageBuilder: (context, state) {
+          final String previousRoute = _currentRoute;
+          _currentRoute = profile;
+
+          return CustomTransitionPage(
+            key: state.pageKey,
+            child: const ProfileScreen(),
+            transitionsBuilder:
+                (context, animation, secondaryAnimation, child) {
+              Offset begin;
+              // If coming from category or home, slide from right
+                begin = const Offset(1.0, 0.0);
+              const end = Offset.zero;
+              const curve = Curves.ease;
+
+              var tween =
+                  Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+              var offsetAnimation = animation.drive(tween);
+
+              return SlideTransition(position: offsetAnimation, child: child);
+            },
+          );
+        },
+      ),
+      GoRoute(path: profile_info , builder: (context, state) =>  const ProfileInfo()),
       ],
     
   );

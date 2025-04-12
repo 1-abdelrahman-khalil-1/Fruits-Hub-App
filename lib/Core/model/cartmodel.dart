@@ -55,4 +55,7 @@ int get totalprice{
    }
    return total;
  }
+void clearCart(){
+  cartItems.clear();
+}
 }

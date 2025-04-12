@@ -36,6 +36,8 @@ class PictureAssets {
 
   static const String assetsImagesIconsArrowSwapIcon = "assets/images/Icons/arrow-swap_icon.svg";
 
+  static const String assetsImagesIconsBoxIcon = "assets/images/Icons/box_icon.svg";
+
   static const String assetsImagesIconsCategoryIcon = "assets/images/Icons/category_icon.svg";
 
   static const String assetsImagesIconsEditIcon = "assets/images/Icons/edit_icon.png";
@@ -43,6 +45,12 @@ class PictureAssets {
   static const String assetsImagesIconsFavouriteIcon = "assets/images/Icons/favourite_icon.svg";
 
   static const String assetsImagesIconsHomeIcon = "assets/images/Icons/home_icon.svg";
+
+  static const String assetsImagesIconsInfoCircleIcon = "assets/images/Icons/info-circle_icon.svg";
+
+  static const String assetsImagesIconsLogoutIcon = "assets/images/Icons/logout_icon.svg";
+
+  static const String assetsImagesIconsMagicpenIcon = "assets/images/Icons/magicpen_icon.svg";
 
   static const String assetsImagesIconsNotificationicon = "assets/images/Icons/notificationicon.svg";
 

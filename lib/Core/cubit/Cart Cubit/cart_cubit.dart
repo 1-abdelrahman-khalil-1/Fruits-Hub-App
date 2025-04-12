@@ -10,7 +10,6 @@ class CartCubit extends Cubit<CartCubitStatus>{
 var  cartProducts =  Cartmodel(cartItems: []);
   void addProductToCart({required Productmodel product}) {
     cartProducts.addItem(product);
-    print(cartProducts.cartItems);
     emit(CartCubitAdded(products: cartProducts.cartItems));
   }
   void removeProductFromCart({required CartItem product}) {
@@ -19,6 +18,10 @@ var  cartProducts =  Cartmodel(cartItems: []);
   }
 void updateProductInCart({required CartItem product}) {
     cartProducts.updateCart(product);
+    emit(CartCubitAdded(products: cartProducts.cartItems));
+  }
+  void clearCart() {
+    cartProducts.clearCart();
     emit(CartCubitAdded(products: cartProducts.cartItems));
   }
 
