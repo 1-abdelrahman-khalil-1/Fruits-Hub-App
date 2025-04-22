@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Features/Profile/presentation/view/profile%20info%20widgets/custom_textfield_with_edit.dart';
+import 'package:fruitsapp/backend_keys.dart';
 
 import '../../../../../Core/services/authentication_service.dart';
 import '../../../../../Core/services/get_it.dart';
@@ -137,7 +138,7 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
                 
                   if (_formKey.currentState!.validate()) {
                       _formKey.currentState!.save();
-                     loca.updateUserData(collectionname: "users", uid: user!.uid, data: user!.toMap());
+                     loca.updateUserData(collectionname: BackendKeys.userCollectionKey, uid: user!.uid, data: user!.toMap());
                        } else {
                     // Handle validation errors if needed
                   }

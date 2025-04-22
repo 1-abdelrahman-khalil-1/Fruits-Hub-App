@@ -26,7 +26,7 @@ class ProductrepoImp implements Productrepo {
     try {
       final response = await storage.fetchProduct(
           productid: productid, collectionname: collectionname);
-      Productmodel product = Productmodel.FromJson(response);
+      Productmodel product = Productmodel.FromJson(response!);
       return Right(product);
     } on Customexception catch (e) {
       return Left(e.message);

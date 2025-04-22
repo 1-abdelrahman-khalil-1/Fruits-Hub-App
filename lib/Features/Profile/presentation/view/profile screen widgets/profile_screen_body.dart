@@ -86,10 +86,11 @@ class ProfileScreenBody extends StatelessWidget {
               image: PictureAssets.assetsImagesIconsBoxIcon,
               child: Icon(Icons.arrow_forward_ios, size: 16),
             ),
-            const BuildProfileOption(
+            BuildProfileOption(
               title: "المفضلة",
               image: PictureAssets.assetsImagesIconsFavouriteIcon,
-              child: Icon(Icons.arrow_forward_ios, size: 16),
+              child: const Icon(Icons.arrow_forward_ios, size: 16),
+              onTap: () => context.push(AppRouter.favourite),
             ),
             const BuildProfileOption(
               title: "الاشعارات",

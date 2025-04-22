@@ -1,28 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'widgets/details_for_product_body.dart';
 
-import '../../../../Core/cubit/Product Cubit/products_cubit.dart';
-import 'widgets/details_for_product_body_bloc_builder.dart';
-class DetailsForProduct extends StatefulWidget {
-  const DetailsForProduct({super.key, required this.productid});
- final int productid;
+import '../../../../Core/model/productmodel.dart';
 
-  @override
-  State<DetailsForProduct> createState() => _DetailsForProductState();
-}
+class DetailsForProduct extends StatelessWidget {
+  final Productmodel product;
 
-class _DetailsForProductState extends State<DetailsForProduct> {
+  const DetailsForProduct({super.key, required this.product});
 
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    context.read<ProductsCubit>().fetchProductData(productID: widget.productid);
-  }
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: Scaffold(
-      body: DetailsForProductBodyBlocBuilder(),
-    ));
+    return SafeArea(
+      child: Scaffold(                                              
+        body: DetailsForProductBody(product: product), // Use the refactored widget
+      ),
+    );
   }
 }

@@ -14,13 +14,16 @@ import 'Core/utils/router/gorouter.dart';
 import 'Core/cubit/Cart Cubit/cart_cubit.dart';
 import 'package:fruitsapp/Core/cubit/ThemeCubit/theme_cubit.dart';
 
+import 'Features/Favourite/data/repo/favourite_repo.dart';
+import 'Features/Favourite/presentation/cubit/favourite_cubit.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await LocalSharedprefrence.init();
   await SupabaseStorage.init();
   get_itsetup();
-  
+
   runApp(
     DevicePreview(
       enabled: false,
@@ -39,7 +42,7 @@ class MainApp extends StatelessWidget {
       minTextAdapt: true,
       ensureScreenSize: true,
       child: MultiBlocProvider(
-        providers: [ 
+        providers: [
           BlocProvider(
             create: (context) => ProductsCubit(get_it<Productrepo>()),
           ),
@@ -48,6 +51,9 @@ class MainApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => ThemeCubit(),
+          ),
+          BlocProvider(
+            create: (context) => FavouriteCubit(get_it<FavouriteRepo>()),
           ),
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(

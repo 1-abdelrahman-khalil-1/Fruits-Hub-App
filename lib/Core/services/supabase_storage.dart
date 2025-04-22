@@ -28,13 +28,14 @@ class SupabaseStorage implements StorageService {
     }
   }
   @override
- Future<Map<String, dynamic>> fetchProduct({ required String collectionname,required int productid}) async {
+ Future<Map<String, dynamic>?> fetchProduct({ required String collectionname,required int productid}) async {
   try {
-      final  response = await _supabase.client
+      var  response = await _supabase.client
           .from(collectionname)
           .select()
           .eq('id', productid);
-      return response[0];
+     
+    return response.first;
     } catch (e) {
       log('Error fetching product data in supabase: $e');
       throw Customexception(message: 'حدث خطأ في التحميل المنتج.');
@@ -51,6 +52,33 @@ class SupabaseStorage implements StorageService {
     } catch (e) {
       log('Error fetching product data after filtering in supabase: $e');
       throw Customexception(message: 'حدث خطأ في التحميل.');
+    }
+  }
+  
+  @override
+  Future<void> addProduct({required String collectionname, required Map<String, dynamic> product}) {
+   try{
+      final response = _supabase.client
+          .from(collectionname)
+          .insert(product);
+      return response;
+   }catch(e){
+      log('Error adding product in supabase: $e');
+      throw Customexception(message: 'حدث خطأ في التحميل.');
+   }
+  }
+  
+  @override
+  Future<void> removeProduct({required String collectionname, required int productid}) {
+    try{
+        final response = _supabase.client
+            .from(collectionname)
+            .delete()
+            .eq('id', productid);
+        return response;
+    }catch(e){
+        log('Error removing product in supabase: $e');
+        throw Customexception(message: 'حدث خطأ في التحميل.');
     }
   }
   

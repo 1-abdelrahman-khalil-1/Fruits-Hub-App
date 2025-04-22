@@ -8,6 +8,8 @@ class PictureAssets {
 
   static const String assetsImagesBoldIconsCategoryBoldIcon = "assets/images/BoldIcons/category-bold-icon.svg";
 
+  static const String assetsImagesBoldIconsFavouriteBoldRedIcon = "assets/images/BoldIcons/favourite-bold-red-icon.svg";
+
   static const String assetsImagesBoldIconsHomeBoldIcon = "assets/images/BoldIcons/home-bold-icon.svg";
 
   static const String assetsImagesBoldIconsShoppingCartBoldIcon = "assets/images/BoldIcons/shopping-cart-bold-icon.svg";

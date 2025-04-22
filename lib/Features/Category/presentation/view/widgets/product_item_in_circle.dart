@@ -19,7 +19,7 @@ class ProductItemInCircle extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-       context.pushNamed(AppRouter.details_for_product , pathParameters: {"id":product.id.toString()});
+       context.pushNamed(AppRouter.details_for_product , extra: product);
       },
       child: Column(
         children: [

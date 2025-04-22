@@ -7,18 +7,19 @@ import 'package:fruitsapp/Core/services/services.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Features/Auth/Data/model/user_model.dart';
 import 'package:fruitsapp/Features/Auth/Data/repo/authrepo.dart';
+import 'package:fruitsapp/backend_keys.dart';
 
 class AuthrepoImp implements Authrepo {
   AuthenticationService auth;
   Services service;
-  final String _collectionnamekey = "users";
+
   AuthrepoImp(this.auth, this.service);
   @override
   Future<Either<String, UserModel>> login(String email, String password) async {
     try {
       final user = await auth.signin(email, password);
       final userModel =
-          await getUserData(collectionname: _collectionnamekey, uid: user.id);
+          await getUserData(collectionname: BackendKeys.userCollectionKey, uid: user.id);
       saveUserData(userModel: userModel);
       return Right(userModel);
     } on Customexception catch (e) {
@@ -34,7 +35,7 @@ class AuthrepoImp implements Authrepo {
       final user = await auth.createUser(email, password);
       var userModel =
           UserModel(name: name, email: user.email ?? "", uid: user.id);
-      await adduserData(collectionname: _collectionnamekey,data: userModel.toMap());
+      await adduserData(collectionname: BackendKeys.userCollectionKey,data: userModel.toMap());
       return Right(userModel);
     } on Customexception catch (e) {
       log("Error in AuthrepoImp signup: ${e.message}");
@@ -53,7 +54,7 @@ class AuthrepoImp implements Authrepo {
       final userModel = UserModel.fromFirebase(user);
       
       try {
-  adduserData(collectionname: _collectionnamekey, data: userModel.toMap());
+  adduserData(collectionname: BackendKeys.userCollectionKey, data: userModel.toMap());
 } on Exception {
  deleteuserData();
 }

@@ -5,7 +5,7 @@ import 'package:fruitsapp/Core/services/authentication_service.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-class SupabaseService implements AuthenticationService {
+class SupabaseAuth implements AuthenticationService {
   final SupabaseClient _supabaseClient = Supabase.instance.client;
   @override
   Future<User> createUser(String emailAddress, String password) async {

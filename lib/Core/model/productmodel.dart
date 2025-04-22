@@ -20,17 +20,17 @@ class Productmodel {
       required this.imageUrl,
       required this.category});
 
- Map<String,dynamic> toMap (Productmodel product) {
+ Map<String,dynamic> toMap () {
     return {
-      'id': product.id,
-      'name': product.name,
-      'price': product.price,
-      'description': product.description,
-      'sellingCount':product.sellingCount,
-      'organic': product.organic,
-      'calories': product.calories,
-      'imageUrl': product.imageUrl,
-      'category': product.category
+      'id': id,
+      'name': name,
+      'price': price,
+      'description': description,
+      'sellingCount':sellingCount,
+      'organic': organic ? 1 : 0,
+      'calories': calories,
+      'imageUrl': imageUrl,
+      'category': category
     };
   }
  factory Productmodel.FromJson(Map<String,dynamic> json) {
