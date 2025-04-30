@@ -45,5 +45,23 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<!-- Google Sign-in Section -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				 <!-- Reversed client ID for Google Sign-In -->
+				<string>com.googleusercontent.apps.1070533804858-14r65b8h2d78d2rqae6nbrc2m02c6esk</string>
+			</array>
+		</dict>
+	</array>
+	<!-- For iOS 9+ sign-in support -->
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>googlesignin</string>
+	</array>
 </dict>
 </plist>

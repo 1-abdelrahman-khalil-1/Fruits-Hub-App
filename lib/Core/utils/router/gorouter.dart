@@ -10,6 +10,7 @@ import 'package:fruitsapp/Features/Details_for_product/presentation/view/details
 import 'package:fruitsapp/Features/Favourite/presentation/view/favourite_screen.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/homescreen.dart';
 import 'package:fruitsapp/Core/utils/screens/popularscreen.dart';
+import 'package:fruitsapp/Features/Home/presentation/view/widgets/homebody.dart';
 import 'package:fruitsapp/Features/Profile/presentation/view/profile_screen.dart';
 import 'package:fruitsapp/Features/Profile/presentation/view/profile_info.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';

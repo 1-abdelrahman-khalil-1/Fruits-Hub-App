@@ -5,6 +5,7 @@ import 'package:fruitsapp/Core/errors/Customexception.dart';
 import 'package:fruitsapp/Core/services/authentication_service.dart';
 import 'package:fruitsapp/Core/services/services.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
+import 'package:fruitsapp/Core/services/supabase_favourite_service.dart';
 import 'package:fruitsapp/Features/Auth/Data/model/user_model.dart';
 import 'package:fruitsapp/Features/Auth/Data/repo/authrepo.dart';
 import 'package:fruitsapp/backend_keys.dart';
@@ -92,6 +93,9 @@ class AuthrepoImp implements Authrepo {
   @override
   Future<void> saveUserData({required UserModel userModel}) async {
     var user = jsonEncode(userModel.toMap());
+    // Initialize the userId right after authentication
+    final favouriteService = SupabaseFavouriteService();
+    favouriteService.userIdInit();
     await LocalSharedprefrence.setstring(LocalSharedprefrence.userkey, user);
   }
 

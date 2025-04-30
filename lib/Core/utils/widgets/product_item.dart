@@ -26,7 +26,7 @@ class ProductItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-               FavouriteIcon(product: productItem,),
+              FavouriteIcon(product: productItem,),
               Center(
                 child: CachedNetworkImage(
                   imageUrl: productItem.imageUrl,

@@ -8,11 +8,37 @@ import 'favourite_service.dart';
 
 class SupabaseFavouriteService implements FavouriteService {
   final SupabaseClient supabaseClient = Supabase.instance.client; 
-  final userId = Supabase.instance.client.auth.currentUser!.id;
+  String? _userId;
+  
+  // Getter for userId that automatically initializes it if null
+  String get userId {
+    if (_userId == null) {
+      userIdInit();
+    }
+    return _userId ?? '';
+  }
+
+  void userIdInit() {
+    try {
+      final currentUser = Supabase.instance.client.auth.currentUser;
+      if (currentUser != null) {
+        _userId = currentUser.id;
+        log("User ID initialized: $_userId");
+      } else {
+        log("Warning: Current user is null, cannot initialize userId");
+      }
+    } catch (e) {
+      log("Error initializing userId: $e");
+    }
+  }
+  
   @override
-  Future<void> addToFavourites( {required int itemId}) async {
-   
-     try {
+  Future<void> addToFavourites({required int itemId}) async {
+    if (userId.isEmpty) {
+      throw Customexception(message: 'User not authenticated');
+    }
+    
+    try {
       final List<int> favourites = await getFavourites();
       if (!favourites.contains(itemId)) { 
         await supabaseClient.from(BackendKeys.userCollectionKey).update({
@@ -25,8 +51,12 @@ class SupabaseFavouriteService implements FavouriteService {
   }
   
   @override
-  Future<List<int>> getFavourites()async {
-   try {
+  Future<List<int>> getFavourites() async {
+    if (userId.isEmpty) {
+      throw Customexception(message: 'User not authenticated');
+    }
+    
+    try {
       final response = await supabaseClient
           .from(BackendKeys.userCollectionKey)
           .select().eq("id", userId);
@@ -38,30 +68,37 @@ class SupabaseFavouriteService implements FavouriteService {
   }
   
   @override
-  Future<void> removeFromFavourite( {required int itemId}) async {
+  Future<void> removeFromFavourite({required int itemId}) async {
+    if (userId.isEmpty) {
+      throw Customexception(message: 'User not authenticated');
+    }
 
     try {
-  final List<int> favourites = await getFavourites();
-  if(favourites.contains(itemId)) {
-    // إذا كان المنتج موجودًا في المفضلات، قم بإزالته
-    favourites.remove(itemId);
-    await supabaseClient.from(BackendKeys.userCollectionKey).update({
-      'favourite': favourites
-    }).eq('id', userId);
+      final List<int> favourites = await getFavourites();
+      if (favourites.contains(itemId)) {
+        favourites.remove(itemId);
+        await supabaseClient.from(BackendKeys.userCollectionKey).update({
+          'favourite': favourites
+        }).eq('id', userId);
+      }
+    } catch (e) {
+      throw Customexception(message: 'Failed to remove from favorites: $e');
+    }
   }
-} catch (e) {
-  throw Customexception(message: 'Failed to remove from favorites: $e');
-}
-  }
+  
   @override
-  Future<bool> isFavourite({required int productid}) async 
- {   
+  Future<bool> isFavourite({required int productid}) async {
+    if (userId.isEmpty) {
+      return false; // Not favorite if user isn't authenticated
+    }
+    
     try {
       final response = await getFavourites();
-    log("response: ${response.contains(productid)}");
-   return response.contains(productid) ? true : false;
+      log("response: ${response.contains(productid)}");
+      return response.contains(productid);
     } catch (e) {
-      throw Exception('Failed to check favorite status: $e');
+      log("Error checking favorite status: $e");
+      return false;
     }
   }
 }

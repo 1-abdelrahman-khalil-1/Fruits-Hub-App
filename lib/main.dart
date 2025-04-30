@@ -15,7 +15,7 @@ import 'Core/cubit/Cart Cubit/cart_cubit.dart';
 import 'package:fruitsapp/Core/cubit/ThemeCubit/theme_cubit.dart';
 
 import 'Features/Favourite/data/repo/favourite_repo.dart';
-import 'Features/Favourite/presentation/cubit/favourite_cubit.dart';
+import 'Core/cubit/Favourite cubit/favourite_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

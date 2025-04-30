@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Features/Favourite/data/repo/favourite_repo.dart';
-import 'package:fruitsapp/Features/Favourite/presentation/cubit/favourite_cubit_states.dart';
+import 'package:fruitsapp/Core/cubit/Favourite%20cubit/favourite_cubit_states.dart';
 
-import '../../../../Core/model/productmodel.dart';
+import '../../model/productmodel.dart';
 
 class FavouriteCubit extends Cubit<FavouriteCubitStates> {
   FavouriteCubit(this.favouriteRepo) : super(FavouriteInitialState());
@@ -45,7 +45,7 @@ class FavouriteCubit extends Cubit<FavouriteCubitStates> {
   }
 
   bool isFavourite({required int productId}) {
-    emit(FavouriteLoadingState());
+
     if (favouriteProducts.contains(productId)) {
       emit(FavouriteIsFavouriteState(productId: productId, isFavourite: true));
       return true;
