@@ -25,12 +25,21 @@ Fruits Hub is a modern **e-commerce** application built with **Flutter** and **S
 - **Category Screen** with **price filtering** functionality  
 
 ### 🛒 **Cart & UI Enhancements**  
-- Implemented **cart UI** with navigation (No logic or data integration yet)  
+- Implemented **cart UI** with navigation 
 - Added new buttons:  
-  - **Add & Remove product** (UI only, not yet functional)  
+  - **Add & Remove product** 
   - Enhanced product filtering functionality  
 - Added **loading dialogs** and **error handling functions**  
-- Used **EasyRefresh** package for better UI interactions   
+- Used **EasyRefresh** package for better UI interactions
+- 
+### ❤️ Favorites System
+
+- Ability to mark and save favorite products  
+- Efficient caching system for better performance  
+- Synchronized favorites across sessions  
+- Interactive favorite toggle with visual feedback  
+- **Profile Screen** that displays your favorite products  
+- Ability to change your **name** and **email** from the profile  
 
 ---
 
@@ -125,6 +134,22 @@ This structure ensures a clean separation of concerns, making the codebase easie
 ### Cart
 
 <img src="https://github.com/user-attachments/assets/056d9d8e-58a6-4c80-b6c9-1b707a5f31df" height="550" alt="Cart">
+
+### Checkout
+
+<img src="https://github.com/user-attachments/assets/8060ba02-1083-482c-bbd9-a2e2dde66360" height="550" alt="Checkout">
+<img src="https://github.com/user-attachments/assets/bd4b306b-2ea9-4d5f-a7c2-e532ab3f5674" height="550" alt="Checkout">
+<img src="https://github.com/user-attachments/assets/01fb821c-f90b-43d3-8a12-444358a05c68" height="550" alt="Checkout">
+<img src="https://github.com/user-attachments/assets/964c95fc-8206-4bc6-ac3f-6e5dd126accb" height="550" alt="Checkout">
+
+### Search
+<img src="https://github.com/user-attachments/assets/0a23a7a9-90e7-42b1-9659-2247c88dd4fe" height="550" alt="search">
+<img src="https://github.com/user-attachments/assets/a1da2552-4bad-4aef-9fdc-f667fa35c9a8" height="550" alt="search">
+
+### Profile
+<img src="https://github.com/user-attachments/assets/3b7ee66e-2751-46cf-a69e-680149767148" height="550" alt="profile">
+<img src="https://github.com/user-attachments/assets/ddbc5058-125c-4a1e-87b1-7adba21e6643" height="550" alt="profile">
+<img src="https://github.com/user-attachments/assets/ce735ba4-fc1f-4568-ac45-7b71b8339c55" height="550" alt="profile">
 
 ---
 
