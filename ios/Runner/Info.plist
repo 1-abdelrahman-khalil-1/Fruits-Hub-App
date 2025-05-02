@@ -62,6 +62,9 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>googlesignin</string>
+		<string>googleauth</string>
+		<string>https</string>
+		<string>http</string>
 	</array>
 </dict>
 </plist>

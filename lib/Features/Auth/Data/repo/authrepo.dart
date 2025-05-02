@@ -12,4 +12,5 @@ abstract class Authrepo {
    Future<void> saveUserData({required UserModel userModel});
    UserModel getCurrentUser({required String key});
    Future<void> updateUserData({required String collectionname, required String uid, required Map<String, dynamic> data});
+   Future<Either<String, bool>> logout();
   }

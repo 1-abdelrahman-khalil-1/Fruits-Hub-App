@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruitsapp/Core/services/sharedprefrence.dart';
 import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Features/Profile/presentation/view/profile%20info%20widgets/custom_textfield_with_edit.dart';
 import 'package:fruitsapp/backend_keys.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../Core/services/authentication_service.dart';
 import '../../../../../Core/services/get_it.dart';
@@ -27,18 +27,19 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
-  final TextEditingController currentPasswordController = TextEditingController();
+  final TextEditingController currentPasswordController =
+      TextEditingController();
   final TextEditingController newPasswordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
   Authrepo loca =
       AuthrepoImp(get_it<AuthenticationService>(), get_it<Services>());
- UserModel ?user;
-   
+  UserModel? user;
+
   @override
   void initState() {
     super.initState();
     user = loca.getCurrentUser(key: LocalSharedprefrence.userkey);
-
   }
 
   @override
@@ -52,8 +53,8 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
   }
 
   @override
-  Widget build(BuildContext context) {  
- return Padding(
+  Widget build(BuildContext context) {
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: SingleChildScrollView(
         child: Form(
@@ -78,8 +79,7 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
                 controller: nameController,
                 validator: (value) => null,
                 onSaved: (p0) {
-
-                  user!.name = p0 ==null || p0.isEmpty? user!.name : p0;
+                  user!.name = p0 == null || p0.isEmpty ? user!.name : p0;
                 },
               ),
               SizedBox(height: 8.h),
@@ -89,8 +89,7 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
                 controller: emailController,
                 validator: (value) => null,
                 onSaved: (p0) {
-                user!.email = p0 == null || p0.isEmpty ? user!.email : p0;
-
+                  user!.email = p0 == null || p0.isEmpty ? user!.email : p0;
                 },
               ),
               SizedBox(height: 32.h),
@@ -105,9 +104,7 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
                 textInputType: TextInputType.visiblePassword,
                 controller: currentPasswordController,
                 validator: (value) => null,
-                onSaved: (p0) {
-                  
-                },
+                onSaved: (p0) {},
               ),
               SizedBox(height: 8.h),
               CustomTextfield(
@@ -116,9 +113,7 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
                 textInputType: TextInputType.visiblePassword,
                 controller: newPasswordController,
                 validator: (value) => null,
-                onSaved: (p0) {
-                  
-                },
+                onSaved: (p0) {},
               ),
               SizedBox(height: 8.h),
               CustomTextfield(
@@ -127,24 +122,26 @@ class _ProfileInfoBodyState extends State<ProfileInfoBody> {
                 textInputType: TextInputType.visiblePassword,
                 controller: confirmPasswordController,
                 validator: (value) => null,
-                onSaved: (p0) {
-                  
-                },
+                onSaved: (p0) {},
               ),
               SizedBox(height: 50.h),
               CustomTextButton(
                 text: "حفظ التغييرات",
-                onpressed: () {
-                
+                onpressed: () async {
                   if (_formKey.currentState!.validate()) {
-                      _formKey.currentState!.save();
-                     loca.updateUserData(collectionname: BackendKeys.userCollectionKey, uid: user!.uid, data: user!.toMap());
-                       } else {
+                    _formKey.currentState!.save();
+                    await loca.updateUserData(
+                        collectionname: BackendKeys.userCollectionKey,
+                        uid: user!.uid,
+                        data: user!.toMap());
+
+                    if(context.mounted) {
+                      context.pop(true);
+                    }
+                  } else {
                     // Handle validation errors if needed
+                    setState(() {});
                   }
-                  setState(() {
-                    
-                  });
                 },
               ),
               SizedBox(height: 20.h),

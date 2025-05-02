@@ -108,7 +108,29 @@ class AuthrepoImp implements Authrepo {
   @override
   Future<void> updateUserData({required String collectionname, required String uid, required Map<String, dynamic> data}) async {
     await service.updateUserData(collectionname: collectionname, uid: uid, data: data);  
-    saveUserData(userModel: UserModel.FromJson(data));
+   await saveUserData(userModel: UserModel.FromJson(data));
   }
 
+  @override
+  Future<Either<String, bool>> logout() async {
+    try {
+      // Clear local user data
+      await LocalSharedprefrence.clearPrefs();
+      
+      // Sign out from Supabase
+      await auth.signOut();
+      
+      // Clear favorites cache if using the favorites service
+      final favouriteService = SupabaseFavouriteService();
+      favouriteService.clearCache();
+      
+      return const Right(true);
+    } on Customexception catch (e) {
+      log("Error in AuthrepoImp logout: ${e.message}");
+      return Left(e.message);
+    } catch (e) {
+      log("Unexpected error in AuthrepoImp logout: ${e.toString()}");
+      return const Left("حدث خطأ أثناء تسجيل الخروج. يرجى المحاولة مرة أخرى.");
+    }
+  }
 }

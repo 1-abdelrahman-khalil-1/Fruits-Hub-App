@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruitsapp/Core/utils/widgets/headerbar.dart';
-import 'package:fruitsapp/Core/utils/widgets/slivergridblocbuilder.dart';
 import 'package:fruitsapp/Core/cubit/Favourite%20cubit/favourite_cubit.dart';
 import 'package:fruitsapp/Core/cubit/Favourite%20cubit/favourite_cubit_states.dart';
 
@@ -16,39 +15,70 @@ class FavouriteBody extends StatefulWidget {
 }
 
 class _FavouriteBodyState extends State<FavouriteBody> {
-  bool _initialized = false;
+  bool _isFirstLoad = true;
 
   @override
   void initState() {
     super.initState();
-    // Only fetch favorites if not already loaded
-    if (!_initialized) {
-      _initialized = true;
-      context.read<FavouriteCubit>().getFavourites();
-    }
+    // Load favorites only once when the widget is first initialized
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_isFirstLoad) {
+        context.read<FavouriteCubit>().getFavourites();
+        _isFirstLoad = false;
+      }
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        const SliverToBoxAdapter(child: HeaderBar(title: "المفضلة", showicon: true, shownotification: false),),
-        BlocBuilder<FavouriteCubit, FavouriteCubitStates>(
-        builder: (context, state) {
-        if (state is FavouriteSuccessState) {
-          return Productslivergridview(product: state.favouriteProducts , len: state.favouriteProducts.length);
-        } else if (state is FavouriteErrorState) {
-          return const SliverToBoxAdapter(
-            child: Center(
-              child: Text("Error To Get Products"),
-            ),
-          );
-        } else {
-          return const SkeltonizerSliverLoadingWithDummyProducts();
-        }
-      },
-    )
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      child: CustomScrollView(
+        slivers: [
+          const SliverToBoxAdapter(
+            child: HeaderBar(
+                title: "المفضلة", showicon: true, shownotification: false),
+          ),
+          BlocBuilder<FavouriteCubit, FavouriteCubitStates>(
+            builder: (context, state) {
+              if (state is FavouriteSuccessState) {
+                if (state.favouriteProducts.isEmpty) {
+                  return const SliverToBoxAdapter(
+                    child: Center(
+                      child: Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Text("لم تقم بإضافة أي منتجات للمفضلة بعد"),
+                      ),
+                    ),
+                  );
+                }
+                return Productslivergridview(
+                    product: state.favouriteProducts,
+                    len: state.favouriteProducts.length);
+              } else if (state is FavouriteErrorState) {
+                return SliverToBoxAdapter(
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(state.errorMessage),
+                        const SizedBox(height: 10),
+                        ElevatedButton(
+                          onPressed: () =>
+                              context.read<FavouriteCubit>().getFavourites(),
+                          child: const Text("إعادة المحاولة"),
+                        )
+                      ],
+                    ),
+                  ),
+                );
+              } else {
+                return const SkeltonizerSliverLoadingWithDummyProducts();
+              }
+            },
+          )
+        ],
+      ),
     );
   }
 }

@@ -48,6 +48,13 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
       context.pop();
     }
   }
+  void goToShippingPage() {
+    pageController.animateToPage(
+      0, // Move to the shipping page
+      duration: const Duration(milliseconds: 500), // Animation duration
+      curve: Curves.easeInOut, // Smooth animation curve
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +66,7 @@ class _CheckoutScreenBodyState extends State<CheckoutScreenBody> {
         children:  [
           ShippingBody(onPressed: ()=> goToPreviousPage(), onbuttonpressed: () => goToNextPage() ),
           AddressBody(onPressed: () => goToPreviousPage(), onbuttonpressed: () => goToNextPage()),
-          ReviewCheckoutBody(onPressed: () => goToPreviousPage(), onbuttonpressed: () => goToNextPage() ),
+          ReviewCheckoutBody(onPressed: () => goToPreviousPage(), onbuttonpressed: () => goToNextPage(), onEditPaymentTap: () => goToShippingPage(),),
           const Success()
         ],
       ),

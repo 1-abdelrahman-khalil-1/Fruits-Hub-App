@@ -5,53 +5,56 @@ import 'package:fruitsapp/Core/cubit/Favourite%20cubit/favourite_cubit_states.da
 import '../../model/productmodel.dart';
 
 class FavouriteCubit extends Cubit<FavouriteCubitStates> {
-  FavouriteCubit(this.favouriteRepo) : super(FavouriteInitialState());
+  FavouriteCubit(this.favouriteRepo) : super(FavouriteInitialState()) {
+    // Load favorites automatically when cubit is initialized
+    getFavourites();
+  }
+  
   FavouriteRepo favouriteRepo;
-  Set<int> favouriteProducts = {};
+  Set<int> favouriteProductIds = {};
+  List<Productmodel> _cachedFavouriteProducts = [];
+
+
   void addToFavourites({required Productmodel product}) async {
-    emit(FavouriteLoadingState());
-    var response = await favouriteRepo.addToFavourites(product: product);
+        emit(FavouriteLoadingState());
+        var response = await favouriteRepo.addToFavourites(product: product);
     response.fold((l) {
       emit(FavouriteErrorState(l));
     }, (r) {
-      favouriteProducts.add(product.id);
-      emit(FavouriteSuccessState([]));
-      emit(FavouriteIsFavouriteState(productId: product.id, isFavourite: true));
+      favouriteProductIds.add(product.id);
+      _cachedFavouriteProducts.add(product);
+      emit(FavouriteSuccessState(_cachedFavouriteProducts));
     });
-  }
+      }
 
   void removeFromFavourites({required int productId}) async {
-    emit(FavouriteLoadingState());
-    var response =
-        await favouriteRepo.removeFromFavourites(productId: productId);
+        emit(FavouriteLoadingState());
+    
+    var response = await favouriteRepo.removeFromFavourites(productId: productId);
     response.fold((l) {
       emit(FavouriteErrorState(l));
     }, (r) {
-      favouriteProducts.remove(productId);
-      emit(FavouriteSuccessState([]));
-      emit(FavouriteIsFavouriteState(productId: productId, isFavourite: false));
+      favouriteProductIds.remove(productId);
+      _cachedFavouriteProducts.removeWhere((element) => element.id == productId);
+      emit(FavouriteSuccessState(_cachedFavouriteProducts));
     });
-  }
+      }
 
-  void getFavourites() async {
+  Future<void> getFavourites() async {
+
     emit(FavouriteLoadingState());
+    
     var response = await favouriteRepo.getFavourites();
     response.fold((l) {
       emit(FavouriteErrorState(l));
     }, (r) {
-      favouriteProducts = r.map((e) => e.id).toSet();
+      _cachedFavouriteProducts = r;
+      favouriteProductIds = r.map((e) => e.id).toSet();
       emit(FavouriteSuccessState(r));
     });
-  }
+      }
 
   bool isFavourite({required int productId}) {
-
-    if (favouriteProducts.contains(productId)) {
-      emit(FavouriteIsFavouriteState(productId: productId, isFavourite: true));
-      return true;
-    }
-    emit(FavouriteIsFavouriteState(productId: productId, isFavourite: false));
-
-    return false;
+    return favouriteProductIds.contains(productId);
   }
 }

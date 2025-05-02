@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../Core/utils/assets/apptextstyles.dart';
 import './/Core/utils/assets/picture_assets.dart';
 import './/Features/Category/presentation/view/widgets/choices_on_bottom_sheet.dart';
@@ -34,7 +33,7 @@ class OurCategoryTitleAndFiltering extends StatelessWidget {
                 context: context,
                 builder: (context) {
                   return Container(
-                      height: 314.h,
+                      height: MediaQuery.of(context).size.height * 0.45,
                       width: double.infinity,
                       decoration: const ShapeDecoration(
                           color: Colors.white,

@@ -64,7 +64,7 @@ class _ChoicesOnBottomSheetState extends State<ChoicesOnBottomSheet> {
               check: _selectedChoiceIndex == 0 ,
               onChanged: (value){
                 if (value == true) _onChoiceSelected(0);
- 
+       
               },
               ),
           Choice(
@@ -72,7 +72,7 @@ class _ChoicesOnBottomSheetState extends State<ChoicesOnBottomSheet> {
               check: _selectedChoiceIndex == 1, 
               onChanged: (value){
                 if(value == true) _onChoiceSelected(1);
-
+      
               },
               ),
               
@@ -83,6 +83,7 @@ class _ChoicesOnBottomSheetState extends State<ChoicesOnBottomSheet> {
               if (value == true) _onChoiceSelected(2);
             },
           ),
+          const Spacer(),
           CustomTextButton( text: "تصفيه" , onpressed: (){
             context.read<ProductsCubit>().priceFiltering(ascending: ascending , alpabatical: alpabatical);
            context.go(AppRouter.filtering_results);

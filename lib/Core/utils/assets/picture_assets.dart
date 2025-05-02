@@ -66,7 +66,9 @@ class PictureAssets {
 
   static const String assetsImagesIconsUserprofileIcon = "assets/images/Icons/userprofile_icon.svg";
 
-  static const String assetsImagesLogo = "assets/images/Logo.png";
+  static const String assetsImagesLogo = "assets/images/logo.png";
+
+  static const String assetsImagesNoResult = "assets/images/no_result.svg";
 
   static const String assetsImagesOrganic = "assets/images/organic.svg";
 

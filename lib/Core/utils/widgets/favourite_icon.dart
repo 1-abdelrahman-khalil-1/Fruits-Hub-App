@@ -19,7 +19,7 @@ class _FavouriteIconState extends State<FavouriteIcon> {
   @override
   void initState() {
     super.initState();
-      context.read<FavouriteCubit>().getFavourites();
+      //context.read<FavouriteCubit>().getFavourites();
   }
 
   @override

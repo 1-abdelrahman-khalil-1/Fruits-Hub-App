@@ -7,8 +7,9 @@ import '../errors/Customexception.dart';
 import 'favourite_service.dart';
 
 class SupabaseFavouriteService implements FavouriteService {
-  final SupabaseClient supabaseClient = Supabase.instance.client; 
+  final SupabaseClient supabaseClient = Supabase.instance.client;
   String? _userId;
+  List<int>? _cachedFavorites;
   
   // Getter for userId that automatically initializes it if null
   String get userId {
@@ -26,7 +27,7 @@ class SupabaseFavouriteService implements FavouriteService {
         log("User ID initialized: $_userId");
       } else {
         log("Warning: Current user is null, cannot initialize userId");
-      }
+              }
     } catch (e) {
       log("Error initializing userId: $e");
     }
@@ -41,8 +42,11 @@ class SupabaseFavouriteService implements FavouriteService {
     try {
       final List<int> favourites = await getFavourites();
       if (!favourites.contains(itemId)) { 
+        final updatedFavorites = [...favourites, itemId];
+        _cachedFavorites = updatedFavorites; // Update cache first for instant UI update
+        
         await supabaseClient.from(BackendKeys.userCollectionKey).update({
-          'favourite': [...favourites, itemId]
+          'favourite': updatedFavorites
         }).eq('id', userId);
       }
     } catch (e) {
@@ -57,13 +61,19 @@ class SupabaseFavouriteService implements FavouriteService {
     }
     
     try {
+      // Return cached favorites if available to avoid duplicate network calls
+      if (_cachedFavorites != null) {
+        return _cachedFavorites!;
+      }
+      
       final response = await supabaseClient
           .from(BackendKeys.userCollectionKey)
           .select().eq("id", userId);
-      return response[0]['favourite'] == null ? [] : List<int>.from(response[0]['favourite']);
-    } catch (e) {
+      _cachedFavorites = response[0]['favourite'] == null ? <int>[] : List<int>.from(response[0]['favourite']);
+        return _cachedFavorites!;
+          } catch (e) {
       log('Error fetching products in supabase: $e');
-      throw Customexception(message: 'حدث خطأ في التحميل المنتجات. ');
+throw Customexception(message: 'حدث خطأ في التحميل المنتجات. ');
     }
   }
   
@@ -77,6 +87,8 @@ class SupabaseFavouriteService implements FavouriteService {
       final List<int> favourites = await getFavourites();
       if (favourites.contains(itemId)) {
         favourites.remove(itemId);
+        _cachedFavorites = favourites; // Update cache first for instant UI update
+        
         await supabaseClient.from(BackendKeys.userCollectionKey).update({
           'favourite': favourites
         }).eq('id', userId);
@@ -94,12 +106,16 @@ class SupabaseFavouriteService implements FavouriteService {
     
     try {
       final response = await getFavourites();
-      log("response: ${response.contains(productid)}");
       return response.contains(productid);
     } catch (e) {
       log("Error checking favorite status: $e");
       return false;
     }
+  }
+  
+  // Method to clear cache when needed (e.g., at logout)
+  void clearCache() {
+    _cachedFavorites = null;
   }
 }
 

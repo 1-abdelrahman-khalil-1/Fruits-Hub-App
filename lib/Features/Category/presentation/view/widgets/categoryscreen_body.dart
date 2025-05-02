@@ -2,7 +2,9 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../../Core/utils/router/gorouter.dart';
 import '../../../../../Core/utils/widgets/headerbar.dart';
 import '../../../../../Core/cubit/Product Cubit/products_cubit.dart';
 import '../../../../../Core/utils/widgets/popularproductstitle.dart';
@@ -34,6 +36,7 @@ class _CategoryscreenBodyState extends State<CategoryscreenBody> {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: CustomScrollView(
+          keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
           slivers: [
             SliverToBoxAdapter(
               child: Column(
@@ -41,7 +44,10 @@ class _CategoryscreenBodyState extends State<CategoryscreenBody> {
                 children: [
                   const HeaderBar(title: "المنتجات", showicon: false ,shownotification: true,),
                   SizedBox(height: 16.h),
-                  const Searchtextfield(),
+                  Searchtextfield(
+                    readOnly: true,
+                    onTap: () => context.push(AppRouter.search),
+                  ),
                   SizedBox(height: 10.h),
                   const OurCategoryBlocBuilder(),
                   SizedBox(height: 10.h),

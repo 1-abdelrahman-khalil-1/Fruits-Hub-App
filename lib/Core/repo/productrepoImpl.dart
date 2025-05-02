@@ -47,4 +47,19 @@ class ProductrepoImp implements Productrepo {
      return Left(e.message);
     }
   }
+
+  @override
+  Future<Either<String, List<Productmodel>>> searchProducts({required String collectionname, required String query}) async {
+    try {
+      final response = await storage.searchProducts(
+        collectionname: collectionname,
+        query: query
+      );
+      List<Productmodel> products =
+          response.map((map) => Productmodel.FromJson(map)).toList();
+      return Right(products);
+    } on Customexception catch (e) {
+      return Left(e.message);
+    }
+  }
 }

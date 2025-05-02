@@ -12,26 +12,28 @@ class OurCategoryBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const OurCategoryTitleAndFiltering(),
-        SizedBox(
-          height: 10.h,
-        ),
-        BlocBuilder<ProductsCubit, ProductsCubitStates>(
-          builder: (context, state) {
-            if (state is SuccessState) {
-              return  ListViewbuilderHorizontal(products: state.products ,);
-            } else if (state is ErrorState) {
-              return const Center(
-                child: Text("Error To Get Products"),
-              );
-            } else {
-              return const SkeltonizerloadingWithDummyProducts();
-            }
-          },
-        )
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const OurCategoryTitleAndFiltering(),
+          SizedBox(
+            height: 10.h,
+          ),
+          BlocBuilder<ProductsCubit, ProductsCubitStates>(
+            builder: (context, state) {
+              if (state is SuccessState) {
+                return  ListViewbuilderHorizontal(products: state.products ,);
+              } else if (state is ErrorState) {
+                return const Center(
+                  child: Text("Error To Get Products"),
+                );
+              } else {
+                return const SkeltonizerloadingWithDummyProducts();
+              }
+            },
+          )
+        ],
+      ),
     );
   }
 }

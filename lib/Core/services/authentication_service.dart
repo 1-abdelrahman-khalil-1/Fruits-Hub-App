@@ -10,5 +10,6 @@ abstract class AuthenticationService {
   Future<User?> signInWithGoogle() ;
 
   Future<User> signin(String emailAddress, String password);
-
+  
+  Future<void> signOut();
 }

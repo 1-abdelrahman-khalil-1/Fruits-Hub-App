@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../Core/utils/assets/appcolors.dart';
 import '../assets/apptextstyles.dart';
 import '../../../../../Core/utils/assets/picture_assets.dart';
+import '../../../Features/Search/presentation/cubit/search_cubit.dart';
+
 class Searchtextfield extends StatelessWidget {
-  const Searchtextfield({super.key});
+  final bool readOnly;
+  final VoidCallback? onTap;
+  
+  const Searchtextfield({
+    super.key, 
+    this.readOnly = false,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +33,13 @@ class Searchtextfield extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+          readOnly: readOnly,
+          onTap: onTap,
+          onChanged: (query) {
+            if (!readOnly) {
+              context.read<SearchCubit>().searchProducts(query: query);
+            }
+          },
           decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,
@@ -34,14 +51,15 @@ class Searchtextfield extends StatelessWidget {
               enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.white),
               ),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
               prefixIcon: SvgPicture.asset(
                 PictureAssets.assetsImagesIconsSearchNormalIcon,
                 fit: BoxFit.none,
               ),
-              suffixIcon: SvgPicture.asset(
-                PictureAssets.assetsImagesIconsSettingicon,
-                fit: BoxFit.none,
-              ))),
+              )
+      ),
     );
   }
 }

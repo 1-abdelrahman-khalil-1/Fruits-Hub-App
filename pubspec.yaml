@@ -36,6 +36,7 @@ dependencies:
   provider: ^6.1.4
   flutter_advanced_switch: ^3.1.0
   sqflite: ^2.4.1
+  connectivity_plus: ^6.1.4
 
 dev_dependencies:
   flutter_test:

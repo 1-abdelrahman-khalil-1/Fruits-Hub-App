@@ -66,7 +66,7 @@ class _DetailsForProductDataState extends State<DetailsForProductData> {
                 const Expanded(
                     child: RoundedBoxHasListTitle(
                         title: "100%",
-                        subtitle: "اوجانيك",
+                        subtitle: "اورجانيك",
                         iconimage: PictureAssets.assetsImagesOrganic))
               ],
             ),

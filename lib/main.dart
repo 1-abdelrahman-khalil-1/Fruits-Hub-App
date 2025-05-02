@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Features/Search/presentation/cubit/search_cubit.dart';
 import 'package:fruitsapp/generated/l10n.dart';
 
 import 'Core/cubit/Product Cubit/products_cubit.dart';
@@ -54,6 +55,9 @@ class MainApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => FavouriteCubit(get_it<FavouriteRepo>()),
+          ),
+          BlocProvider(
+            create: (context) => SearchCubit(get_it<Productrepo>()),
           ),
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(

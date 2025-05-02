@@ -23,5 +23,7 @@ static late SharedPreferences _pref;
   Map<String, dynamic> map = jsonDecode( _pref.getString(key)!);
   return  map;
  }
- 
+ static Future<void> clearPrefs() async {
+    await _pref.clear();
+  }
 }

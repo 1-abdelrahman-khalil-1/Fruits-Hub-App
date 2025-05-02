@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/utils/router/gorouter.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../../../Core/services/authentication_service.dart';
 import '../../../../../../../Core/services/get_it.dart';
@@ -52,7 +54,10 @@ class _HomebodyState extends State<Homebody> {
                     title: user.name,
                   ),
                   SizedBox(height: 16.h),
-                  const Searchtextfield(),
+                  Searchtextfield(
+                    readOnly: true,
+                    onTap: () => context.push(AppRouter.search),
+                  ),
                   SizedBox(height: 10.h),
                   const HorizontalListView(),
                   SizedBox(height: 10.h),

@@ -11,9 +11,9 @@ class ReviewCheckoutBody extends StatelessWidget {
   const ReviewCheckoutBody(
       {super.key,
       required this.onPressed,
-      required this.onbuttonpressed,
+      required this.onbuttonpressed, required this.onEditPaymentTap,
       });
-  final void Function() onPressed, onbuttonpressed;
+  final void Function() onPressed, onbuttonpressed, onEditPaymentTap;
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +39,7 @@ class ReviewCheckoutBody extends StatelessWidget {
         SizedBox(height: 16.h),
         const OrderSummary(),
         SizedBox(height: 16.h),
-         ConfirmOrder(ontap: onPressed,),
+        ConfirmOrder(onEditAddressTap: onPressed, onEditPaymentTap: onEditPaymentTap),
         SizedBox(height: 90.h),
         CustomTextButton(
           text: "تأكيد الطلب",

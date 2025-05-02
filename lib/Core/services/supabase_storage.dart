@@ -82,7 +82,18 @@ class SupabaseStorage implements StorageService {
     }
   }
   
-
-  
-  
+  @override
+  Future<List<Map<String, dynamic>>> searchProducts({required String collectionname, required String query}) async {
+    try {
+      final response = await _supabase.client
+          .from(collectionname)
+          .select()
+          .ilike('name', '%$query%');
+      
+      return response;
+    } catch (e) {
+      log('Error searching products in supabase: $e');
+      throw Customexception(message: 'حدث خطأ في البحث عن المنتجات');
+    }
+  }
 }

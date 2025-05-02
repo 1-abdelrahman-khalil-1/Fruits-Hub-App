@@ -16,15 +16,33 @@ import '../../../../Auth/Data/repo/authrepoimpl.dart';
 import 'build_profile_option.dart';
 import 'logout_button.dart';
 
-class ProfileScreenBody extends StatelessWidget {
+class ProfileScreenBody extends StatefulWidget {
   const ProfileScreenBody({super.key});
 
   @override
-  Widget build(BuildContext context) {
-      Authrepo loca = AuthrepoImp(get_it<AuthenticationService>(), get_it<Services>());
-    UserModel user = loca.getCurrentUser(key: LocalSharedprefrence.userkey);
+  State<ProfileScreenBody> createState() => _ProfileScreenBodyState();
+}
 
-   
+class _ProfileScreenBodyState extends State<ProfileScreenBody> {
+  late UserModel user;
+  late Authrepo loca;
+  
+  @override
+  void initState() {
+    super.initState();
+    loca = AuthrepoImp(get_it<AuthenticationService>(), get_it<Services>());
+    user = loca.getCurrentUser(key: LocalSharedprefrence.userkey);
+  }
+  
+  // Method to refresh user data
+  void refreshUserData() {
+    setState(() {
+      user = loca.getCurrentUser(key: LocalSharedprefrence.userkey);
+    });
+  }
+  
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: SingleChildScrollView(
@@ -79,7 +97,14 @@ class ProfileScreenBody extends StatelessWidget {
               title: "الملف الشخصي",
               image: PictureAssets.assetsImagesIconsUserprofileIcon,
               child: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: ()=> context.push(AppRouter.profile_info),
+              onTap: () async {
+                // Wait for the result from the profile info screen
+                final result = await context.push(AppRouter.profile_info);
+                // If the result is true, refresh the user data
+                if (result == true) {
+                  refreshUserData();
+                }
+              },
             ),
             const BuildProfileOption(
               title: "طلباتي",
@@ -98,23 +123,9 @@ class ProfileScreenBody extends StatelessWidget {
               child: null,
               hasswitch: true,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16),
-              child: Text(
-                "المساعدة",
-                style: AppTextStyles.semiBold13,
-              ),
-            ),
-            const BuildProfileOption(
-              title: "من نحن",
-              image: PictureAssets.assetsImagesIconsInfoCircleIcon,
-              child: Icon(Icons.arrow_forward_ios, size: 16),
-            ),
-             SizedBox(height: 16.h),
+            SizedBox(height: 100.h),
             const LogoutButton(),
              SizedBox(height: 16.h),
-              
-             
           ],
         ),
       ),

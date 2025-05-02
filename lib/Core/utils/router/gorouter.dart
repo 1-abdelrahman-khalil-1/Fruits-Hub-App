@@ -10,9 +10,9 @@ import 'package:fruitsapp/Features/Details_for_product/presentation/view/details
 import 'package:fruitsapp/Features/Favourite/presentation/view/favourite_screen.dart';
 import 'package:fruitsapp/Features/Home/presentation/view/homescreen.dart';
 import 'package:fruitsapp/Core/utils/screens/popularscreen.dart';
-import 'package:fruitsapp/Features/Home/presentation/view/widgets/homebody.dart';
 import 'package:fruitsapp/Features/Profile/presentation/view/profile_screen.dart';
 import 'package:fruitsapp/Features/Profile/presentation/view/profile_info.dart';
+import 'package:fruitsapp/Features/Search/presentation/view/search_results_screen.dart';
 import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -42,10 +42,11 @@ abstract class AppRouter{
   static const String profile = '/profile';
   static const String profile_info = '/profile_info';
   static const String favourite = '/favourite';
+  static const String search = '/search';
 
   static GoRouter router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const HomeScreen()),
+      GoRoute(path: '/', builder: (context, state) => const LoginScreen()),
       GoRoute(path: onboarding, builder: (context, state) => const OnboardingScreen()),
       GoRoute(path: login, builder: (context, state) => const LoginScreen()),
       GoRoute(path: signup , builder: (context, state) => const SignupScreen()),
@@ -125,7 +126,8 @@ abstract class AppRouter{
         },
       ),
       GoRoute(path: profile_info , builder: (context, state) =>  const ProfileInfo()),
-      GoRoute(path: favourite , builder: (context, state)=> const FavouriteScreen())
+      GoRoute(path: favourite , builder: (context, state)=> const FavouriteScreen()),
+      GoRoute(path: search , builder: (context, state) => const SearchResultsScreen() ),
     ],
   );
 }
