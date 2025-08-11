@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/login.dart';
+import 'package:fruitsapp/Features/Home/presentation/view/homescreen.dart';
+import 'package:fruitsapp/Features/SplashScreen/presentation/onboarding.dart';
+import 'package:get/get.dart';
 import 'package:svg_flutter/svg.dart';
 import 'package:widget_and_text_animator/widget_and_text_animator.dart';
 
@@ -8,9 +11,9 @@ import '../../../../Core/services/get_it.dart';
 import '../../../../Core/services/services.dart';
 import '../../../../Core/services/sharedprefrence.dart';
 import '../../../../Core/utils/assets/picture_assets.dart';
-import '../../../../Core/utils/router/gorouter.dart';
 import '../../../../Features/Auth/Data/repo/authrepo.dart';
 import '../../../../Features/Auth/Data/repo/authrepoimpl.dart';
+
 class Splashbody extends StatefulWidget {
   const Splashbody({super.key});
 
@@ -32,16 +35,16 @@ class _SplashbodyState extends State<Splashbody> {
       Future.delayed(const Duration(seconds: 4), () {
         if (mounted) {
           if (LoginCheck.isUserSignedIn() == true) {
-            context.go(AppRouter.home);
+            Get.to(const HomeScreen());
           } else {
-            context.go(AppRouter.login);
+            Get.to(const LoginScreen());
           }
         }
       });
     } else {
       Future.delayed(const Duration(seconds: 4), () {
         if (mounted) {
-          context.go(AppRouter.onboarding);
+          Get.to(const OnboardingScreen());
         }
       });
     }

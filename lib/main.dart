@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/login.dart';
 import 'package:fruitsapp/Features/Search/presentation/cubit/search_cubit.dart';
+import 'package:fruitsapp/Features/SplashScreen/presentation/splashscreen.dart';
 import 'package:fruitsapp/generated/l10n.dart';
+import 'package:get/route_manager.dart';
 
 import 'Core/cubit/Product Cubit/products_cubit.dart';
 import 'Core/repo/productrepo.dart';
 import 'Core/services/get_it.dart';
 import 'Core/services/sharedprefrence.dart';
 import 'Core/services/supabase_storage.dart';
-import 'Core/utils/router/gorouter.dart';
 import 'Core/cubit/Cart Cubit/cart_cubit.dart';
 import 'package:fruitsapp/Core/cubit/ThemeCubit/theme_cubit.dart';
 
@@ -62,7 +64,7 @@ class MainApp extends StatelessWidget {
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, theme) {
-            return MaterialApp.router(
+            return GetMaterialApp(
               localizationsDelegates: const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -74,7 +76,7 @@ class MainApp extends StatelessWidget {
               ],
               debugShowCheckedModeBanner: false,
               theme: theme,
-              routerConfig: AppRouter.router,
+              home: const Splashscreen(),
             );
           },
         ),

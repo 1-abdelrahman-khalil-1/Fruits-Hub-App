@@ -1,16 +1,22 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/helperFunctions/bar.dart';
+import 'package:fruitsapp/Core/helperFunctions/dialogloading.dart';
+import 'package:fruitsapp/Core/services/get_it.dart';
 import 'package:fruitsapp/Core/utils/assets/appcolors.dart';
 import 'package:fruitsapp/Core/utils/assets/picture_assets.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextbutton.dart';
 import 'package:fruitsapp/Core/utils/widgets/customtextfield.dart';
 import 'package:fruitsapp/Core/utils/widgets/headerbar.dart';
 import 'package:fruitsapp/Core/utils/widgets/ordividor.dart';
-import 'package:fruitsapp/Features/Auth/presentation/Cubits/Logincubit/login_cubit.dart';
+import 'package:fruitsapp/Features/Auth/Data/repo/authrepo.dart';
+import 'package:fruitsapp/Features/Auth/presentation/controller/LoginGetx/login_controller.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/forgetpasswordbutton.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/otherloginservices.dart';
 import 'package:fruitsapp/Features/Auth/presentation/views/loginwidgets/signuptext.dart';
+import 'package:fruitsapp/Features/Home/presentation/view/homescreen.dart';
+import 'package:get/get.dart';
 
 class Loginbody extends StatefulWidget {
   const Loginbody({super.key});
@@ -27,6 +33,10 @@ class _LoginbodyState extends State<Loginbody> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  
+  // GetX Controller
+      final LoginController controller = Get.put(LoginController(get_it.get<Authrepo>()));
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +70,10 @@ class _LoginbodyState extends State<Loginbody> {
                 hinttext: "البريد الإلكتروني",
                 icon: null,
               ),
-              SizedBox(height: 18.h),
-            
+              Container(
+                height: 18.h,
+                color: Colors.indigo,
+                ),
               CustomTextfield(
                 controller: passwordController,
                 onSaved: (value) {
@@ -84,27 +96,52 @@ class _LoginbodyState extends State<Loginbody> {
               SizedBox(height: 18.h),
               const Forgetasswordbutton(),
               SizedBox(height: 35.h),
-              CustomTextButton(
-                onpressed: () {
-                  LoginCheck(context);
-                },
+              
+              // Loading indicator with GetX
+              Obx(() {
+                if (controller.isLoading.value) {
+                  // Show loading dialog if state changes to loading
+         
+                    DialogLoading(context);
+                  
+                } else if (controller.message.isNotEmpty) {
+                  // Close dialog and show message if state changes from loading
+                    if (Navigator.canPop(context)) {
+                      Navigator.pop(context);
+                    }
+                    bar(context, message: controller.message.value);
+                    
+                    if (!controller.hasError.value) {
+                      Future.delayed(const Duration(seconds: 1), () {
+                        Get.to(const HomeScreen());
+                      });
+                    }
+
+                    controller.message.value = '';
                 
-                text: "تسجيل دخول",
-              ),
+                }
+                
+                return CustomTextButton(
+                  onpressed: () {
+                    loginCheck(context);
+                  },
+                  text: "تسجيل دخول",
+                );
+              }),
+              
               SizedBox(height: 35.h),
               const Signuptext(),
               SizedBox(height: 35.h),
               const ORdividor(),
               SizedBox(height: 16.h),
-               Othersigninservices(
+              Othersigninservices(
                 text: "تسجيل بواسطة جوجل",
                 image: PictureAssets.assetsImagesGoogleicon,
                 ontap: () {
-                  context.read<LoginCubit>().signInWithGoogle();
+                  controller.signInWithGoogle();
                 },
               ),
               SizedBox(height: 16.h),
-              
             ],
           ),
         ),
@@ -112,10 +149,10 @@ class _LoginbodyState extends State<Loginbody> {
     );
   }
 
-  void LoginCheck(BuildContext context) {
+  void loginCheck(BuildContext context) {
     if (formkey.currentState!.validate()) {
       formkey.currentState!.save();
-      context.read<LoginCubit>().login(email, password);
+      controller.login(email, password);
     } else {
       setState(() {
         autovalidateMode = AutovalidateMode.onUserInteraction;

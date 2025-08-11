@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+import 'package:fruitsapp/Features/Auth/presentation/views/login.dart';
+import 'package:get/get.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../Core/utils/assets/apptextstyles.dart';
 import '../../../../Core/services/sharedprefrence.dart';
-import '../../../../Core/utils/router/gorouter.dart';
+
 class FrontAndBackgroundImageandSkip extends StatelessWidget {
   const FrontAndBackgroundImageandSkip({
     super.key,
@@ -34,11 +35,11 @@ class FrontAndBackgroundImageandSkip extends StatelessWidget {
               left: 0,
               top: 100,
               child: SvgPicture.asset(frontimage)),
-
           GestureDetector(
             onTap: () {
-              LocalSharedprefrence.set(LocalSharedprefrence.onboardingkey, true);
-              context.go(AppRouter.login);
+              LocalSharedprefrence.set(
+                  LocalSharedprefrence.onboardingkey, true);
+              Get.to(const LoginScreen());
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 40, right: 22),
