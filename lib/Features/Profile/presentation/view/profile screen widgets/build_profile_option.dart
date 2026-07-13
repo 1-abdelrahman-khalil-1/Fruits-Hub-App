@@ -30,10 +30,7 @@ class _BuildProfileOptionState extends State<BuildProfileOption> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: widget.onTap ??
-          () {
-            bar(context, message: "ستأتي هذه الميزة قريباً");
-          },
+      onTap: widget.onTap,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

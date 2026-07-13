@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/helperFunctions/bar.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../../../../Core/utils/assets/appcolors.dart';
@@ -32,15 +33,20 @@ class CustomHomeAppbar extends StatelessWidget {
         textAlign: TextAlign.right,
         style: AppTextStyles.bold16,
       ),
-      trailing: CircleAvatar(
-        radius: 25.r,
-        backgroundColor: Appcolors.green100,
-        child: SvgPicture.asset(
-          PictureAssets.assetsImagesIconsNotificationicon,
-          fit: BoxFit.fill,
-          color: Appcolors.green500,
-          height: 30.h,
-          width: 30.w,
+      trailing: GestureDetector(
+        onTap: () {
+          bar(context, message: "ستأتي هذه الميزة قريباً");
+        },
+        child: CircleAvatar(
+          radius: 25.r,
+          backgroundColor: Appcolors.green100,
+          child: SvgPicture.asset(
+            PictureAssets.assetsImagesIconsNotificationicon,
+            fit: BoxFit.fill,
+            color: Appcolors.green500,
+            height: 30.h,
+            width: 30.w,
+          ),
         ),
       ),
     );

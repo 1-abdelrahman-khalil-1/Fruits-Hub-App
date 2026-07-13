@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/helperFunctions/bar.dart';
 import 'package:fruitsapp/Core/utils/assets/apptextstyles.dart';
 import 'package:fruitsapp/Core/utils/router/gorouter.dart';
 import 'package:go_router/go_router.dart';
@@ -26,21 +27,21 @@ class ProfileScreenBody extends StatefulWidget {
 class _ProfileScreenBodyState extends State<ProfileScreenBody> {
   late UserModel user;
   late Authrepo loca;
-  
+
   @override
   void initState() {
     super.initState();
     loca = AuthrepoImp(get_it<AuthenticationService>(), get_it<Services>());
     user = loca.getCurrentUser(key: LocalSharedprefrence.userkey);
   }
-  
+
   // Method to refresh user data
   void refreshUserData() {
     setState(() {
       user = loca.getCurrentUser(key: LocalSharedprefrence.userkey);
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -55,7 +56,6 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
               shownotification: false,
             ),
             Row(
-              
               children: [
                 CircleAvatar(
                   radius: 30.r,
@@ -65,7 +65,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
                   ),
                 ),
                 const SizedBox(width: 16),
-                 Column(
+                Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -93,7 +93,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
                 style: AppTextStyles.semiBold13,
               ),
             ),
-             BuildProfileOption(
+            BuildProfileOption(
               title: "الملف الشخصي",
               image: PictureAssets.assetsImagesIconsUserprofileIcon,
               child: const Icon(Icons.arrow_forward_ios, size: 16),
@@ -106,12 +106,15 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
                 }
               },
             ),
-            const BuildProfileOption(
+            BuildProfileOption(
               title: "طلباتي",
               image: PictureAssets.assetsImagesIconsBoxIcon,
-              child: Icon(Icons.arrow_forward_ios, size: 16),
+              child: const Icon(Icons.arrow_forward_ios, size: 16),
+              onTap: () {
+                bar(context, message: "ستأتي هذه الميزة قريباً");
+              },
             ),
-             BuildProfileOption(
+            BuildProfileOption(
               title: "المفضلة",
               image: PictureAssets.assetsImagesIconsFavouriteIcon,
               child: const Icon(Icons.arrow_forward_ios, size: 16),
@@ -125,7 +128,7 @@ class _ProfileScreenBodyState extends State<ProfileScreenBody> {
             ),
             SizedBox(height: 100.h),
             const LogoutButton(),
-             SizedBox(height: 16.h),
+            SizedBox(height: 16.h),
           ],
         ),
       ),
