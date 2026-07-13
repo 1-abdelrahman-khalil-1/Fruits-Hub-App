@@ -1,22 +1,24 @@
+import 'dart:ui';
+
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruitsapp/Core/cubit/ThemeCubit/theme_cubit.dart';
 import 'package:fruitsapp/Features/Search/presentation/cubit/search_cubit.dart';
 import 'package:fruitsapp/generated/l10n.dart';
 
+import 'Core/cubit/Cart Cubit/cart_cubit.dart';
+import 'Core/cubit/Favourite cubit/favourite_cubit.dart';
 import 'Core/cubit/Product Cubit/products_cubit.dart';
 import 'Core/repo/productrepo.dart';
 import 'Core/services/get_it.dart';
 import 'Core/services/sharedprefrence.dart';
 import 'Core/services/supabase_storage.dart';
 import 'Core/utils/router/gorouter.dart';
-import 'Core/cubit/Cart Cubit/cart_cubit.dart';
-import 'package:fruitsapp/Core/cubit/ThemeCubit/theme_cubit.dart';
-
 import 'Features/Favourite/data/repo/favourite_repo.dart';
-import 'Core/cubit/Favourite cubit/favourite_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +41,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(375, 812),
+      designSize: const Size(390, 810),
       minTextAdapt: true,
       ensureScreenSize: true,
       child: MultiBlocProvider(
@@ -62,7 +64,10 @@ class MainApp extends StatelessWidget {
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, theme) {
-            return MaterialApp.router(
+            Widget app = MaterialApp.router(
+              scrollBehavior: const MaterialScrollBehavior().copyWith(
+                dragDevices: PointerDeviceKind.values.toSet(),
+              ),
               localizationsDelegates: const [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,
@@ -76,6 +81,20 @@ class MainApp extends StatelessWidget {
               theme: theme,
               routerConfig: AppRouter.router,
             );
+            if (kIsWeb) {
+              app = Container(
+                color: Colors.black,
+                alignment: Alignment.center,
+                child: ClipRect(
+                  child: ConstrainedBox(
+                    constraints:
+                        const BoxConstraints(maxWidth: 390, maxHeight: 810),
+                    child: app,
+                  ),
+                ),
+              );
+            }
+            return app;
           },
         ),
       ),

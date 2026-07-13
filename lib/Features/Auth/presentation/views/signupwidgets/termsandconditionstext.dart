@@ -10,26 +10,23 @@ class Termsandconditionstext extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width - 80,
-      child: Text.rich(
-            TextSpan(   
-              children: [
-                 TextSpan(
-                  text:  "من خلال إنشاء حساب ، فإنك توافق على ", 
-                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.grey),
-                ),
-                TextSpan(
-                  recognizer: TapGestureRecognizer()..onTap=(){
-                 
-                  },
-                  text: 'الشروط والأحكام الخاصة بنا',
-                  style: AppTextStyles.semiBold13.copyWith(color: Appcolors.green500),
-                )
-              ],
-            ),
-            textAlign: TextAlign.start,
+    return Text.rich(
+          TextSpan(   
+            children: [
+               TextSpan(
+                text:  "من خلال إنشاء حساب ، فإنك توافق على ", 
+                style: AppTextStyles.semiBold13.copyWith(color: Appcolors.grey),
+              ),
+              TextSpan(
+                recognizer: TapGestureRecognizer()..onTap=(){
+               
+                },
+                text: 'الشروط والأحكام الخاصة بنا',
+                style: AppTextStyles.semiBold13.copyWith(color: Appcolors.green500),
+              )
+            ],
           ),
-    );
+          textAlign: TextAlign.start,
+        );
   }
 }

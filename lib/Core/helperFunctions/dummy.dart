@@ -1,19 +1,19 @@
 import 'package:fruitsapp/Core/model/productmodel.dart';
 
-Productmodel dummyProduct(){
+Productmodel dummyProduct() {
   return Productmodel(
-    id: 0,
-    name: 'Apple',
-    price: 0,
-    imageUrl: 'https://cairofoodgroup.com/wp-content/uploads/2023/03/WhatsApp-Image-2023-03-21-at-11.14.56-PM.jpeg',
-    category: "Fruits",
-    description: '',
-    organic: true,
-    calories: 200, 
-    sellingCount: 0
-    );
- }
- List<Productmodel> dummyProducts(){
+      id: 0,
+      name: 'Apple',
+      price: 0,
+      imageUrl:
+          'https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&q=80',
+      category: "Fruits",
+      description: '',
+      organic: true,
+      calories: 200,
+      sellingCount: 0);
+}
 
-  return [dummyProduct() , dummyProduct(), dummyProduct() ,dummyProduct()];
- }
+List<Productmodel> dummyProducts() {
+  return [dummyProduct(), dummyProduct(), dummyProduct(), dummyProduct()];
+}

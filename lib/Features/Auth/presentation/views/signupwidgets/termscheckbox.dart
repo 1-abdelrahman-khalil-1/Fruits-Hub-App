@@ -41,7 +41,9 @@ class _TermscheckboxState extends State<Termscheckbox> {
             borderRadius: BorderRadius.circular(6.r),
           ),
         ),
-        const Termsandconditionstext(),
+        const Expanded(
+          child: Termsandconditionstext(),
+        ),
       ],
     );
   }

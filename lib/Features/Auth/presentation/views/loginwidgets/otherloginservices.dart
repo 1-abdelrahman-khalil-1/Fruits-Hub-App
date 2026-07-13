@@ -5,10 +5,13 @@ import 'package:svg_flutter/svg.dart';
 
 class Othersigninservices extends StatelessWidget {
   const Othersigninservices({
-    super.key, required this.text, required this.image, this.ontap,
+    super.key,
+    required this.text,
+    required this.image,
+    this.ontap,
   });
- final String text , image;
- final void Function()? ontap; 
+  final String text, image;
+  final void Function()? ontap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,8 +22,7 @@ class Othersigninservices extends StatelessWidget {
         decoration: ShapeDecoration(
           color: Colors.white,
           shape: RoundedRectangleBorder(
-            side:
-                const BorderSide(width: 1, color: Color(0xFFDCDEDE)),
+            side: const BorderSide(width: 1, color: Color(0xFFDCDEDE)),
             borderRadius: BorderRadius.circular(16.r),
           ),
         ),
@@ -28,18 +30,19 @@ class Othersigninservices extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(right: 15),
-              child: SvgPicture.asset(image ),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: SvgPicture.asset(image),
             ),
-            SizedBox(width:35.w),
-            SizedBox(
-              width: 190.w,
+            Expanded(
               child: Text(
                 text,
                 style: AppTextStyles.semiBold16,
                 textAlign: TextAlign.center,
               ),
-            )
+            ),
+            const SizedBox(
+                width:
+                    40), // Balance the icon on the opposite side to keep text centered
           ],
         ),
       ),

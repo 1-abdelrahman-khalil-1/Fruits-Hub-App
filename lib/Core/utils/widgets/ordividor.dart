@@ -12,21 +12,23 @@ class ORdividor extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
-      
       children: [
-       Container(
-        height: 1.h,
-        width: MediaQuery.of(context).size.width*0.5 - 40,
-        color: Colors.black12,
-       ),
+        Container(
+          height: 1.h,
+          width: MediaQuery.of(context).size.width * 0.35 - 40,
+          color: Colors.black12,
+        ),
         const Spacer(),
-        Text("أو" , style: AppTextStyles.semiBold16,) , 
-       const Spacer()
-       , Container(
-        height: 1.h,
-        width: MediaQuery.of(context).size.width*0.5 - 40,
-        color: Colors.black12,
-       ),
+        Text(
+          "أو",
+          style: AppTextStyles.semiBold16,
+        ),
+        const Spacer(),
+        Container(
+          height: 1.h,
+          width: MediaQuery.of(context).size.width * 0.35 - 40,
+          color: Colors.black12,
+        ),
       ],
     );
   }

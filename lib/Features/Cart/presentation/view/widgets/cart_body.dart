@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../../Core/cubit/Cart Cubit/cart_cubit.dart';
 import '../../../../../Core/utils/assets/appcolors.dart';
 import '../../../../../Core/utils/assets/apptextstyles.dart';
 import '../../../../../Core/utils/widgets/headerbar.dart';
-import '../../../../../Core/cubit/Cart Cubit/cart_cubit.dart';
 import '../../cubit/Cart_Item Cubit/cart_item_cubit.dart';
 import 'cart_items_list.dart';
 import 'checkout_button.dart';
@@ -24,7 +25,7 @@ class CartBody extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                   child: HeaderBar(
-                      title: "السلة", showicon: true, shownotification: false),
+                      title: "السلة", showicon: false, shownotification: false),
                 ),
                 Container(
                   height: 45.h,
@@ -33,16 +34,16 @@ class CartBody extends StatelessWidget {
                   child: Center(
                       child: Text(
                     "لديك ${cartItems.cartItems.length} منتجات في سله التسوق",
-                    style: AppTextStyles.regular13.copyWith(color: Appcolors.green500),
+                    style: AppTextStyles.regular13
+                        .copyWith(color: Appcolors.green500),
                   )),
                 ),
                 CartItemsList(cartItems: cartItems),
                 SizedBox(
-              height: 70.h,
-              ),
+                  height: 70.h,
+                ),
               ],
             ),
-            
             CheckoutButton(cartItems: cartItems),
           ],
         );
